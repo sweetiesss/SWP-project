@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xgG1f3REJyK1S7eGF3EPHMOAwKwaVVm1VkJ7zbNyHWRnqtjeYJgVuieKKN1RIG8oL7krrHsWIEvPGeGx8Dpp4A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nhat\\Desktop\\SWP\\SWP-Frontend-Admin\\SWP-Frontend-Admin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nhat\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
