@@ -1,0 +1,15 @@
+F:\PRN211\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.deps.json
+F:\PRN211\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.dll
+F:\PRN211\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.pdb
+F:\PRN211\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Repo.dll
+F:\PRN211\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Repo.pdb
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.AssemblyReference.cache
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.GeneratedMSBuildEditorConfig.editorconfig
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.AssemblyInfoInputs.cache
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.AssemblyInfo.cs
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.CoreCompileInputs.cache
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.CopyComplete
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.dll
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\refint\SWP_Management.Service.dll
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.pdb
+F:\PRN211\SWP_Management.Service\obj\Debug\net6.0\ref\SWP_Management.Service.dll
