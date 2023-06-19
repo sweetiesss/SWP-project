@@ -42,5 +42,42 @@ namespace SWP_Frontend_Admin.Controllers
             return View(receivedAssignment);
         }
 
+        public async Task<IActionResult> UpdateAssignment(int id)
+        {
+            Assignment Assignment = new Assignment();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://localhost:7219/api/assignments" + id))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    Assignment = JsonConvert.DeserializeObject<Assignment>(apiResponse);
+                }
+            }
+            return View(Assignment);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateAssignment(int id, Assignment Assignment)
+        {
+            Assignment receivedAssignment = new Assignment();
+            using (var httpClient = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(Assignment), Encoding.UTF8, "application/json");
+     
+                String url = "https://localhost:7219/api/assignments/" + Assignment.Id;
+
+
+                using (var response = await httpClient.PutAsync(url, content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    ViewBag.Result = "Success";
+                    receivedAssignment = JsonConvert.DeserializeObject<Assignment>(apiResponse);
+                }
+            }
+            
+            return View(receivedAssignment);
+        }
+
     }
 }
