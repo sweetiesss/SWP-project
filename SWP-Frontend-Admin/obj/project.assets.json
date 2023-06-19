@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nhat\\.nuget\\packages\\": {}
+    "C:\\Users\\baolh\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SWP Project\\SWP-Frontend-Admin\\SWP-Frontend-Admin.csproj",
+      "projectUniqueName": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP-Frontend-Admin\\SWP-Frontend-Admin.csproj",
       "projectName": "SWP-Frontend-Admin",
-      "projectPath": "D:\\SWP Project\\SWP-Frontend-Admin\\SWP-Frontend-Admin.csproj",
-      "packagesPath": "C:\\Users\\nhat\\.nuget\\packages\\",
-      "outputPath": "D:\\SWP Project\\SWP-Frontend-Admin\\obj\\",
+      "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP-Frontend-Admin\\SWP-Frontend-Admin.csproj",
+      "packagesPath": "C:\\Users\\baolh\\.nuget\\packages\\",
+      "outputPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP-Frontend-Admin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nhat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\baolh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

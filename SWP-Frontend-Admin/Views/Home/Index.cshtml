@@ -33,13 +33,14 @@
                 <td>@r.DateEnd</td>
                 <td>
                     <a asp-action="UpdateAssignment" asp-route-id="@r.Id">
-                    Update
+                        Update
                     </a>
                 </td>
                 <td>
-                    <form asp-action="DeleteAssignment" method="post">
-                        <input type="hidden" value="@r.Id" name="AssignmentId" />
-                    </form>
+                        <form asp-action="DeleteAssignment" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <input type="image" src="/icon/close.png" />
+                        </form>
                 </td>
             </tr>
         }

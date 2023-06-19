@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "exZQ58x5JWwvBThYalNLyLv0xV+MdDYoYwIAXMGn54LpmgM+vafkflmSyhi8ocxOBa57fwQIdc0SqYkoCSMs/g==",
+  "dgSpecHash": "34YPIJqbSXgjSCa1VPUlBJ+XJWwzAgoNayZO1TIgybPjplZ7WFVPCqcsFTqTPMkvTMPoQAtvDr2bl6BlfmubLg==",
   "success": true,
-  "projectFilePath": "D:\\SWP Project\\SWP-Frontend-Admin\\SWP-Frontend-Admin.csproj",
+  "projectFilePath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP-Frontend-Admin\\SWP-Frontend-Admin.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nhat\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\baolh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }

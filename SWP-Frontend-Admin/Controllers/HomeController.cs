@@ -42,7 +42,7 @@ namespace SWP_Frontend_Admin.Controllers
             return View(receivedAssignment);
         }
 
-        public async Task<IActionResult> UpdateAssignment(int id)
+        public async Task<IActionResult> UpdateAssignment(string id)
         {
             Assignment Assignment = new Assignment();
             using (var httpClient = new HttpClient())
@@ -58,7 +58,7 @@ namespace SWP_Frontend_Admin.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> UpdateAssignment(int id, Assignment Assignment)
+        public async Task<IActionResult> UpdateAssignment(string id, Assignment Assignment)
         {
             Assignment receivedAssignment = new Assignment();
             using (var httpClient = new HttpClient())
@@ -79,5 +79,22 @@ namespace SWP_Frontend_Admin.Controllers
             return View(receivedAssignment);
         }
 
-    }
+
+		[HttpPost]
+		public async Task<IActionResult> DeleteAssignment(string id)
+		{
+			using (var httpClient = new HttpClient())
+			{
+				using (var response = await httpClient.DeleteAsync("https://localhost:7219/api/assignments/" + id))
+				{
+					string apiResponse = await response.Content.ReadAsStringAsync();
+				}
+			}
+
+			return RedirectToAction("Index");
+		}
+
+
+
+	}
 }
