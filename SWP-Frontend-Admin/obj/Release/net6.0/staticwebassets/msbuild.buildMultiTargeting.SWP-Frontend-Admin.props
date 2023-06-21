@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SWP-Frontend-Admin.props" />
+</Project>

@@ -1,100 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using SWP_Frontend_Admin.Models;
-using System.Text;
 
 namespace SWP_Frontend_Admin.Controllers
 {
     public class HomeController : Controller
     {
-        
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            List<Assignment> AssignmentList = new List<Assignment>();
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.GetAsync("https://localhost:7219/api/assignments"))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-					AssignmentList = JsonConvert.DeserializeObject<List<Assignment>>(apiResponse);
-                }
-            }
-            ViewData["AssignList"] = AssignmentList;
-            return View(AssignmentList);
+            return View();
         }
-
-        public ViewResult AddAssignment() => View();
-
-        [HttpPost]
-        public async Task<IActionResult> AddAssignment(Assignment Assignment)
-        {
-            Assignment receivedAssignment = new Assignment();
-            using (var httpClient = new HttpClient())
-            {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(Assignment), Encoding.UTF8, "application/json");
-
-                using (var response = await httpClient.PostAsync("https://localhost:7219/api/assignments", content))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    receivedAssignment = JsonConvert.DeserializeObject<Assignment>(apiResponse);
-                }
-            }
-            return View(receivedAssignment);
-        }
-
-        public async Task<IActionResult> UpdateAssignment(string id)
-        {
-            Assignment Assignment = new Assignment();
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.GetAsync("https://localhost:7219/api/assignments" + id))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    Assignment = JsonConvert.DeserializeObject<Assignment>(apiResponse);
-                }
-            }
-            return View(Assignment);
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> UpdateAssignment(string id, Assignment Assignment)
-        {
-            Assignment receivedAssignment = new Assignment();
-            using (var httpClient = new HttpClient())
-            {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(Assignment), Encoding.UTF8, "application/json");
-     
-                String url = "https://localhost:7219/api/assignments/" + Assignment.Id;
-
-
-                using (var response = await httpClient.PutAsync(url, content))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    ViewBag.Result = "Success";
-                    receivedAssignment = JsonConvert.DeserializeObject<Assignment>(apiResponse);
-                }
-            }
-            
-            return View(receivedAssignment);
-        }
-
-
-		[HttpPost]
-		public async Task<IActionResult> DeleteAssignment(string id)
-		{
-			using (var httpClient = new HttpClient())
-			{
-				using (var response = await httpClient.DeleteAsync("https://localhost:7219/api/assignments/" + id))
-				{
-					string apiResponse = await response.Content.ReadAsStringAsync();
-				}
-			}
-
-			return RedirectToAction("Index");
-		}
-
-
-
-	}
+    }
 }

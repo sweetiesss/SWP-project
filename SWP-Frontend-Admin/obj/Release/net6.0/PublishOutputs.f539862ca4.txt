@@ -1,0 +1,8 @@
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\SWP-Frontend-Admin.exe
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\appsettings.json
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\SWP-Frontend-Admin.dll
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\SWP-Frontend-Admin.deps.json
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\SWP-Frontend-Admin.runtimeconfig.json
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\SWP-Frontend-Admin.pdb
+D:\SWP Project\SWP-Frontend-Admin\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll

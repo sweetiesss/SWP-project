@@ -89,7 +89,6 @@ D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\staticwebassets\msbuild.build
 D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\staticwebassets.pack.json
 D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\staticwebassets.build.json
 D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\staticwebassets.development.json
-D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\scopedcss\bundle\SWP-Frontend-Admin.styles.css
 D:\SWP Project\SWP-Frontend-Admin\obj\Debug\net6.0\scopedcss\projectbundle\SWP-Frontend-Admin.bundle.scp.css
