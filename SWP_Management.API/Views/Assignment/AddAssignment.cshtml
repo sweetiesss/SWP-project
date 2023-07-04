@@ -1,0 +1,58 @@
+﻿@model Assignment
+@{
+    ViewBag.Title = "Add a Assignment";
+}
+
+<h2>Add a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddAssignment" method="post">
+    <div class="form-group">
+        <label for="Id">Id:</label>
+        <input class="form-control" name="Id" />
+    </div>
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input class="form-control" name="Name" />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        <input class="form-control" name="Description" />
+    </div>
+    <div class="form-group">
+        <label for="DateStart">DateStart:</label>
+        <input class="form-control" name="DateStart" />
+    </div>
+    <div class="form-group">
+        <label for="DateEnd">DateEnd:</label>
+        <input class="form-control" name="DateEnd" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+<h3 class="alert">@ViewBag.Result</h3>
+
+@if (Model != null)
+{
+    <h2>Assignment</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date Start</th>
+                <th>Date End</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.Description</td>
+                <td>@Model.DateStart</td>
+                <td>@Model.DateEnd</td>
+            </tr>
+        </tbody>
+    </table>
+}

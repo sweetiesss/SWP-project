@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AssignmentStudent>
+@{
+    ViewData["Title"] = "All Assignments - Students";
+    //List<Assignment> AssignmentList = (List<Assignment>)ViewData["AssignList"];
+}
+
+<h2>All Assignments</h2>
+<a asp-action="AddAssignmentStudent" class="btn btn-sm btn-primary">Add Student</a>
+@*<a asp-action="GetAssignment" class="btn btn-sm btn-secondary">Get Assignment</a>*@
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Task Id</th>
+            <th>Student Id</th>
+            <th>Update</th>
+            <th>Delete</th>
+     
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.TaskId</td>
+                    <td>@r.StudentId</td>
+                   
+                   
+                    <td>
+                        <form asp-action="UpdateStudentAssignment" method="post">
+                        <input type="hidden" value="@r.TaskId" name="taskId" />
+                        <input type="hidden" value="@r.StudentId" name="studentId"/>
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                             
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteAssignmentStudent" method="post">
+                            <input type="hidden" value="@r.TaskId" name="taskId" />
+                            <input type="hidden" value="@r.StudentId" name="studentId"/>
+                            <button type="submit" class="btn btn-sm btn-primary">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+﻿@model Student
+@{
+    ViewBag.Title = "Update a Student";
+    Student student = (Student)ViewData["Student"];
+}
+
+<h2>Update a Student <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@student.Id">Id:</label>
+        <input class="form-control" asp-for="@student.Id" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="@student.Name">Name:</label>
+        <input class="form-control" asp-for="@student.Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@student.Main">Main:</label>
+        <input class="form-control" asp-for="@student.Main" />
+    </div>
+    <br />
+    <label asp-for="@student.Leader">Is Leader? </label>
+    <select asp-for="@student.Leader" id="Leader">
+        <option value=true>Yes</option>
+        <option value=false>No</option>
+    </select>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Success")
+{
+       <h2>Assignment</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Main</th>
+                <th>Leader</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.Main</td>
+                <td>@Model.Leader</td>
+            </tr>
+        </tbody>
+    </table>
+}

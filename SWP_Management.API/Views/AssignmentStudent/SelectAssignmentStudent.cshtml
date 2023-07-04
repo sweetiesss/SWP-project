@@ -1,0 +1,53 @@
+﻿@model AssignmentStudent
+@{
+    ViewBag.Title = "Assigning";
+    Assignment assignment = (Assignment)ViewData["Assignment"];
+    Student student = (Student)ViewData["Student"];
+    //List<Student> StudentList = (List<Student>)ViewData["StudentList"];
+    string JSONN = (string)ViewData["JSONCheck"];
+    
+}
+<h1>@JSONN</h1>
+   @* <form asp-action="SelectAssignmentStudent" method="post">
+    <div class="form-group col-sm-3">
+        <h2>Assignment info</h2>
+        <div class="form-group">
+            <label asp-for="TaskId">Id:</label>
+            <input class="form-control" asp-for="TaskId" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="@assignment.Name">Name:</label>
+            <input class="form-control" asp-for="@assignment.Name" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@assignment.Description">Descripton:</label>
+            <input class="form-control" asp-for="@assignment.Description" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@assignment.DateStart">DateStart:</label>
+            <input class="form-control" asp-for="@assignment.DateStart" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@assignment.DateEnd">DateEnd:</label>
+            <input class="form-control" asp-for="@assignment.DateEnd" />
+        </div>
+
+        <div class="form-group col-12">
+            <h2>Student info</h2>
+            <div class="form-group">
+                <label asp-for="StudentId">Id:</label>
+                <input class="form-control" asp-for="StudentId" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="@student.Name">Name:</label>
+                <input class="form-control" asp-for="@student.Name" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@student.Main">Main:</label>
+                <input class="form-control" asp-for="@student.Main" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@student.Leader">Leader:</label>
+                <input class="form-control" asp-for="@student.Leader" />
+            </div>
+    </form>*@

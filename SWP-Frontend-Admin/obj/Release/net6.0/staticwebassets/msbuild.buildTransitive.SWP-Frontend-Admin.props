@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\SWP-Frontend-Admin.props" />
-</Project>

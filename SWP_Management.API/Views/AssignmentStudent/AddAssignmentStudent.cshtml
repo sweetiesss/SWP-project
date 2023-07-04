@@ -1,0 +1,63 @@
+﻿@model AssignmentStudent
+@{
+    ViewBag.Title = "Asign an assignment to a student";
+    List<Assignment> AssignmentList = (List<Assignment>)ViewData["AssignList"];
+    List<Student> StudentList = (List<Student>)ViewData["StudentList"];
+}
+
+<h2>Add a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="SelectAssignmentStudent" method="post">
+    @*<label for="TaskId">Task Id: </label>*@
+    <select class="form-select form-select-lg"  name="TaskId" id="TaskId">
+        <option selected>Task Id</option>
+        @{
+            foreach (Assignment r in AssignmentList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+            }
+        }
+    </select>
+    <br />
+    @*<label for="StudentId">Student Id: </label>*@
+    <select class="form-select form-select-lg"  name="StudentId" id="StudentId">
+        <option selected>Student Id</option>
+            @{
+            foreach (Student r in StudentList)
+            {
+                <option value="@r.Id"> @r.Id</option>   
+            }
+            }
+     </select>
+     <br />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+<h3 class="alert">@ViewBag.Result</h3>
+@*
+@if (Model != null)
+{
+    <h2>Assignment</h2>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>DateStart</th>
+                <th>DateEnd</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Name</td>
+                <td>@Model.Description</td>
+                <td>@Model.DateStart</td>
+                <td>@Model.DateEnd</td>
+            </tr>
+        </tbody>
+    </table>
+}*@
