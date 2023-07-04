@@ -25,4 +25,11 @@
     <ProjectReference Include="..\SWP_Management.Service\SWP_Management.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Account\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

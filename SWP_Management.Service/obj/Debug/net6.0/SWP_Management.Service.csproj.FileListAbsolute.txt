@@ -28,3 +28,18 @@ C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Service\obj\Debug\net6.0\SWP_Ma
 C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Service\obj\Debug\net6.0\refint\SWP_Management.Service.dll
 C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.pdb
 C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Service\obj\Debug\net6.0\ref\SWP_Management.Service.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.deps.json
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.pdb
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Repo.pdb
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.AssemblyReference.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.AssemblyInfoInputs.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.AssemblyInfo.cs
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.CoreCompileInputs.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.CopyComplete
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\refint\SWP_Management.Service.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.pdb
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Service\obj\Debug\net6.0\ref\SWP_Management.Service.dll

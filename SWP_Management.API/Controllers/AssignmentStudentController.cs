@@ -35,7 +35,9 @@ namespace SWP_Frontend_Admin.Controllers
             return View(assignmentStudents);
         }
 
-        public async Task<IActionResult> AddAssignmentStudent()                 //Get two list and add it to viewdata
+
+        //Get two list and add it to viewdata
+        public async Task<IActionResult> AddAssignmentStudent()
         {
             List<Assignment> assignments = new List<Assignment>();
             List<Student> students = new List<Student>();
@@ -55,8 +57,9 @@ namespace SWP_Frontend_Admin.Controllers
         public ViewResult SelectAssignmentStudent() => View();
 
 
+        // Add
         [HttpPost]
-        public async Task<IActionResult> SelectAssignmentStudent(String taskId, String studentId)
+        public async Task<IActionResult> SelectAssignmentStudent(String taskId, String studentId, String Status)
         {
             Student student = new Student();
             AssignmentStudent assignmentStudent = new AssignmentStudent();
@@ -64,46 +67,23 @@ namespace SWP_Frontend_Admin.Controllers
 
             assignment = _assignmentRepository.GetById(taskId);
             student = _studentRepository.GetById(studentId);
-            //using (var httpClient = new HttpClient())
-            //{
-            //    //Get assignment with taskId from dropdown list and assign it to an Assignment object
-            //    using (var response = await httpClient.GetAsync("https://localhost:7219/api/assignments/" + taskId))
-            //    {
-            //        string apiResponse = await response.Content.ReadAsStringAsync();
-            //        assignment = JsonConvert.DeserializeObject<Assignment>(apiResponse);
-            //    }
-            //    ViewData["Assignment"] = assignment;
+            // Insert data to an entity for add
+            assignmentStudent.Task = assignment;
+            assignmentStudent.Student = student;
+            assignmentStudent.TaskId = taskId;
+            assignmentStudent.StudentId = studentId;
+            assignmentStudent.Status = Status;
 
-            //    //Get student with studentId from dropdown list and assign it to a Student object
-            //    using (var response = await httpClient.GetAsync("https://localhost:7219/api/students/" + studentId))
-            //    {
-            //        string apiResponse = await response.Content.ReadAsStringAsync();
-            //        student = JsonConvert.DeserializeObject<Student>(apiResponse);
-            //    }
-            //    ViewData["Student"] = student;
-                //Assign everything to AssignmentStudent
-                assignmentStudent.Task = assignment;
-                assignmentStudent.Student = student;
-                assignmentStudent.TaskId = taskId;
-                assignmentStudent.StudentId = studentId;
-            //Create a JSON to call POST API to add to database
-            //StringContent content = new StringContent(JsonConvert.SerializeObject(assignmentStudent), Encoding.UTF8, "application/json");
-            //string JSONChecker = await content.ReadAsStringAsync();
-            //ViewData["JSONCheck"] = JSONChecker;
-            //using (var response = await httpClient.PostAsync("https://localhost:7219/api/assignmentStudents", content))
-            //    {
-            //        string apiResponse = await response.Content.ReadAsStringAsync();
-
-            //}
+            // add
             _assignmentStudentRepository.Add(assignmentStudent);
             
 
-            return View();
+            return RedirectToAction("Index");
         }
 
 
-
-        public async Task<IActionResult> UpdateStudentAssignment(string taskId, string studentId)
+        // Update
+        public async Task<IActionResult> UpdateStudentAssignment(int Id, string studentId)
         {
             List<Assignment> assignments = new List<Assignment>();
             List<Student> students = new List<Student>();
@@ -118,35 +98,33 @@ namespace SWP_Frontend_Admin.Controllers
             ViewData["StudentList"] = students;
 
             AssignmentStudent assignmentStudent = new AssignmentStudent();
-            assignmentStudent = _assignmentStudentRepository.GetList().Where(p => p.TaskId.Equals(taskId) &&
-                                                                                  p.StudentId.Equals(studentId)).FirstOrDefault();
-
-            ViewData["AssignmentStudent"] = assignmentStudent;
-            return View();
+            assignmentStudent = _assignmentStudentRepository.GetById(Id);
+            return View(assignmentStudent);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateAssStudent(string taskId, string studentId)
+        public async Task<IActionResult> UpdateStudentAssignment(AssignmentStudent asmStu)
         {
-            Student student = new Student();
-            AssignmentStudent assignmentStudent = new AssignmentStudent();
-            Assignment assignment = new Assignment();
-
-            assignment = _assignmentRepository.GetList().Where(p => p.Id.Equals(taskId)).FirstOrDefault();
-            student = _studentRepository.GetById(studentId);
-
-            assignmentStudent.Task = assignment;
-            assignmentStudent.Student = student;
-            assignmentStudent.TaskId = taskId;
-            assignmentStudent.StudentId=studentId;
-            _assignmentStudentRepository.Update(assignmentStudent);
-            ViewBag.Result = "Success";
-            return View(assignmentStudent);
+            _assignmentStudentRepository.Update(asmStu);
             return RedirectToAction("Index");
         }
 
+        // Check Duplicates AssignmentStudent that i dont use
+        private bool checkDup(AssignmentStudent asm)
+        {
+            var AssignmentStudentList = _assignmentStudentRepository.GetList();
+            bool isDuplicate = false;
+            foreach (var checker in AssignmentStudentList)
+            {
+                if (asm.StudentId.Equals(checker.StudentId) && asm.TaskId.Equals(checker.TaskId)) return true;
 
-		[HttpPost]
+            }
+            return isDuplicate;
+        }
+
+
+        //Delete
+        [HttpPost]
 		public async Task<IActionResult> DeleteAssignmentStudent(string taskId, string studentId)
 		{
             AssignmentStudent assignmentStudent = new AssignmentStudent();
@@ -155,52 +133,6 @@ namespace SWP_Frontend_Admin.Controllers
             _assignmentStudentRepository.Delete(assignmentStudent.Id);
 			return RedirectToAction("Index");
 		}
-
-		//[HttpPost]
-		//public async Task<IActionResult> SelectAssignmentStudent(String taskId, String studentId)
-		//{
-		//    AssignmentStudent assignmentStudent = new AssignmentStudent();
-		//    Assignment assignment = new Assignment();
-		//    using (var httpClient = new HttpClient())
-		//    {
-		//        using (var response = await httpClient.GetAsync("https://localhost:7219/api/assignments/" + taskId))
-		//        {
-		//            string apiResponse = await response.Content.ReadAsStringAsync();
-		//            assignment = JsonConvert.DeserializeObject<Assignment>(apiResponse);
-		//        }
-		//        ViewData["Assignment"] = assignment;
-		//        assignmentStudent.Task = assignment;
-		//    }
-		//    Student student = new Student();
-		//    using (var httpClient = new HttpClient())
-		//    {
-		//        using (var response = await httpClient.GetAsync("https://localhost:7219/api/students/" + studentId))
-		//        {
-		//            string apiResponse = await response.Content.ReadAsStringAsync();
-		//            student = JsonConvert.DeserializeObject<Student>(apiResponse);
-		//        }
-		//        ViewData["Student"] = student;
-		//        assignmentStudent.Student = student;
-		//        assignmentStudent.TaskId = taskId;
-		//        assignmentStudent.StudentId = studentId;
-		//    }
-		//        using (var httpClient = new HttpClient())
-		//        {
-		//            StringContent content = new StringContent(JsonConvert.SerializeObject(assignmentStudent), Encoding.UTF8, "application/json");
-		//            string JSONChecker = await content.ReadAsStringAsync();
-		//                ViewData["JSONCheck"] = JSONChecker;
-		//        //using (var response = await httpClient.PostAsync("https://localhost:7219/api/assignmentStudents", content))
-		//        //    {
-		//        //        string apiResponse = await response.Content.ReadAsStringAsync();
-
-		//        //}
-		//        }
-
-		//    return View();
-		//}
-
-
-
 	}
-        }
+ }
     

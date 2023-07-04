@@ -35,15 +35,15 @@ namespace SWP_Frontend_Admin.Controllers
         public async Task<IActionResult> AddAssignment(Assignment Assignment)
         {
             _assignmentRepository.Add(Assignment);
-            return View(Assignment);
+            return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> UpdateAssignment(string id)
         { 
             Assignment Assignment = new Assignment();
             Assignment = _assignmentRepository.GetById(id);
-            return View(Assignment);
-        }
+			return View(Assignment);
+		}
 
 
         [HttpPost]
@@ -51,7 +51,7 @@ namespace SWP_Frontend_Admin.Controllers
         {
             _assignmentRepository.Update(Assignment);
             ViewBag.Result = "Success";
-            return View(Assignment);
+			return RedirectToAction("Index");
         }
 
 

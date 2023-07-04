@@ -1,34 +1,37 @@
 ﻿@model AssignmentStudent
 @{
     ViewBag.Title = "Update an Assignment - Student";
-    AssignmentStudent assignmentStudent = (AssignmentStudent)ViewData["AssignmentStudent"];
     List<Assignment> AssignmentList = (List<Assignment>)ViewData["AssignList"];
     List<Student> StudentList = (List<Student>)ViewData["StudentList"];
 }
 <h2>Update a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
-<form asp-action="UpdateAssStudent" method="post">
-    <select class="form-select form-select-lg" name="taskId" id="taskId">
-        <option selected>@assignmentStudent.TaskId</option>
+<form method="post">
+    <select class="form-select form-select-lg" name="taskId" id="taskId" required>
         @{
             foreach (Assignment assignment in AssignmentList)
             {
                 <option value="@assignment.Id"> @assignment.Id</option>
             }
         }
-        }
+        
     </select>
     <br />
-    @*  <label for="StudentId">Student Id: </label>*@
-    <select class="form-select form-select-lg" name="studentId" id="studentId">
-        <option selected>@assignmentStudent.StudentId</option>
+    <select class="form-select form-select-lg" name="studentId" id="studentId" required>
         @{
             foreach (Student r in StudentList)
             {
                 <option value="@r.Id"> @r.Id</option>
             }
         }
-        </select>
-        <div class="text-center panel-body">
-            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-        </div>
+    </select>
+    <label for="Status">Status </label>
+    <select name="Status" id="Status" required>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Closed">Closed</option>
+        <option value="Completed">Completed</option>
+    </select>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
 </form>

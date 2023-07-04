@@ -40,7 +40,7 @@ namespace SWP_Frontend_Admin.Controllers
                 return View(Student);
             }
             _studentRepository.Add(Student);           
-            return View(Student);
+            return RedirectToAction("Index");
         }
 
 
@@ -58,7 +58,7 @@ namespace SWP_Frontend_Admin.Controllers
         {
             _studentRepository.Update(Student);
             ViewBag.Result = "Success";
-            return View(Student);
+            return RedirectToAction("Index");
         }
 
 

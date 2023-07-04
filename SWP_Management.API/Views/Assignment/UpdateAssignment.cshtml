@@ -11,19 +11,19 @@
     </div>
     <div class="form-group">
         <label asp-for="@Model.Name">Name:</label>
-        <input class="form-control" asp-for="@Model.Name" />
+        <input class="form-control" asp-for="@Model.Name" required />
     </div>
     <div class="form-group">
         <label asp-for="@Model.Description">Descripton:</label>
-        <input class="form-control" asp-for="@Model.Description" />
+        <input class="form-control" asp-for="@Model.Description" required />
     </div>
     <div class="form-group">
         <label asp-for="@Model.DateStart">DateStart:</label>
-        <input class="form-control" asp-for="@Model.DateStart" />
+        <input class="form-control" asp-for="@Model.DateStart" required />
     </div>
     <div class="form-group">
         <label asp-for="@Model.DateEnd">DateEnd:</label>
-        <input class="form-control" asp-for="@Model.DateEnd" />
+        <input class="form-control" asp-for="@Model.DateEnd" required />
     </div>
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Update</button>

@@ -7,15 +7,15 @@
 <form asp-action="AddStudent" method="post">
     <div class="form-group">
         <label for="Id">Id:</label>
-        <input class="form-control" name="Id" />
+        <input class="form-control" name="Id" required />
     </div>
     <div class="form-group">
         <label for="Name">Name:</label>
-        <input class="form-control" name="Name" />
+        <input class="form-control" name="Name" required />
     </div>
     <div class="form-group">
         <label for="Main">Main:</label>
-        <input class="form-control" name="Main" />
+        <input class="form-control" name="Main" required />
     </div>
     <label for="Leader">Is Leader? </label>
     <select name="Leader" id="Leader">

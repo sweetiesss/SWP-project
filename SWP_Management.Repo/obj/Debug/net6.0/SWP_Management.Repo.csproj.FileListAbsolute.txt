@@ -26,3 +26,17 @@ C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\refint\SW
 C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
 C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
 C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
