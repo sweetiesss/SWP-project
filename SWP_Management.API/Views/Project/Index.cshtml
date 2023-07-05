@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Project>
+@{
+    ViewData["Title"] = "All Project";
+}
+
+<h2>All Project</h2>
+<a asp-action="AddProject" class="btn btn-sm btn-primary">Add Project</a>
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Team ID</th>
+            <th>Topic ID</th>
+            <th>Topic Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.TeamId</td>
+                    <td>@r.TopicId</td>
+                    <td>@r.Topic.Description</td>
+                    <td>
+                        <form asp-action="UpdateProject" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.TeamId" name="TeamId" />
+                            <input type="hidden" value="@r.TopicId" name="TopicId" />
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteProject" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

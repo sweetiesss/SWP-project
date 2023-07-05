@@ -9,77 +9,129 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SWP_Management.API
 build_property.RootNamespace = SWP_Management.API
-build_property.ProjectDir = D:\SWP Project\SWP_Management.API\
+build_property.ProjectDir = D:\Github\repo\SWP_Project\SWP-project\SWP_Management.API\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\SWP Project\SWP_Management.API
+build_property.MSBuildProjectDirectory = D:\Github\repo\SWP_Project\SWP-project\SWP_Management.API
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/SWP Project/SWP_Management.API/Views/Account/Index.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/AssignmentStudent/AddAssignmentStudent.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/AssignmentStudent/AddAssignmentStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFN0dWRlbnRcQWRkQXNzaWdubWVudFN0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/AssignmentStudent/Index.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/AssignmentStudent/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFN0dWRlbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/AssignmentStudent/UpdateStudentAssignment.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/AssignmentStudent/UpdateStudentAssignment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFN0dWRlbnRcVXBkYXRlU3R1ZGVudEFzc2lnbm1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Assignment/AddAssignment.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Assignment/AddAssignment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFxBZGRBc3NpZ25tZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Assignment/Index.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Assignment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Assignment/UpdateAssignment.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Assignment/UpdateAssignment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudFxVcGRhdGVBc3NpZ25tZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Course/AddCourse.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Course/AddCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEFkZENvdXJzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Course/Index.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Course/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Course/UpdateCourse.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Course/UpdateCourse.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXFVwZGF0ZUNvdXJzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Home/Index.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Student/AddStudent.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Lecturer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Project/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Report/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Semester/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VtZXN0ZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/StudentCourse/AddStudentCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudENvdXJzZVxBZGRTdHVkZW50Q291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/StudentCourse/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudENvdXJzZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/StudentCourse/UpdateStudentCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudENvdXJzZVxVcGRhdGVTdHVkZW50Q291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/StudentTeam/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFRlYW1cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Student/AddStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxBZGRTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Student/Index.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Student/UpdateStudent.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Student/UpdateStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxVcGRhdGVTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/_ViewImports.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/SubjectTopic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdFRvcGljXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Subject/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Team/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/TopicAssign/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9waWNBc3NpZ25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Topic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9waWNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/_ViewStart.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/SWP Project/SWP_Management.API/Views/Shared/_Layout.cshtml]
+[D:/Github/repo/SWP_Project/SWP-project/SWP_Management.API/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-fpz5r83141

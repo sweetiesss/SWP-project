@@ -1,0 +1,45 @@
+﻿@model IEnumerable<StudentCourse>
+@{
+    ViewData["Title"] = "All Course - Students";
+}
+
+<h2>All Assignments</h2>
+<a asp-action="AddStudentCourse" class="btn btn-sm btn-primary">Add Student Course</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Student ID</th>
+            <th>Course ID</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.StudentId</td>
+                    <td>@r.CourseId</td>
+
+                    <td>
+                        <form asp-action="UpdateStudentCourse" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.StudentId" name="studentId" />
+                            <input type="hidden" value="@r.CourseId" name="CourseId" />
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteStudentCourse" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

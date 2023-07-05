@@ -1,0 +1,35 @@
+﻿@model AssignmentStudent
+@{
+    ViewBag.Title = "Asign an assignment to a student";
+    List<Course> CourseList = (List<Course>)ViewData["CourseList"];
+    List<Student> StudentList = (List<Student>)ViewData["StudentList"];
+}
+
+<h2>Add a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="SelectStudentCourse" method="post">
+    <select class="form-select form-select-lg" name="CourseId" id="CourseId" required>
+        <option selected>Course Id</option>
+        @{
+            foreach (Course r in CourseList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+            }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="StudentId" id="StudentId" required>
+        <option selected>Student Id</option>
+            @{
+            foreach (Student r in StudentList)
+            {
+                <option value="@r.Id"> @r.Id</option>   
+            }
+            }
+     </select>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+<h3 class="alert">@ViewBag.Result</h3>

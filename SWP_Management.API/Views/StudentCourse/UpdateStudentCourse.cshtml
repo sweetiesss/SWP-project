@@ -1,0 +1,44 @@
+﻿@model StudentCourse
+@{
+    ViewBag.Title = "Update an Course - Student";
+    List<Course> CourseList = (List<Course>)ViewData["CourseList"];
+    List<Student> StudentList = (List<Student>)ViewData["StudentList"];
+}
+<h2>Update a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="UpdateStudentCourse" method="post">
+    <select class="form-select form-select-lg" name="courseId" id="courseId" required>
+        @{
+            <option value="@Model.CourseId" selected>@Model.CourseId</option>
+            foreach (Course course in CourseList)
+            {
+                if (course.Id != Model.CourseId)
+                {
+                    <option value="@course.Id"> @course.Id</option>
+                }
+            }
+        }
+
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="studentId" id="studentId" required>
+        @{
+            <option value="@Model.StudentId" selected>@Model.StudentId</option>
+            foreach (Student r in StudentList)
+            {
+                if (r.Id != Model.StudentId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+    </select>
+    <input type="hidden" value="@Model.Id" name="id" />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <h2>This student has already been assigned to this task</h2>
+}

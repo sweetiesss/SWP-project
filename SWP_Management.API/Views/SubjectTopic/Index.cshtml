@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SubjectTopic>
+@{
+    ViewData["Title"] = "All Subject Topic";
+}
+
+<h2>All Subject - Topic</h2>
+<a asp-action="AddSubjectTopic" class="btn btn-sm btn-primary">Add Subject - Topic</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Subject ID</th>
+            <th>Topic ID</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.SubjectId</td>
+                    <td>@r.TopicId</td>
+                    <td>
+                        <form asp-action="UpdateSubjectTopic" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.SubjectId" name="SubjectId" />
+                            <input type="hidden" value="@r.TopicId" name="TopicId" />
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteSubjectTopic" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

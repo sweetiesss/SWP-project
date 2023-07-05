@@ -29,8 +29,7 @@ namespace SWP_Frontend_Admin.Controllers
         
         public async Task<IActionResult> Index()
         {
-            List<AssignmentStudent> assignmentStudents = new List<AssignmentStudent>();
-            assignmentStudents = _assignmentStudentRepository.GetList().ToList();
+            var assignmentStudents = _assignmentStudentRepository.GetList().ToList();
 
             ViewData["AssignmentStudent"] = assignmentStudents;
             return View(assignmentStudents);
@@ -40,18 +39,6 @@ namespace SWP_Frontend_Admin.Controllers
         //Get two list and add it to viewdata
         public async Task<IActionResult> AddAssignmentStudent()
         {
-            //    List<Assignment> assignments = new List<Assignment>();
-            //    List<Student> students = new List<Student>();
-
-            //    var response = _assignmentRepository.GetList().ToJson();
-            //    assignments = JsonConvert.DeserializeObject<List<Assignment>>(response);
-            //    ViewData["AssignList"] = assignments;
-
-
-            //    response = _studentRepository.GetList().ToJson();
-            //    students = JsonConvert.DeserializeObject<List<Student>>(response);
-            //    ViewData["StudentList"] = students;
-
             var assignmentList = _assignmentRepository.GetList();
             ViewData["AssignList"] = assignmentList;
 
@@ -141,21 +128,7 @@ namespace SWP_Frontend_Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        // Check Duplicates AssignmentStudent that i dont use
-        //private bool checkDup(AssignmentStudent asm)
-        //{
-        //    var AssignmentStudentList = _assignmentStudentRepository.GetList();
-        //    bool isDuplicate = false;
-        //    foreach (var checker in AssignmentStudentList)
-        //    {
-        //        if (asm.StudentId.Equals(checker.StudentId) && asm.TaskId.Equals(checker.TaskId)) return true;
-
-        //    }
-        //    return isDuplicate;
-        //}
-
-
-        //Delete
+        // Delete
         [HttpPost]
 		public async Task<IActionResult> DeleteAssignmentStudent(int id)
 		{

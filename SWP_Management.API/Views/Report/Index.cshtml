@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Report>
+@{
+    ViewData["Title"] = "All Report";
+}
+
+<h2>All Report</h2>
+<a asp-action="AddReport" class="btn btn-sm btn-primary">Add Report</a>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Team ID</th>
+            <th>Description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.TeamId</td>
+                    <td>@r.Description</td>
+                    <td>
+                        <form asp-action="UpdateReport" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.TeamId" name="TeamId" />
+                            <input type="hidden" value="@r.Description" name="Description" />
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteReport" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
