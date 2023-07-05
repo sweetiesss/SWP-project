@@ -1,0 +1,72 @@
+﻿@model Course
+@{
+    ViewBag.Title = "Update a Course";
+    List<Semester> semesterList = (List<Semester>)ViewData["SemesterList"];
+    List<Subject> subjectList = (List<Subject>)ViewData["SubjectList"];
+    List<Lecturer> lecturerList = (List<Lecturer>)ViewData["LecturerList"];
+}
+
+<h2>Update a Course <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Id">Id:</label>
+        <input class="form-control" asp-for="@Model.Id" required readonly/>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Name">Name:</label>
+        <input class="form-control" asp-for="@Model.Name" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.DateStart">DateStart:</label>
+        <input class="form-control" asp-for="@Model.DateEnd" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.DateEnd">DateEnd:</label>
+        <input class="form-control" asp-for="@Model.DateEnd" required />
+    </div>
+    <br />
+    <select class="form-select form-select-lg" name="SemesterId" id="SemesterId" required>
+        <option selected value="@Model.SemesterId">@Model.SemesterId</option>
+        @{
+            foreach (Semester r in semesterList)
+            {
+                if (!Model.SemesterId.Equals(r.Id))
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="SubjectId" id="SubjectId" required>
+        <option selected value="@Model.SubjectId">@Model.SubjectId</option>
+        @{
+            foreach (Subject r in subjectList)
+            {
+                if (!Model.SubjectId.Equals(r.Id))
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="LecturerId" id="LecturerId" required>
+        <option selected value="@Model.LecturerId">@Model.LecturerId</option>
+        @{
+            foreach (Lecturer r in lecturerList)
+            {
+                if (!Model.LecturerId.Equals(r.Id))
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+        }
+    </select>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>

@@ -1,0 +1,70 @@
+﻿@model Course
+@{
+    ViewBag.Title = "Add a Student";
+    List<Semester> semesterList = (List<Semester>)ViewData["SemesterList"];
+    List<Subject> subjectList = (List<Subject>)ViewData["SubjectList"];
+    List<Lecturer> lecturerList = (List<Lecturer>)ViewData["LecturerList"];
+    DateTime dateEnd = new DateTime();
+}
+
+<h2>Add a Course <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddCourse" method="post">
+    <div class="form-group">
+        <label for="Id">Id:</label>
+        <input class="form-control" name="Id" required />
+    </div>
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input class="form-control" name="Name" required />
+    </div>
+    <div class="form-group">
+        <label for="DateStart">DateStart:</label>
+        <input class="form-control" name="dateStart" type="date" required />
+    </div>
+    <div class="form-group">
+        <label for="DateEnd">DateEnd:</label>
+        <input class="form-control" name="dateEnd" type="date" required />
+    </div>
+    <br />
+    <select class="form-select form-select-lg" name="SemesterId" id="SemesterId" required>
+        <option selected value="">Semester Id</option>
+        @{
+            foreach (Semester r in semesterList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="SubjectId" id="SubjectId" required>
+        <option selected value="">Subject Id</option>
+        @{
+            foreach (Subject r in subjectList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="LecturerId" id="LecturerId" required>
+        <option selected value="">Lecturer Id</option>
+        @{
+            foreach (Lecturer r in lecturerList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+        }
+    </select>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate Course")
+{
+    <h3>Course Id already exist</h3>
+}
+

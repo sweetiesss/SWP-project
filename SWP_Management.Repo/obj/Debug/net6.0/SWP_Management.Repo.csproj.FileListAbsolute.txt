@@ -40,3 +40,17 @@ D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\refi
 D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
 D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
 D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll

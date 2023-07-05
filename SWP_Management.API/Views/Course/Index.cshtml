@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Course>
+
+@{
+    ViewData["Title"] = "All Course";
+
+}
+<h2>All Course</h2>
+<a asp-action="AddCourse" class="btn btn-sm btn-primary">Add Course</a>
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Semester Id</th>
+            <th>Subject Id</th>
+            <th>Lecturer Id</th>
+            <th>Name</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.SemesterId</td>
+                    <td>@r.SubjectId</td>
+                    <td>@r.LecturerId</td>
+                    <td>@r.Name</td>
+                    <td>@r.DateStart</td>
+                    <td>@r.DateEnd</td>
+                    <td>
+                        <form asp-action="UpdateCourse" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.SemesterId" name="SemesterId" />
+                            <input type="hidden" value="@r.SubjectId" name="SubjectId" />
+                            <input type="hidden" value="@r.LecturerId" name="LecturerId" />
+                            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteCourse" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button type="submit" class="btn btn-sm btn-primary">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,21 +1,19 @@
-﻿@model IEnumerable<Student>
+﻿@model IEnumerable<Account>
 
 @{
-    ViewData["Title"] = "All Students";
+    ViewData["Title"] = "All Account";
     
 }
-
-<h2>All Students</h2>
-<a asp-action="AddStudent" class="btn btn-sm btn-primary">Add Student</a>
+<h2>All Accounts</h2>
+<a asp-action="AddAccount" class="btn btn-sm btn-primary">Add Account</a>
 <table class="table table-sm table-striped table-bordered m-2">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Main</th>
-            <th>Leader</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>StudentId</th>
+            <th>LecturerId</th>
         </tr>
     </thead>
     <tbody>
@@ -24,17 +22,20 @@
             {
                 <tr>
                     <td>@r.Id</td>
-                    <td>@r.Name</td>
-                    <td>@r.Main</td>
-                    <td>@r.Leader</td>
+                    <td>@r.Username</td>
+                    <td>@r.Password</td>
+                    <td>@r.StudentId</td>
+                    <td>@r.TeacherId</td>
                     <td>
-                        <form asp-action="UpdateStudent" method="">
+                        <form asp-action="UpdateAccount" method="">
                             <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.Username" name="username" />
+                            <input type="hidden" value="@r.Password" name="password" />
                             <button type="submit" class="btn btn-sm btn-primary">Update</button>
                         </form>
                     </td>
                     <td>
-                        <form asp-action="DeleteStudent" method="post">
+                        <form asp-action="DeleteAccount" method="post">
                             <input type="hidden" value="@r.Id" name="id" />
                             <button type="submit" class="btn btn-sm btn-primary">Delete</button>
                         </form>

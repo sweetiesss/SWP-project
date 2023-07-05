@@ -5,12 +5,16 @@
     List<Student> StudentList = (List<Student>)ViewData["StudentList"];
 }
 <h2>Update a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
-<form method="post">
+<form asp-action="UpdateStudentAssignment" method="post">
     <select class="form-select form-select-lg" name="taskId" id="taskId" required>
         @{
+            <option value="@Model.TaskId" selected>@Model.TaskId</option>
             foreach (Assignment assignment in AssignmentList)
             {
-                <option value="@assignment.Id"> @assignment.Id</option>
+                if (assignment.Id != Model.TaskId)
+                {
+                    <option value="@assignment.Id"> @assignment.Id</option>
+                }
             }
         }
         
@@ -18,20 +22,37 @@
     <br />
     <select class="form-select form-select-lg" name="studentId" id="studentId" required>
         @{
+            <option value="@Model.StudentId" selected>@Model.StudentId</option>
             foreach (Student r in StudentList)
             {
-                <option value="@r.Id"> @r.Id</option>
+                if (r.Id != Model.StudentId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
             }
         }
     </select>
     <label for="Status">Status </label>
-    <select name="Status" id="Status" required>
-        <option value="Ongoing">Ongoing</option>
-        <option value="Closed">Closed</option>
-        <option value="Completed">Completed</option>
+    <select class="form-select form-select-lg" name="Status" id="Status" required>
+        <option value="@Model.Status" selected>@Model.Status</option>
+        @if(!Model.Status.Equals("Ongoing")){
+            <option value="Ongoing">Ongoing</option>
+        }
+        @if (!Model.Status.Equals("Closed"))
+        {
+            <option value="Closed">Closed</option>
+        }
+        @if (!Model.Status.Equals("Completed"))
+        {
+            <option value="Completed">Completed</option>
+        }
     </select>
-
+    <input type="hidden" value="@Model.Id" name="id" />
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Update</button>
     </div>
 </form>
+
+ @if (ViewBag.Result == "Duplicate"){
+     <h2>This student has already been assigned to this task</h2>
+ }

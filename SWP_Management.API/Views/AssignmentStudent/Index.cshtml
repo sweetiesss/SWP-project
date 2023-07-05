@@ -29,13 +29,14 @@
                     <td>
                         <form asp-action="UpdateStudentAssignment" method="">
                             <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.StudentId" name ="studentId" />
+                            <input type="hidden" value="@r.TaskId" name="taskId" />
                             <button type="submit" class="btn btn-sm btn-primary">Update</button>
                         </form>
                     </td>
                     <td>
                         <form asp-action="DeleteAssignmentStudent" method="post">
-                            <input type="hidden" value="@r.TaskId" name="taskId" />
-                            <input type="hidden" value="@r.StudentId" name="studentId"/>
+                            <input type="hidden" value="@r.Id" name="id" />
                             <button type="submit" class="btn btn-sm btn-primary">Delete</button>
                         </form>
                     </td>
