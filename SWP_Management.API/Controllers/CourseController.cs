@@ -42,9 +42,6 @@ namespace SWP_Management.API.Controllers
             return View();
         }
 
-        public ViewResult SelectAssignmentStudent() => View();
-
-
         // Add
         [HttpPost]
         public async Task<IActionResult> AddCourse(string SemesterId, string SubjectId, string LecturerId,

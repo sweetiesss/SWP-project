@@ -4,7 +4,7 @@ using SWP_Management.Repo.Repositories;
 namespace SWP_Management.API.Controllers
 {
     public class StudentCourseController : Controller
-    {
+    { 
 
         private readonly IStudentCourseRepository _studentCourseRepository;
         private readonly ICourseRepository _courseRepository;

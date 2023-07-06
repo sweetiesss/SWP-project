@@ -32,7 +32,29 @@
             }
         }
     </select>
-    <label for="Status">Status </label>
+    <br />
+    <label asp-for="@Model.Status">Status </label>
+    <select asp-for="@Model.Status" id="Status">
+        <option value=Ongoing>Ongoing</option>
+        <option value="Closed">Closed</option>
+        <option value="Completed">Completed</option>
+    </select>
+    <input type="hidden" value="@Model.Id" name="id" />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
+
+ @if (ViewBag.Result == "Duplicate"){
+     <h2>This student has already been assigned to this task</h2>
+ }
+
+
+
+
+
+
+@*    <label for="Status">Status </label>
     <select class="form-select form-select-lg" name="Status" id="Status" required>
         <option value="@Model.Status" selected>@Model.Status</option>
         @if(!Model.Status.Equals("Ongoing")){
@@ -46,13 +68,4 @@
         {
             <option value="Completed">Completed</option>
         }
-    </select>
-    <input type="hidden" value="@Model.Id" name="id" />
-    <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary">Update</button>
-    </div>
-</form>
-
- @if (ViewBag.Result == "Duplicate"){
-     <h2>This student has already been assigned to this task</h2>
- }
+    </select>*@

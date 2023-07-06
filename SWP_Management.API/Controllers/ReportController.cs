@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SWP_Management.Repo.Entities;
 using SWP_Management.Repo.Repositories;
 
 namespace SWP_Management.API.Controllers
@@ -23,10 +24,69 @@ namespace SWP_Management.API.Controllers
         }
 
 
-
         // Add
-        // Update
-        // Delete
 
+        public async Task<IActionResult> AddReport()
+        {
+            var team = _teamRepository.GetList().ToList();
+            ViewData["TeamList"] = team; 
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddReport(string TeamId, string id, string Descripton)
+        {
+            AddReport();
+            var team = _teamRepository.GetById(TeamId);
+            var existingReport = _reportRepository.GetById(id);
+            if (existingReport != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
+            Report report = new Report();
+            report.TeamId = TeamId;
+            report.Id = id;
+            report.Description = Descripton;
+            report.Team = team;
+
+            _reportRepository.Add(report);
+            return RedirectToAction("Index");
+        }
+
+
+        // Update
+        public async Task<IActionResult> UpdateReport(string id)
+        {
+            var team = _teamRepository.GetList().ToList();
+            ViewData["TeamList"] =team;
+
+            var report= _reportRepository.GetById(id);
+            return View(report);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateReport(string id, string TeamId, string descr)
+        {
+            UpdateReport(id);
+            var team = _teamRepository.GetById(TeamId);
+            var report = _reportRepository.GetById(id);
+            report.Team = team;
+            report.TeamId=TeamId;
+            report.Description= descr;
+
+            _reportRepository.Update(report);
+            return RedirectToAction("Index");
+            }
+        
+
+    // Delete
+    [HttpPost]
+    public async Task<IActionResult> DeleteReport(string id)
+    {
+            _reportRepository.Delete(id);
+            return RedirectToAction("Index");
+    }
     }
 }

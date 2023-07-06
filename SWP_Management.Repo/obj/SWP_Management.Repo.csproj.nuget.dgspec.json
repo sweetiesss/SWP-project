@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {}
+    "D:\\SWP Project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {}
   },
   "projects": {
-    "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
+    "D:\\SWP Project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
+        "projectUniqueName": "D:\\SWP Project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
         "projectName": "SWP_Management.Repo",
-        "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
-        "packagesPath": "C:\\Users\\baolh\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\obj\\",
+        "projectPath": "D:\\SWP Project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
+        "packagesPath": "C:\\Users\\nhat\\.nuget\\packages\\",
+        "outputPath": "D:\\SWP Project\\SWP_Management.Repo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\baolh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nhat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -1,0 +1,34 @@
+﻿@model Lecturer
+@{
+    ViewBag.Title = "Add a Lecturer";
+}
+
+<h2>Add a Lecturer <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddLecturer" method="post">
+    <div class="form-group">
+        <label for="Id">Id:</label>
+        <input class="form-control" name="Id" required />
+    </div>
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input class="form-control" name="Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Main">Main:</label>
+        <input class="form-control" name="Main" required />
+    </div>
+    <label for="Leader">Is Leader? </label>
+    <select class="form-group" name="Leader" id="Leader">
+        <option value=true>Yes</option>
+        <option value=false>No</option>
+    </select>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3>THIS ID ALREADY EXIST</h3>
+}

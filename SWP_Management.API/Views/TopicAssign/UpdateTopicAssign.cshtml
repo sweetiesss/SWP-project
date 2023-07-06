@@ -1,0 +1,61 @@
+﻿@model TopicAssign
+@{
+    ViewBag.Title = "Update a Topic Assign";
+    List<Semester> SemesterList = (List<Semester>)ViewData["SemesterList"];
+    List<Subject> SubjectList = (List<Subject>)ViewData["SubjectList"];
+    List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
+}
+<h2>Update a Topic Assign <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="UpdateTopicAssign" method="post">
+    <select class="form-select form-select-lg" name="SemesterId" id="SemesterId" required>
+        @{
+            <option value="@Model.SemesterId" selected>@Model.SemesterId</option>
+            foreach (Semester r in SemesterList)
+            {
+                if (r.Id != Model.SemesterId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+        
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="SubjectId" id="SubjectId" required>
+        @{
+            <option value="@Model.SubjectId" selected>@Model.SubjectId</option>
+            foreach (Subject r in SubjectList)
+            {
+                if (r.Id != Model.SubjectId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="TopicId" id="TopicId" required>
+        @{
+            <option value="@Model.TopicId" selected>@Model.TopicId</option>
+            foreach (Topic r in TopicList)
+            {
+                if (r.Id != Model.TopicId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+    </select>
+    <br />
+
+    <input type="hidden" value="@Model.Id" name="id" />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
+
+ @if (ViewBag.Result == "Duplicate"){
+     <h2>This has already been assigned.</h2>
+ }
+
+

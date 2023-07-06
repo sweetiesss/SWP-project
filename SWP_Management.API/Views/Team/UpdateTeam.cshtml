@@ -1,0 +1,30 @@
+﻿@model Team
+@{
+    ViewBag.Title = "Update a Team";
+    List<Course> CourseList = (List<Course>)ViewData["CourseList"];
+}
+
+<h2>Update a Team <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="UpdateTeam" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Id">Id:</label>
+        <input class="form-control" asp-for="@Model.Id" name="id" required readonly />
+    </div>
+    <br />
+    <select class="form-select form-select-lg" name="CourseId" id="CourseId" required>
+        <option value="@Model.CourseId" selected>@Model.CourseId</option>
+        @{
+            foreach (Course r in CourseList)
+            {
+                if (Model.CourseId != r.Id) {
+                    <option value="@r.Id"> @r.Id</option>
+            }
+            }
+        }
+        }
+    </select>
+    <br />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>

@@ -1,0 +1,44 @@
+﻿@model SubjectTopic
+@{
+    ViewBag.Title = "Update an assign topic - subject";
+    List<Subject> SubjectList = (List<Subject>)ViewData["SubjectList"];
+    List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
+}
+<h2>Update an assign topic - subject <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="UpdateSubjectTopic" method="post">
+    <select class="form-select form-select-lg" name="SubjectId" id="SubjectId" required>
+        @{
+            <option value="@Model.SubjectId" selected>@Model.SubjectId</option>
+            foreach (Subject r in SubjectList)
+            {
+                if (r.Id != Model.SubjectId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="TopicId" id="TopicId" required>
+        @{
+            <option value="@Model.TopicId" selected>@Model.TopicId</option>
+            foreach (Topic r in TopicList)
+            {
+                if (r.Id != Model.TopicId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+    <br />
+    <input type="hidden" value="@Model.Id" name="id" />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <h2>This topic has already been assigned.</h2>
+}

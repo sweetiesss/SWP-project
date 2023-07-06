@@ -8,7 +8,7 @@
 <h2>Add a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
 <form asp-action="SelectAssignmentStudent" method="post">
     <select class="form-select form-select-lg" name="TaskId" id="TaskId" required>
-        <option selected>Task Id</option>
+        <option value ="" selected>Task Id</option>
         @{
             foreach (Assignment r in AssignmentList)
             {
@@ -19,7 +19,7 @@
     </select>
     <br />
     <select class="form-select form-select-lg" name="StudentId" id="StudentId" required>
-        <option selected>Student Id</option>
+        <option value ="" selected>Student Id</option>
             @{
             foreach (Student r in StudentList)
             {

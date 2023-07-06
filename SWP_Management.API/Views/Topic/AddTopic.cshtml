@@ -1,0 +1,47 @@
+﻿@model Topic
+@{
+    ViewBag.Title = "Add a Topic";
+    List<Lecturer> LecturerList = (List<Lecturer>)ViewData["LecturerList"];
+}
+
+<h2>Add a Topic <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddTopic" method="post">
+    <div class="form-group">
+        <label for="Id">Id:</label>
+        <input class="form-control" name="Id" required />
+    </div>
+    <br />
+    <select class="form-select form-select-lg" name="LecturerId" id="LecturerId" required>
+        <option value="" selected>Lecturer Id</option>
+        @{
+            foreach (Lecturer r in LecturerList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+        }
+    </select>
+    <br/>
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input class="form-control" name="Name" required />
+    </div> 
+    <div class="form-group">
+        <label for="Descripton">Descripton:</label>
+        <input class="form-control" name="Descripton" required />
+    </div>
+    <label for="Approval">Approval? </label>
+    <select name="Approval" id="Approval">
+        <option value=true>Yes</option>
+        <option value=false>No</option>
+    </select>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3>THIS ID ALREADY EXIST</h3>
+}

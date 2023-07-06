@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SWP_Management.Repo.Entities;
 using SWP_Management.Repo.Repositories;
 
 namespace SWP_Management.API.Controllers
@@ -20,10 +21,50 @@ namespace SWP_Management.API.Controllers
         }
 
 
-
+        public ViewResult AddSemester() => View();
         // Add
-        // Update
-        // Delete
 
+        [HttpPost]
+        public async Task<IActionResult> AddSemester(Semester semester)
+        {
+            var existingSemester = _semesterRepository.GetList().Where(p => p.Id.Equals(semester.Id)).FirstOrDefault();
+            if (existingSemester != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
+            _semesterRepository.Add(semester);
+            return RedirectToAction("Index");
+        }
+
+
+
+        // Update
+        public async Task<IActionResult> UpdateSemester(string id)
+        {
+            var semester = _semesterRepository.GetById(id);
+            return View(semester);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateSemester(string id, string name)
+        {
+            var semester = _semesterRepository.GetById(id);
+            semester.Name = name;
+            _semesterRepository.Update(semester);
+            return RedirectToAction("Index");
+
+        }
+
+        // Delete
+        [HttpPost]
+        public async Task<IActionResult> DeleteSemester(string id)
+        {
+            _semesterRepository.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
+
+
+
 }

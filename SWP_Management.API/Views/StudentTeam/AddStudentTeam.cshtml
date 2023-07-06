@@ -1,0 +1,40 @@
+﻿@model StudentTeam
+@{
+    ViewBag.Title = "Asign a student to a team";
+    List<Student> StudentList = (List<Student>)ViewData["StudentList"];
+    List<Team> TeamList = (List<Team>)ViewData["TeamList"];
+}
+
+<h2>Assign a student to a team <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddStudentTeam" method="post">
+    <select class="form-select form-select-lg" name="TeamId" id="TeamId" required>
+        <option value="" selected>Team Id</option>
+        @{
+            foreach (Team r in TeamList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="StudentId" id="StudentId" required>
+        <option value="" selected>Student Id</option>
+        @{
+            foreach (Student r in StudentList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+    </select>
+    <br />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3>This student has already been assigned to a team</h3>
+}
+

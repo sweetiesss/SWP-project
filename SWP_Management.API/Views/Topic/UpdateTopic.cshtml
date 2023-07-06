@@ -1,0 +1,45 @@
+﻿@model Topic
+@{
+    ViewBag.Title = "Update a Topic";
+    List<Lecturer> LecturerList = (List<Lecturer>)ViewData["LecturerList"];
+}
+
+<h2>Update a Topic <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="UpdateTopic" method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Id">Id:</label>
+        <input class="form-control" asp-for="@Model.Id" name="id" required readonly />
+    </div>
+    <br />
+    <select class="form-select form-select-lg" name="LecturerId" id="LecturerId" required>
+        <option value="@Model.LecturerId" selected>@Model.LecturerId</option>
+        @{
+            foreach (Lecturer r in LecturerList)
+            {
+                if (Model.LecturerId != r.Id)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+        }
+    </select>
+    <br />
+    <div class="form-group">
+        <label asp-for="@Model.Name">Name:</label>
+        <input class="form-control" asp-for="@Model.Name" name="name" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Description">Description:</label>
+        <input class="form-control" asp-for="@Model.Description" name="descripton" required />
+    </div>
+    <label asp-for="@Model.Approval">Approval? </label>
+    <select asp-for="@Model.Approval" id="Approval">
+        <option value=true>Yes</option>
+        <option value=false>No</option>
+    </select>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+
+</form>

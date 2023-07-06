@@ -32,6 +32,10 @@
                     <td>
                         <form asp-action="UpdateTopic" method="">
                             <input type="hidden" value="@r.Id" name="id" />
+                            <input type="hidden" value="@r.LecturerId" name="LecturerId" />
+                            <input type="hidden" value="@r.Name" name="name" />
+                            <input type="hidden" value="@r.Description" name="description" />
+                            <input type="hidden" value="@r.Approval" name="approval" />
                             <button type="submit" class="btn btn-sm btn-primary">Update</button>
                         </form>
                     </td>

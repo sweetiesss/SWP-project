@@ -1,0 +1,51 @@
+﻿@model TopicAssign
+@{
+    ViewBag.Title = "Assign a topic to semester and subject";
+    List<Semester> SemesterList = (List<Semester>)ViewData["SemesterList"];
+    List<Subject> SubjectList = (List<Subject>)ViewData["SubjectList"];
+    List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
+}
+
+<h2>Assign a topic to semester and subject <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddTopicAssign" method="post">
+    <select class="form-select form-select-lg" name="SemesterId" id="SemesterId" required>
+        <option value ="" selected>Semester Id</option>
+        @{
+            foreach (Semester r in SemesterList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+            }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="SubjectId" id="SubjectId" required>
+        <option value ="" selected>Subject Id</option>
+            @{
+            foreach (Subject r in SubjectList)
+            {
+                <option value="@r.Id"> @r.Id</option>   
+            }
+            }
+     </select>
+     <br />
+    <select class="form-select form-select-lg" name="TopicId" id="TopicId" required>
+        <option value ="" selected>Topic Id</option>
+            @{
+            foreach (Topic r in TopicList)
+            {
+                <option value="@r.Id"> @r.Id</option>   
+            }
+            }
+     </select>
+     <br />
+     
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+@if(ViewBag.Result == "Duplicate")
+{
+    <br/>
+    <h3>This already assigned.</h3>
+}

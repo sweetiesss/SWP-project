@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace SWP_Frontend_Admin.Controllers
-{
+{ 
     public class StudentController : Controller
     {
 
