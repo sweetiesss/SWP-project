@@ -26,8 +26,8 @@ namespace SWP_Management.API.Controllers
 
         public async Task<IActionResult> AddAccount()
         {
-            var assignmentList = _lecturerRepository.GetList();
-            ViewData["LecturerList"] = assignmentList;
+            var lecturerList = _lecturerRepository.GetList();
+            ViewData["LecturerList"] = lecturerList;
 
 
             var studentList = _studentRepository.GetList();
@@ -36,18 +36,57 @@ namespace SWP_Management.API.Controllers
             return View();
         }
 
-        public ViewResult SelectAssignmentStudent() => View();
-
-
         // Add
         [HttpPost]
-        public async Task<IActionResult> SelectAccount(string Username, string Password, string lecturerId, string studentId)
+        public async Task<IActionResult> AddAccount(string Username, string Password, string? lecturerId, string? studentId)
         {
-            Account account = new Account();
-
             var student = _studentRepository.GetById(studentId);
             var lecturer = _lecturerRepository.GetById(lecturerId);
-            // Insert data to an entity for add
+
+            AddAccount();
+
+            if(lecturerId != null && studentId != null)
+            {
+                ViewBag.Result = "Error Role";
+                return View();
+            }
+
+            Account? account = new Account();
+
+            var accountList = _accountRepository.GetList().ToList();
+            //Check for student
+            for (int i = 0; i < accountList.Count; i++)
+            {
+                if (accountList[i].StudentId != null)
+                {
+                    if (accountList[i].StudentId.Equals(studentId))
+                    {
+                        ViewBag.Result = "Duplicate Student";
+                        return View();
+                    }
+                }
+            }
+
+            //Check for lecturer
+            for (int i = 0; i < accountList.Count; i++)
+            {
+                if (accountList[i].TeacherId != null)
+                {
+                    if (accountList[i].TeacherId.Equals(lecturerId))
+                    {
+                        ViewBag.Result = "Duplicate Lecturer";
+                        return View();
+                    }
+                }
+            }
+
+            //Check existing Username
+            var usernameDupe = accountList.Where(p => p.Username.Equals(Username)).FirstOrDefault();
+            if (usernameDupe != null)
+            {
+                ViewBag.Result = "Duplicate Username";
+                return View();
+            }
             account.Username = Username;
             account.Password = Password;
             account.TeacherId = lecturerId;
@@ -85,22 +124,56 @@ namespace SWP_Management.API.Controllers
             var student = _studentRepository.GetById(studentId);
             var lecturer = _lecturerRepository.GetById(lecturerId);
 
-            //If duplicate exists, these list are neccessary so UpdateAccount page won't return null in AssignmentList/StudentList Viewdata
-            var lecturerList = _lecturerRepository.GetList();
-            ViewData["AssignList"] = lecturerList;
+            //If duplicate exist, call back method to get two list on Viewdata and the chosen account
+            UpdateAccount(id);
 
-
-            var studentList = _studentRepository.GetList();
-            ViewData["StudentList"] = studentList;
-
-            var account = _accountRepository.GetById(id);
+            Account? account = new Account();
+            account = _accountRepository.GetById(id);
+            var accountList = _accountRepository.GetList().ToList();
             if (account != null)
             {
-                var existing = _accountRepository.GetList().Where(p => p.TeacherId.Equals(lecturerId)
-                                                                    && p.StudentId.Equals(studentId)).FirstOrDefault();
-                if (existing != null && existing.Id != account.Id)
+                //Check for student
+                if(account.StudentId != null) 
                 {
-                    ViewBag.Result = "Duplicate";
+                    //Check existing Id
+                    
+                    for (int i = 0; i< accountList.Count; i++)
+                    {
+                        //Don't combine this if to the other one
+                        if (accountList[i].StudentId != null)
+                        {
+                            if (accountList[i].StudentId.Equals(studentId) &&
+                                accountList[i].Id != account.Id)
+                            {
+                                ViewBag.Result = "Duplicate Student";
+                                return View(account);
+                            }
+                        }
+                    }
+                }
+
+                //Check for lecturer
+                if(account.TeacherId != null)
+                {
+                    for (int i = 0; i < accountList.Count; i++)
+                    {
+                        if (accountList[i].TeacherId != null)
+                        {
+                            if (accountList[i].TeacherId.Equals(lecturerId) &&
+                                accountList[i].Id != account.Id)
+                            {
+                                ViewBag.Result = "Duplicate Lecturer";
+                                return View(account);
+                            }
+                        }
+                    }
+                }
+
+                //Check existing Username
+                var usernameDupe = accountList.Where(p => p.Username.Equals(Username)).FirstOrDefault();
+                if (usernameDupe != null && usernameDupe.Id != account.Id)
+                {
+                    ViewBag.Result = "Duplicate Username";
                     return View(account);
                 }
                 account.Username = Username;
@@ -109,6 +182,8 @@ namespace SWP_Management.API.Controllers
                 account.StudentId = studentId;
                 account.Teacher = lecturer;
                 account.Student = student;
+
+
             }
 
 

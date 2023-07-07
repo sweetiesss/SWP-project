@@ -1,12 +1,14 @@
-﻿@model Assignment
+﻿@model Account
 @{
-    ViewBag.Title = "Add a Assignment";
+    ViewBag.Title = "Add an Account";
     List<Lecturer> LecturerList = (List<Lecturer>)ViewData["LecturerList"];
     List<Student> StudentList = (List<Student>)ViewData["StudentList"];
 }
 
 <h2>Add an Account <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
-<form asp-action="SelectAccount" method="post">
+<div> Only select the corresponding Id for the role you want to create and leave the other empty.<div/>
+ <br/>
+<form asp-action="AddAccount" method="post">
     <div class="form-group">
         <label for="Username">Username:</label>
         <input class="form-control" name="Username" required />
@@ -15,6 +17,8 @@
         <label for="Password">Password:</label>
         <input class="form-control" name="Password" required />
     </div>
+    <br />
+    <label>Lecturer Id:</label>
     <select class="form-select form-select-lg" name="LecturerId" id="LecturerId">
         <option value="" selected>Lecturer Id</option>
         @{
@@ -26,6 +30,7 @@
         }
     </select>
     <br />
+    <label>Student Id:</label>
     <select class="form-select form-select-lg" name="StudentId" id="StudentId">
         <option value="" selected>Student Id</option>
         @{
@@ -41,4 +46,15 @@
     </div>
 </form>
 
-<h3 class="alert">@ViewBag.Result</h3>
+
+@if (ViewBag.Result == "Duplicate Student")
+{
+    <h2>This student Id has already been assigned to an account</h2>
+}@if (ViewBag.Result == "Duplicate Lecturer")
+{
+    <h2>This lecturer Id has already been assigned to an account</h2>
+}
+@if (ViewBag.Result == "Duplicate Username")
+{
+    <h2>This username already exists</h2>
+}

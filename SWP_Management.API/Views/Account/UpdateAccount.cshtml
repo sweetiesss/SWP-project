@@ -1,6 +1,6 @@
 ﻿@model Account
 @{
-    ViewBag.Title = "Update an Assignment - Student";
+    ViewBag.Title = "Update an Account";
     List<Lecturer> LecturerList = (List<Lecturer>)ViewData["LecturerList"];
     List<Student> StudentList = (List<Student>)ViewData["StudentList"];
 }
@@ -14,20 +14,28 @@
         <label asp-for="@Model.Password">Password:</label>
         <input class="form-control" asp-for="@Model.Password" required />
     </div>
-    <select class="form-select form-select-lg" name="taskId" id="taskId" >
-        @{
-            <option value="@Model.TeacherId" selected>@Model.TeacherId</option>
-            foreach (Lecturer lecturer in LecturerList)
-            {
-                if (lecturer.Id != Model.TeacherId)
+    <br/>
+    
+    @if (Model.TeacherId != null)
+    {
+        <label>Lecturer Id:</label>
+        <select class="form-select form-select-lg" name="taskId" id="taskId">
+            @{
+                <option value="@Model.TeacherId" selected>@Model.TeacherId</option>
+                foreach (Lecturer lecturer in LecturerList)
                 {
-                    <option value="@lecturer.Id"> @lecturer.Id</option>
+                    if (lecturer.Id != Model.TeacherId)
+                    {
+                        <option value="@lecturer.Id"> @lecturer.Id</option>
+                    }
                 }
             }
-        }
+        </select>
+        <br />
+    }
 
-    </select>
-    <br />
+    @if (Model.StudentId != null){
+    <label>Student Id:</label>
     <select class="form-select form-select-lg" name="studentId" id="studentId" >
         @{
             <option value="@Model.StudentId" selected>@Model.StudentId</option>
@@ -41,13 +49,21 @@
         }
     </select>
     <br />
+    }
     <input type="hidden" value="@Model.Id" name="id" />
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Update</button>
     </div>
 </form>
 
-@if (ViewBag.Result == "Duplicate")
+@if (ViewBag.Result == "Duplicate Student")
 {
-    <h2>This student has already been assigned to this task</h2>
+    <h2>This student Id has already been assigned to an account</h2>
+}@if (ViewBag.Result == "Duplicate Lecturer")
+{
+    <h2>This lecturer Id has already been assigned to an account</h2>
+}
+@if (ViewBag.Result == "Duplicate Username")
+{
+    <h2>This username already exists</h2>
 }
