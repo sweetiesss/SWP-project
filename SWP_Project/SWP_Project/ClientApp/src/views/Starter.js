@@ -1,7 +1,7 @@
 import { Col, Row } from "reactstrap";
 import ProjectChart from "../components/dashboard/ProjectChart";
 import Feeds from "../components/dashboard/Feeds";
-import ProjectTables from "../components/dashboard/ProjectTable";
+
 import TopCards from "../components/dashboard/TopCards";
 import { FaRegClock, FaRegPlayCircle, FaRegCheckCircle, FaListOl, FaRegTimesCircle } from 'react-icons/fa';
 
@@ -66,11 +66,7 @@ const Starter = () => {
         </Col>
       </Row>
       {/***Table ***/}
-      <Row>
-        <Col lg="12">
-          <ProjectTables />
-        </Col>
-      </Row>
+ 
 
     </div>
   );

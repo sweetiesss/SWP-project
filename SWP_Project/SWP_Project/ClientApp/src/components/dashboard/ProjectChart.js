@@ -1,15 +1,27 @@
 import { Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
 import Chart from "react-apexcharts";
-import { useState } from 'react';
+import React,{ useState, useEffect, useContext } from 'react';
+//import { AccountContext } from "../App";
+import { AccountContext } from "../../beginlayout/BeginPage";
 
 const ProjectChart = (props) => {
-    
+
+    const [showTaskApi, updateTaskApi] = React.useState([]);
+    const courseCon = useContext(AccountContext);
+    useEffect(() => {
+        fetch('https:localhost:7219/api/students/' + courseCon.accountId)
+            .then(res => res.json())
+            .then(tasks => {
+                updateTaskApi(tasks)
+            })
+    }, [])
+    console.log(showTaskApi)
         const chartOptions= {
             optionsMixedChart: {
                 chart: {
                     id: "basic-bar",
                     toolbar: {
-                        show: false
+                        show: true
                     }
           
                 },
@@ -151,82 +163,13 @@ const ProjectChart = (props) => {
                 },
                 labels: ["Percent"]
             },
-            seriesRadial: [46],
-            optionsBar: {
-                chart: {
-                    stacked: true,
-                    stackType: "100%",
-                    toolbar: {
-                        show: false
-                    }
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: true
-                    }
-                },
-                dataLabels: {
-                    dropShadow: {
-                        enabled: true
-                    }
-                },
-                stroke: {
-                    width: 0
-                },
-                xaxis: {
-                    categories: ["Fav Color"],
-                    labels: {
-                        show: false
-                    },
-                    axisBorder: {
-                        show: false
-                    },
-                    axisTicks: {
-                        show: false
-                    }
-                },
-                fill: {
-                    opacity: 1,
-                    type: "gradient",
-                    gradient: {
-                        shade: "dark",
-                        type: "vertical",
-                        shadeIntensity: 0.35,
-                        gradientToColors: undefined,
-                        inverseColors: false,
-                        opacityFrom: 0.85,
-                        opacityTo: 0.85,
-                        stops: [90, 0, 100]
-                    }
-                },
-
-                legend: {
-                    position: "bottom",
-                    horizontalAlign: "right"
-                }
-            },
-            seriesBar: [
-                {
-                    name: "blue",
-                    data: [32]
-                },
-                {
-                    name: "green",
-                    data: [41]
-                },
-                {
-                    name: "yellow",
-                    data: [12]
-                },
-                {
-                    name: "red",
-                    data: [65]
-                }
-            ]
+            seriesRadial: [46]
         };
         return (
-            <div className="app">
+            <div className="app" style={{ display: "flex",flexDirection:"column" } }>
+                <h4>Total task completed chart.</h4>
                 <div className="row">
+               
                     <div className="col mixed-chart">
                         <Chart
                             options={chartOptions.optionsMixedChart}
@@ -235,28 +178,18 @@ const ProjectChart = (props) => {
                             width="500"
                         />
                     </div>
-
+                    <div className="row">
+                <h4>Total progress of project chart.</h4>
                     <div className="col radial-chart">
                         <Chart
                             options={chartOptions.optionsRadial}
                             series={chartOptions.seriesRadial}
                             type="radialBar"
-                            width="300"
-                        />
+                            width="500"
+                            />
+                        </div>
                     </div>
                 </div>
-
-                {/*<div className="row">*/}
-                {/*    <div className="col percentage-chart">*/}
-                {/*        <Chart*/}
-                {/*            options={chartOptions.optionsBar}*/}
-                {/*            height={140}*/}
-                {/*            series={chartOptions.seriesBar}*/}
-                {/*            type="bar"*/}
-                {/*            width={500}*/}
-                {/*        />*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </div>
         );
 };

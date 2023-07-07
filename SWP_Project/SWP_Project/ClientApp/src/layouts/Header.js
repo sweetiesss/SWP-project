@@ -7,70 +7,38 @@ import {
     Collapse,
     Nav,
     NavItem,
-    NavbarBrand,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
     Dropdown,
-    Button,
     NavLink,
 } from "reactstrap";
 
 import { FaBell } from "react-icons/fa";
 import user1 from "../assets/images/users/user1.jpg";
-import { CourseContext } from "../App";
-
+//import { AccountContext } from "../App";
+import { AccountContext } from "../beginlayout/BeginPage";
 const Header = (props) => {
-    const courseCon = useContext(CourseContext);
-    const [isOpen, setIsOpen] = React.useState(false);
+    const courseCon = useContext(AccountContext);
+    const [open, setIsOpen] = React.useState(false);
     const [dropdownOpen, setDropdownOpen] = React.useState(false);
     const [showTaskApi, updateTaskApi] = React.useState([]);
-    useEffect(()=> { 
-        fetch('https://localhost:7219/api/assignments')
-            .then(res => res.json())
-            .then(tasks => {
-                updateTaskApi(tasks)
-            })
-    },[])
+    useEffect(() => {
+        fetch('https:localhost:7219/api/students/' + courseCon.accountId )
+                .then(res => res.json())
+                .then(tasks => {
+                    updateTaskApi(tasks.assignmentStudents)
+                })
+    }, [])
+
+     //})()
+
     const toggle = () => setDropdownOpen((prevState) => !prevState);
-    const Handletoggle = () => {
-        setIsOpen(!isOpen);
-    };
-    const showMobilemenu = () => {
-        document.getElementById("sidebarArea").classList.toggle("showSidebar");
-    };
-    console.log(courseCon)
+    //console.log(showTaskApi)
     return (
         <Navbar color="primary" dark expand="md">
-            {/*<div className="d-flex align-items-center ">*/}
-            {/*    <NavbarBrand href="/" className="d-lg-none">*/}
-                   
-            {/*    </NavbarBrand>*/}
-            {/*    <Button*/}
-            {/*        color="primary"*/}
-            {/*        className="d-lg-none"*/}
-            {/*        onClick={() => showMobilemenu()}*/}
-            {/*    >*/}
-            {/*        <i className="bi bi-list"></i>*/}
-            {/*    </Button>*/}
-            {/*</div>*/}
-            {/*<div className="hstack gap-2">*/}
-            {/*    <Button*/}
-            {/*        color="primary"*/}
-            {/*        size="sm"*/}
-            {/*        className="d-sm-block d-md-none"*/}
-            {/*        onClick={Handletoggle}*/}
-            {/*    >*/}
-            {/*        {isOpen ? (*/}
-            {/*            <i className="bi bi-x"></i>*/}
-            {/*        ) : (*/}
-            {/*            <i className="bi bi-three-dots-vertical"></i>*/}
-            {/*        )}*/}
-            {/*    </Button>*/}
-            {/*</div>*/}
-
-            <Collapse navbar isOpen={isOpen}>
+            <Collapse navbar isOpen={open}>
                 <Nav className="me-auto" navbar>
                     <NavItem>
                         <Link to="/" className="nav-link">
@@ -108,12 +76,15 @@ const Header = (props) => {
                 <Nav navbar>
                     <div className="d-flex align-items-center">
                         <UncontrolledDropdown >
-                            <DropdownToggle color="primary" isOpen={isOpen}>
-                                <div className="position-relative d-inline-block"> <FaBell />{''}<Badge className="p-1 position-absolute translate-middle" color="danger" pill>4</Badge> </div>
+                            <DropdownToggle color="primary" isOpen={open}>
+                                <div className="position-relative d-inline-block">
+                                    <FaBell />{''}<Badge className="p-1 position-absolute translate-middle" color="danger" pill>
+                                        4
+                                    </Badge> </div>
                             </DropdownToggle>
                             <DropdownMenu>
                                 {showTaskApi.map((task) => <DropdownItem key={task.id}>
-                                    {task.name}
+                                    {task.taskId}
                                 </DropdownItem>)}
                             </DropdownMenu>
                         </UncontrolledDropdown>
@@ -128,12 +99,13 @@ const Header = (props) => {
                             </DropdownToggle>
                             <DropdownMenu>
                                 <DropdownItem header>Info</DropdownItem>
-                                <DropdownItem>My Account</DropdownItem>
-                                <DropdownItem>Edit Profile</DropdownItem>
+                                <DropdownItem>   <Link to="/profile" className="nav-link" style={{color:'black'} }>
+                                    Profile
+                                </Link></DropdownItem>
                                 <DropdownItem divider />
-                                <DropdownItem>My Balance</DropdownItem>
-                                <DropdownItem>Inbox</DropdownItem>
-                                <DropdownItem>Logout</DropdownItem>
+                                <DropdownItem> <Link to="/" className="nav-link" style={{ color: 'black' }}>
+                                    Logout
+                                </Link></DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </div>

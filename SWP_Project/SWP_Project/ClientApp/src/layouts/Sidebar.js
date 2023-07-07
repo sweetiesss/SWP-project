@@ -18,11 +18,11 @@ const navigation = [
    href: "/report",
     icon: "bi bi-patch-check",
   },
-  //{
-  //  title: "Buttons",
-  //  href: "/buttons",
-  //  icon: "bi bi-hdd-stack",
-  //},
+  {
+    title: "TeamMember",
+    href: "/teammember",
+    icon: "bi bi-hdd-stack",
+  },
   //{
   //  title: "Cards",
   //  href: "/cards",

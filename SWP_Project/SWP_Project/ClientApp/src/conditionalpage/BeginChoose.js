@@ -1,19 +1,23 @@
-﻿import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect,useContext } from 'react';
 
 import axios from 'axios';
 import { ListGroup, ListGroupItem, Badge, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
-export default function SemesterOption(props) {
+//import { AccountContext } from "../App";
+import { AccountContext } from "../beginlayout/BeginPage";
 
-    const [semester, updateSemesters] = useState();
+export default function BeginChoose(props) {
+    const roleAcc = useContext(AccountContext);
+    const [semester, updateSemesters] = useState([]);
     useEffect(() => {
         axios.get('https://localhost:7219/api/semesters').then(res => {
             updateSemesters(res.data);
-           
         })
     }, [])
-  console.log(props)
+
     return (
+        
         <div>
+            {/*roleAcc.role.accountId*/}
             {!semester ? (<UncontrolledDropdown group>
                 <DropdownToggle
                     data-toggle="dropdown"
@@ -45,18 +49,22 @@ export default function SemesterOption(props) {
                             This course only show when our Datat&#39;s Api is not working. <br/><code>.Api:false</code>, though the function will run normally.</div>
                     </DropdownItem>
                 </DropdownMenu>
-            </UncontrolledDropdown>):semester.map((sem) => { return(
+            </UncontrolledDropdown>)
+                :
+                semester.map((sem) => {
+                    return (
+                        <div>
             <UncontrolledDropdown group>
                 <DropdownToggle
                     data-toggle="dropdown"
                     color="primary"
                     tag="span">
                     <ListGroup>
-                        <ListGroupItem className="justify-content-between">
-                                {sem.Name}{' '}
+                                    <ListGroupItem className="justify-content-between" key={sem.id}>
+                                {sem.name}{' '}
                             <Badge pill>
-                                    {sem.Courses.length}
-                            </Badge>
+                                            {sem.courses.length}
+                                        </Badge>
                         </ListGroupItem>
                     </ListGroup>
                 </DropdownToggle>
@@ -64,14 +72,17 @@ export default function SemesterOption(props) {
                         <DropdownItem header>
                             Course
                         </DropdownItem>
-                        {sem.Courses.map((course) => { 
+                        {sem.courses.map((course) => { 
                             return(
-                    <DropdownItem>
-                                    {course.SubjectId} - {course.Name} - {course.LecturerId}
+                                <DropdownItem onClick={() => props.handeClickCourse(course.id)}>
+                                    {course.subjectId} - {course.name} - {course.lecturerId}
                     </DropdownItem>
                             )})}
                 </DropdownMenu>
-                </UncontrolledDropdown>
+                            </UncontrolledDropdown>
+                            <br/>
+                        </div>
+                 
             )})}
         </div>
     )

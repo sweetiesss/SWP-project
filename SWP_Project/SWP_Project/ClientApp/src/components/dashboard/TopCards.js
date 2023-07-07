@@ -8,7 +8,7 @@ const TopCards = (props) => {
           <div className={`circle-box lg-box d-inline-block ${props.bg}`}>
                       <i className="icon">{props.icon}</i>
           </div>
-          <div className="ms-3">
+          <div className="ms-2">
             <h3 className="mb-0 font-weight-bold">{props.number}</h3>
             <small className="text-muted">{props.subtitle}</small>
           </div>

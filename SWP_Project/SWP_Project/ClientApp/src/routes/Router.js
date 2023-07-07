@@ -13,6 +13,9 @@ import Task from "../views/ui/Task";
 import Starter from "../views/Starter";
 import About from "../views/About";
 import Report from "../views/ui/Report";
+import TeamMember from "../views/ui/TeamMember";
+import Profile from "../views/ui/Profile";
+
 //const Task = lazy(() => import("../views/ui/Task"));
 //const SemesterOptions = lazy(() => import("../views/ui/SemesterOption"));
 //const Starter = lazy(() => import("../views/Starter"));
@@ -33,7 +36,9 @@ const ThemeRoutes = [
     { path: "/starter", component: Starter },
     { path: "/task", component: Task },
     { path: "/about", component: About },
-    {path:"/report",component:Report},
+    { path: "/report", component: Report },
+    {path:"/teammember", component:TeamMember},
+    { path: "/profile", component: Profile },
 
   //  ],
   //},

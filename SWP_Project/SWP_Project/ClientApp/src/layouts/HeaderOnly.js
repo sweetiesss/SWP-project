@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Container } from "reactstrap";
 import { useEffect } from "react";
 
-const FullLayout = ({ children }) => {
+const HeaderOnly = ({ children }) => {
     useEffect(() => {
         window.addEventListener('scroll', isSticky);
         return () => {
@@ -15,6 +15,7 @@ const FullLayout = ({ children }) => {
         const scrollTop = window.scrollY;
         scrollTop >= 1 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
     };
+
     return (
         <main>
             <div className="layout-Container">
@@ -35,4 +36,4 @@ const FullLayout = ({ children }) => {
     );
 };
 
-export default FullLayout;
+export default HeaderOnly;

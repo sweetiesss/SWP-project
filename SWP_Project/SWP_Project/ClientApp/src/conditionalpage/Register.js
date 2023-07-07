@@ -51,7 +51,7 @@ const Register = () => {
             <h1>Register</h1>
             <form>
                 <label htmlFor="username">Username:</label>
-                <input type="text" id="username" ref={ }></input>
+                <input type="text" id="username"></input>
             </form>
         </section>
     )

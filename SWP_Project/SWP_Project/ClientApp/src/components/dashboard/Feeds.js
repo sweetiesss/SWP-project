@@ -17,7 +17,7 @@ const Feeds = () => {
     useEffect(() => {
         axios.get('https://localhost:7219/api/Courses').then(res => {
             updateTaskApi(res.data);
-            console.log(res.data);
+           // console.log(res.data);
         })
         //fetch('https://localhost:7219/api/assignments')
         //   .then(res => res.json())
@@ -29,7 +29,7 @@ const Feeds = () => {
         //updateTaskApi(<TaskApi link='https://localhost:7219/api/assignments' />)
        
     }, [])
-  
+
     function formatDate(date) {
         const options = { day: '2-digit', month: 'short', year: 'numeric' };
         const formattedDate = new Date(date).toLocaleDateString('en-US', options);
