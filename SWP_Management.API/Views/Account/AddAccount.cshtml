@@ -1,0 +1,44 @@
+﻿@model Assignment
+@{
+    ViewBag.Title = "Add a Assignment";
+    List<Lecturer> LecturerList = (List<Lecturer>)ViewData["LecturerList"];
+    List<Student> StudentList = (List<Student>)ViewData["StudentList"];
+}
+
+<h2>Add an Account <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="SelectAccount" method="post">
+    <div class="form-group">
+        <label for="Username">Username:</label>
+        <input class="form-control" name="Username" required />
+    </div>
+    <div class="form-group">
+        <label for="Password">Password:</label>
+        <input class="form-control" name="Password" required />
+    </div>
+    <select class="form-select form-select-lg" name="LecturerId" id="LecturerId">
+        <option value="" selected>Lecturer Id</option>
+        @{
+            foreach (Lecturer r in LecturerList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+        }
+    </select>
+    <br />
+    <select class="form-select form-select-lg" name="StudentId" id="StudentId">
+        <option value="" selected>Student Id</option>
+        @{
+            foreach (Student r in StudentList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+    </select>
+    <br />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Add</button>
+    </div>
+</form>
+
+<h3 class="alert">@ViewBag.Result</h3>

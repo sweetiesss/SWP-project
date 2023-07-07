@@ -48,24 +48,3 @@
  @if (ViewBag.Result == "Duplicate"){
      <h2>This student has already been assigned to this task</h2>
  }
-
-
-
-
-
-
-@*    <label for="Status">Status </label>
-    <select class="form-select form-select-lg" name="Status" id="Status" required>
-        <option value="@Model.Status" selected>@Model.Status</option>
-        @if(!Model.Status.Equals("Ongoing")){
-            <option value="Ongoing">Ongoing</option>
-        }
-        @if (!Model.Status.Equals("Closed"))
-        {
-            <option value="Closed">Closed</option>
-        }
-        @if (!Model.Status.Equals("Completed"))
-        {
-            <option value="Completed">Completed</option>
-        }
-    </select>*@
