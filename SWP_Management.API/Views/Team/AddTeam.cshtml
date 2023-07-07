@@ -27,6 +27,20 @@
     </div>
 </form>
 
+@if (ViewData["IdLength"] == "IdLength")
+{
+    <h3>Id can only contain at max 50 characters</h3>
+    <br />
+}
+
+
+@if (ViewData["Invalid"] == "Invalid")
+{
+    <h3>ID must start with "T" and followed by any number</h3>
+    <br />
+}
+
+
 @if (ViewBag.Result == "Duplicate")
 {
     <h3>THIS ID ALREADY EXIST</h3>

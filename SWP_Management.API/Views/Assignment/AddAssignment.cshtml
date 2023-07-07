@@ -30,29 +30,32 @@
     </div>
 </form>
 
-<h3 class="alert">@ViewBag.Result</h3>
-
-@if (Model != null)
+@if (ViewData["DateTime"] == "DateTime")
 {
-    <h2>Assignment</h2>
-    <table class="table table-sm table-striped table-bordered m-2">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Date Start</th>
-                <th>Date End</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Id</td>
-                <td>@Model.Name</td>
-                <td>@Model.Description</td>
-                <td>@Model.DateStart</td>
-                <td>@Model.DateEnd</td>
-            </tr>
-        </tbody>
-    </table>
+    <h3>Date Start must occurs before Date Ends</h3>
+    <br />
 }
+
+@if (ViewData["IdLength"] == "IdLength")
+{
+    <h3>Id can only contain at max 50 characters</h3>
+    <br />
+}
+
+@if (ViewData["NameLength"] == "NameLength")
+{
+    <h3>Name can only contain at max 200 characters</h3>
+    <br />
+}
+
+@if (ViewData["DescriptionLength"] == "DescriptionLength")
+{
+    <h3>Description can only contain at max 200 characters</h3>
+    <br />
+}
+
+@if (ViewData["Id"] == "Invalid")
+{
+    <h3>ID must start with "Task" and followed by any number</h3>
+}
+

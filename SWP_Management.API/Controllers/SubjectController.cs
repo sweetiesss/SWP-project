@@ -29,6 +29,31 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddSubject(string id, string name)
         {
+
+            // Validation
+            bool returnSwitch = false;
+
+            if (!new Validator().validate(id, @"^[a-zA-Z]{3}\d{3}[c]?$"))
+            {
+                ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
+            if (id.Length > 50)
+            {
+                ViewData["IdLength"] = "IdLength";
+                returnSwitch = true;
+            }
+
+            if (name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View();
+
+            // Check for Duplicate
             var existingSubject = _subjectRepository.GetById(id);
             if (existingSubject != null)
             {

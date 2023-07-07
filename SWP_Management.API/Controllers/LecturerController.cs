@@ -26,6 +26,37 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddLecturer(Lecturer Lecturer)
         {
+
+            // Validation
+            bool returnSwitch = false;
+
+            if (!new Validator().validate(Lecturer.Id, @"^LE\d{6}$"))
+            {
+                ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
+            if (Lecturer.Id.Length > 50)
+            {
+                ViewData["IdLength"] = "IdLength";
+                returnSwitch = true;
+            }
+
+            if (Lecturer.Name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (Lecturer.Main.Length > 200)
+            {
+                ViewData["MainLength"] = "MainLength";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View(Lecturer);
+
+            // Check for Duplicate
             var lecturer = _lecturerRepository.GetById(Lecturer.Id);
             if (lecturer != null)
             {

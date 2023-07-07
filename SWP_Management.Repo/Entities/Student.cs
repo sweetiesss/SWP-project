@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SWP_Management.Repo.Entities
 {
     public partial class Student
     {
+        private const string V = @"^SE+\d{6}$";
+
         public Student()
         {
             Accounts = new HashSet<Account>();
@@ -13,6 +16,7 @@ namespace SWP_Management.Repo.Entities
             StudentTeams = new HashSet<StudentTeam>();
         }
 
+        [RegularExpression(V)]
         public string Id { get; set; }
         public string Name { get; set; }
         public string Main { get; set; }

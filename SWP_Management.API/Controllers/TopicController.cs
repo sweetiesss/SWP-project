@@ -38,6 +38,37 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> AddTopic(string id, string LecturerId, string name, string descripton, bool approval)
         {
             AddTopic();
+
+            // Validation
+            bool returnSwitch = false;
+
+            if (id.Length > 50)
+            {
+                ViewData["IdLength"] = "IdLength";
+                returnSwitch = true;
+            }
+
+            if (name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (descripton.Length > 200)
+            {
+                ViewData["DescriptionLength"] = "DescriptionLength";
+                returnSwitch = true;
+            }
+
+            if (!new Validator().validate(id, @"^TP\d*$"))
+            {   
+                ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
+            if(returnSwitch) return View();
+
+            // Checl for Duplicate
             var lecturer = _lecturerRepository.GetById(LecturerId);
             var existingTopic = _topicRepository.GetById(id);
             if (existingTopic != null)

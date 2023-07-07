@@ -38,6 +38,25 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> AddTeam(string id, string CourseId)
         {
             AddTeam();
+
+            // Validation
+            bool returnSwitch = false;
+
+            if (!new Validator().validate(id, @"^[T]\d*$"))
+            {
+                ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
+            if (id.Length > 50)
+            {
+                ViewData["IdLength"] = "IdLength";
+                returnSwitch = true;
+            }
+
+            if(returnSwitch) return View();
+
+            // Check for Duplicate
             var course =_courseRepository.GetById(CourseId);
             var existingTeam = _teamRepository.GetById(id);
             if (existingTeam != null)

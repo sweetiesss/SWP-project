@@ -33,7 +33,6 @@ namespace SWP_Management.API.Controllers
             var SemesterList = _semesterRepository.GetList();
             ViewData["SemesterList"] = SemesterList;
 
-
             var SubjectList = _subjectRepository.GetList();
             ViewData["SubjectList"] = SubjectList;
 
@@ -47,6 +46,36 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> AddCourse(string SemesterId, string SubjectId, string LecturerId,
                                                    string Id, string name, DateTime dateStart, DateTime dateEnd)
         {
+            AddCourse();
+            // Validation
+            bool returnSwitch = false;
+            if (name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (Id.Length > 50)
+            {
+                ViewData["IdLength"] = "IdLength";
+                returnSwitch = true;
+            }
+
+            if (!new Validator().validate(Id, @"^[C]\d*$"))
+            {
+                ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
+            if(dateStart.Date > dateEnd.Date)
+            {
+                ViewData["DateTime"] = "DateTime";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View();
+
+            // Check for Duplicate
             Semester semester = new Semester();
             Subject subject = new Subject();
             Lecturer lecturer = new Lecturer();
@@ -56,7 +85,6 @@ namespace SWP_Management.API.Controllers
             if (existingCourse != null)
             {
                 ViewBag.Result = "Duplicate Course";
-                AddCourse();
                 return View();
             }
          

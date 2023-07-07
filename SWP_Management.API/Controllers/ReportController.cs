@@ -38,6 +38,31 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> AddReport(string TeamId, string id, string Descripton)
         {
             AddReport();
+
+
+            // Validation
+            bool returnSwitch = false;
+
+            if (!new Validator().validate(id, @"^RP\d*$"))
+            {
+                ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
+            if(id.Length > 50)
+            {
+                ViewData["IdLength"] = "IdLength";
+                returnSwitch = true;
+            }
+
+            if (Descripton.Length > 200)
+            {
+                ViewData["DescriptionLength"] = "DescriptionLength";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View();
+            // Check for Duplicate
             var team = _teamRepository.GetById(TeamId);
             var existingReport = _reportRepository.GetById(id);
             if (existingReport != null)
