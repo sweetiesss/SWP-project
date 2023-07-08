@@ -67,8 +67,8 @@ const App = () => {
            {/*    )}*/}
            {/*    </AccountContext.Provider>*/}
            {/*</CookiesProvider>*/}
-           <BeginPage />
-               {/*<TaskApi/>*/}
+        {/*<BeginPage />*/}
+               <TaskApi/>
         </div>
     )
 }

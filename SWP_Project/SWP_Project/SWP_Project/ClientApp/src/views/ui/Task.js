@@ -28,16 +28,40 @@ const Task = () => {
     },[showTaskApi]);
 
 
-    const [taskId, updateTaskId] = useState('');
-    const [taskName, updateTaskName] = useState('');
-    const [taskDescription, updateTaskDescription] = useState('');
-    const [taskDateStart, updateTaskDateStart] = useState(Date);
-    const [taskDateEnd, updateTaskDateEnd] = useState(Date);
-    
+    const handleSubmit = (e) => {
+        const data = new FormData(e.target)
+        e.preventDefault()
+        console.log(Object.fromEntries(data.entries()))
+        postData('https://localhost:7219/api/assignments', Object.fromEntries(data.entries()))
+    }
+   
+    async function postData(url = "", data = {}) {
+        try { 
+        const response = await fetch(url, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        const result = await response.json();
+        console.log("Success:", result);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+    }
+    console.log(showTaskApi)
 
+    async function deleteData(url = "", data = {}) {
+        try {
+            const response = await fetch(url + data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+    }
   return (
       <div>
-          <form>
+          <form onSubmit={handleSubmit}>
               <Table bordered>
               <thead>
                   <tr>
@@ -71,24 +95,24 @@ const Task = () => {
                               {num++}
                           </th>
                           <td>
-                              <input type="text" style={{ width: 90, height: 30 }} />
+                              <input type="text" style={{ width: 90, height: 30 }} name='id'/>
                           </td>
                           <td>
-                              <input type="text" style={{ width: 90, height: 30 }} />
+                              <input type="text" style={{ width: 90, height: 30 }} name='name' />
                           </td>
                           <td>
-                              <input type="text" style={{ width: 80, height: 30 }} />
+                              <input type="text" style={{ width: 80, height: 30 }} name='description' />
                           </td>                          <td>
-                              <input type="date" style={{ width: 170, height: 30 }} />
+                              <input type="datetime-local" style={{ width: 170, height: 30 }} name='dateStart' />
                           </td>                          <td>
-                              <input type="date" style={{ width: 170, height: 30 }} />
+                              <input type="datetime-local" style={{ width: 170, height: 30 }} name='dateEnd' />
                           </td>
                           <td>
                               <input type="input" disabled style={{ width: 65, height: 30 }} />
                           </td>
                           <td>
                               <button
-                                  style={{ width: 108 }}>
+                                  style={{ width: 108 }} >
                                   Create Task
                               </button></td>
                       </tr>
