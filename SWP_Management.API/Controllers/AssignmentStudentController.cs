@@ -48,20 +48,24 @@ namespace SWP_Frontend_Admin.Controllers
            
             return View();
         }
-
-        public ViewResult SelectAssignmentStudent() => View();
-
-
         // Add
         [HttpPost]
-        public async Task<IActionResult> SelectAssignmentStudent(String taskId, String studentId, String Status)
+        public async Task<IActionResult> AddAssignmentStudent(string taskId, string studentId, string Status)
         {
             Student student = new Student();
             AssignmentStudent assignmentStudent = new AssignmentStudent();
             Assignment assignment = new Assignment();
-
+            AddAssignmentStudent();
             assignment = _assignmentRepository.GetById(taskId);
             student = _studentRepository.GetById(studentId);
+
+            var existing = _assignmentStudentRepository.GetList().Where(p => p.TaskId.Equals(taskId)
+                                                                          && p.StudentId.Equals(studentId)).FirstOrDefault();
+            if(existing != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
             // Insert data to an entity for add
             assignmentStudent.Task = assignment;
             assignmentStudent.Student = student;
@@ -100,12 +104,7 @@ namespace SWP_Frontend_Admin.Controllers
             var student = _studentRepository.GetById(studentId);
             var task = _assignmentRepository.GetById(taskId);
             //If duplicate exists, these list are neccessary so UpdateStudentAssignment page won't return null in AssignmentList/StudentList Viewdata
-            var assignmentList = _assignmentRepository.GetList();
-            ViewData["AssignList"] = assignmentList;
-
-
-            var studentList = _studentRepository.GetList();
-            ViewData["StudentList"] = studentList;
+            UpdateStudentAssignment(id);
 
             AssignmentStudent assignmentStudent = new AssignmentStudent();
             assignmentStudent = _assignmentStudentRepository.GetById(id);

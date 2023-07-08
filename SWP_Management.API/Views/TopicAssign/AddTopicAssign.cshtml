@@ -44,8 +44,8 @@
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
-@if(ViewBag.Result == "Duplicate")
+
+@if (ViewBag.Result == "Duplicate")
 {
-    <br/>
-    <h3>This already assigned.</h3>
+    <h3 style="color:red" class="text-center">This topic has already been assigned.</h3>
 }

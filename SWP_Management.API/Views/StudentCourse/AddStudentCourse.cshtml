@@ -6,7 +6,7 @@
 }
 
 <h2>Add a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
-<form asp-action="SelectStudentCourse" method="post">
+<form asp-action="AddStudentCourse" method="post">
     <select class="form-select form-select-lg" name="CourseId" id="CourseId" required>
         <option selected>Course Id</option>
         @{
@@ -32,4 +32,9 @@
     </div>
 </form>
 
-<h3 class="alert">@ViewBag.Result</h3>
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3 class="text-center" style="color:red">This student has already been assigned to a course</h3>
+    <br />
+}
+

@@ -1,12 +1,22 @@
 ﻿@model Project
 @{
-    ViewBag.Title = "Asign an topic to a team";
+    ViewBag.Title = "Assign a topic to a team";
     List<Team> TeamList = (List<Team>)ViewData["TeamList"];
     List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
 }
 
 <h2>Assign a topic to a team <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
 <form asp-action="AddProject" method="post">
+    <select class="form-select form-select-lg" name="teamId" id="teamId" required>
+        <option value="" selected>Team Id</option>
+        @{
+            foreach (Team r in TeamList)
+            {
+                <option value="@r.Id"> @r.Id</option>
+            }
+        }
+    </select>
+    <br />
     <select class="form-select form-select-lg" name="topicId" id="topicId" required>
         <option value="" selected>Topic Id</option>
         @{
@@ -18,18 +28,12 @@
         }
     </select>
     <br />
-    <select class="form-select form-select-lg" name="teamId" id="teamId" required>
-        <option value="" selected>Team Id</option>
-        @{
-            foreach (Team r in TeamList)
-            {
-                <option value="@r.Id"> @r.Id</option>
-            }
-        }
-    </select>
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
 
-<h3 class="alert">@ViewBag.Result</h3>
+@if(ViewBag.Result == "Duplicate")
+{
+    <h3 style="color:red" class="text-center">This team already has a topic assigned.</h3>
+}

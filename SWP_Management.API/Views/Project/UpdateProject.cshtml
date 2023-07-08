@@ -6,6 +6,19 @@
 }
 <h2>Update a Project <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
 <form asp-action="UpdateProject" method="post">
+    <select class="form-select form-select-lg" name="teamId" id="teamId" required>
+        @{
+            <option value="@Model.TeamId" selected>@Model.TeamId</option>
+            foreach (Team r in TeamList)
+            {
+                if (r.Id != Model.TeamId)
+                {
+                    <option value="@r.Id"> @r.Id</option>
+                }
+            }
+        }
+    </select>
+    <br />
     <select class="form-select form-select-lg" name="topicId" id="topicId" required>
         @{
             <option value="@Model.TopicId" selected>@Model.TopicId</option>
@@ -20,22 +33,13 @@
 
     </select>
     <br />
-    <select class="form-select form-select-lg" name="teamId" id="teamId" required>
-        @{
-            <option value="@Model.TeamId" selected>@Model.TeamId</option>
-            foreach (Team r in TeamList)
-            {
-                if (r.Id != Model.TeamId)
-                {
-                    <option value="@r.Id"> @r.Id</option>
-                }
-            }
-        }
-    </select>
     <input type="hidden" value="@Model.Id" name="id" />
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Update</button>
     </div>
 </form>
 
-<h3 class="alert">@ViewBag.Result</h3>
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3 style="color:red" class="text-center">This team already has a topic assigned.</h3>
+}

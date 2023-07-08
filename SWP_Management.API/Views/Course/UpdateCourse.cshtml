@@ -18,7 +18,7 @@
     </div>
     @if (ViewData["NameLength"] == "NameLength")
     {
-        <h3>Name can only contain at max 200 characters</h3>
+        <div style="color:red">Name can only contain at max 200 characters</div>
         <br />
     }
     <div class="form-group">
@@ -32,7 +32,7 @@
     <br />
     @if (ViewData["DateTime"] == "DateTime")
     {
-        <h3>Date Start must occurs before Date Ends</h3>
+        <div style="color:red">Date Start must occurs before Date Ends</div>
         <br />
     }
     <select class="form-select form-select-lg" name="SemesterId" id="SemesterId" required>

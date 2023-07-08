@@ -58,3 +58,18 @@ D:\SWP Project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.dl
 D:\SWP Project\SWP_Management.Service\obj\Debug\net6.0\refint\SWP_Management.Service.dll
 D:\SWP Project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.pdb
 D:\SWP Project\SWP_Management.Service\obj\Debug\net6.0\ref\SWP_Management.Service.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.deps.json
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Service.pdb
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Repo.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\bin\Debug\net6.0\SWP_Management.Repo.pdb
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.AssemblyReference.cache
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.AssemblyInfoInputs.cache
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.AssemblyInfo.cs
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.CoreCompileInputs.cache
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.csproj.CopyComplete
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\refint\SWP_Management.Service.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\SWP_Management.Service.pdb
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Service\obj\Debug\net6.0\ref\SWP_Management.Service.dll

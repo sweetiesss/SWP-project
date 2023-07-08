@@ -3,7 +3,7 @@
     ViewBag.Title = "Update an Assignment";
 }
 
-<h2>Update a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<h2>Update an Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
 <form method="post">
     <div class="form-group">
         <label asp-for="@Model.Id">Id:</label>
@@ -15,7 +15,7 @@
     </div>
     @if (ViewData["NameLength"] == "NameLength")
     {
-        <h3>Name can only contain at max 200 characters</h3>
+        <div style="color:red">Name can only contain at max 200 characters</div>
         <br />
     }
     <div class="form-group">
@@ -25,7 +25,7 @@
 
     @if (ViewData["DescriptionLength"] == "DescriptionLength")
     {
-        <h3>Description can only contain at max 200 characters</h3>
+        <div style="color:red">Description can only contain at max 200 characters</div>
         <br />
     }
     <div class="form-group">
@@ -38,35 +38,10 @@
     </div>
     @if (ViewData["DateTime"] == "DateTime")
     {
-        <h3>Date Start must occurs before Date Ends</h3>
+        <div style="color:red">Date Start must occurs before Date Ends</div>
         <br />
     }
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Update</button>
     </div>
 </form>
-
-@if (ViewBag.Result == "Success")
-{
-    <h2>Assignment</h2>
-    <table class="table table-sm table-striped table-bordered m-2">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Descripton</th>
-                <th>Date Start</th>
-                <th>Date End</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Id</td>
-                <td>@Model.Name</td>
-                <td>@Model.Description</td>
-                <td>@Model.DateStart</td>
-                <td>@Model.DateEnd</td>
-            </tr>
-        </tbody>
-    </table>
-}

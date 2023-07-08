@@ -45,8 +45,7 @@ namespace SWP_Management.API.Controllers
             AddProject();
             var team = _teamRepository.GetById(teamId);
             var topic =_topicRepository.GetById(topicId);
-            var existingProject = _projectRepository.GetList().Where(p => p.TopicId.Equals(topicId)
-                                                                       && p.TeamId.Equals(teamId)).FirstOrDefault();
+            var existingProject = _projectRepository.GetList().Where(p => p.TeamId.Equals(teamId)).FirstOrDefault();
             if (existingProject != null)
             {
                 ViewBag.Result = "Duplicate";
@@ -84,11 +83,10 @@ namespace SWP_Management.API.Controllers
             var project = _projectRepository.GetById(id);
             if (project != null) 
             {
-                var existingProject = _projectRepository.GetList().Where(p => p.TopicId.Equals(topicId)
-                                                                       && p.TeamId.Equals(teamId)).FirstOrDefault();
+                var existingProject = _projectRepository.GetList().Where(p => p.TeamId.Equals(teamId)).FirstOrDefault();
                 if (existingProject != null)
                 {
-                    if (project.Id != existingProject.Id)
+                    if (existingProject.Id != id)
                     {
                         ViewBag.Result = "Duplicate";
                         return View(project);

@@ -31,7 +31,7 @@
     </div>
     @if (ViewData["NameLength"] == "NameLength")
     {
-        <h3>Name can only contain at max 200 characters</h3>
+        <div style="color:red">Name can only contain at max 200 characters</div>
         <br />
     }
     <div class="form-group">
@@ -40,11 +40,11 @@
     </div>
     @if (ViewData["DescriptionLength"] == "DescriptionLength")
     {
-        <h3>Description can only contain at max 200 characters</h3>
+        <div style="color:red">Description can only contain at max 200 characters</div>
         <br />
     }
     <label asp-for="@Model.Approval">Approval? </label>
-    <select asp-for="@Model.Approval" id="Approval">
+    <select class="form-select-sm" asp-for="@Model.Approval" id="Approval">
         <option value=true>Yes</option>
         <option value=false>No</option>
     </select>

@@ -74,6 +74,7 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateSemester(string id, string name)
         {
+            var semester = _semesterRepository.GetById(id);
             //Validation
             bool returnSwitch = false;
             if (name.Length > 200)
@@ -81,9 +82,8 @@ namespace SWP_Management.API.Controllers
                 ViewData["NameLength"] = "NameLength";
                 returnSwitch = true;
             }
-            if (returnSwitch) return View();
+            if (returnSwitch) return View(semester);
 
-            var semester = _semesterRepository.GetById(id);
             semester.Name = name;
             _semesterRepository.Update(semester);
             return RedirectToAction("Index");

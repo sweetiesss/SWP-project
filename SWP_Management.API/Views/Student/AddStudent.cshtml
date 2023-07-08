@@ -11,28 +11,24 @@
     </div>
     @if (ViewData["Invalid"] == "Invalid")
     {
-        <h3>Id must start with "SE" followed with 6 numbers</h3>
+        <div style="color:red">Id must start with "SE" followed with 6 numbers</div>
         <br />
     }
 
     @if (ViewData["IdLength"] == "IdLength")
     {
-        <h3>Id can only contain at max 50 characters</h3>
+        <div style="color:red">Id can only contain at max 50 characters</div>
         <br />
     }
 
-    @if (ViewBag.Result == "Duplicate")
-    {
-        <h3>THIS ID ALREADY EXIST</h3>
-        <br />
-    }
+
     <div class="form-group">
         <label for="Name">Name:</label>
         <input class="form-control" name="Name" required />
     </div>
     @if (ViewData["NameLength"] == "NameLength")
     {
-        <h3>Name can only contain at max 200 characters</h3>
+        <div style="color:red">Name can only contain at max 200 characters</div>
         <br />
     }
 
@@ -42,11 +38,11 @@
     </div>
     @if (ViewData["MainLength"] == "MainLength")
     {
-        <h3>Main must contain at max 200 characters</h3>
+        <div style="color:red">Main must contain at max 200 characters</div>
         <br />
     }
     <label for="Leader">Is Leader? </label>
-    <select name="Leader" id="Leader">
+    <select class="form-control-sm" name="Leader" id="Leader">
         <option value=true>Yes</option>
         <option value=false>No</option>
     </select>
@@ -55,3 +51,9 @@
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3 class="text-center" style="color:red">THIS ID ALREADY EXIST</h3>
+    <br />
+}

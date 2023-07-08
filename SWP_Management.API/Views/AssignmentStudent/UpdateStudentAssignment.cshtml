@@ -34,7 +34,7 @@
     </select>
     <br />
     <label asp-for="@Model.Status">Status </label>
-    <select asp-for="@Model.Status" id="Status">
+    <select class="form-select-sm" asp-for="@Model.Status" id="Status">
         <option value=Ongoing>Ongoing</option>
         <option value="Closed">Closed</option>
         <option value="Completed">Completed</option>
@@ -46,5 +46,5 @@
 </form>
 
  @if (ViewBag.Result == "Duplicate"){
-     <h2>This student has already been assigned to this task</h2>
+     <h3 style="color:red" class="text-center">This student has already been assigned to this task</h3>
  }

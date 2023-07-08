@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj": {}
+    "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj": {}
   },
   "projects": {
-    "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj": {
+    "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj",
+        "projectUniqueName": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj",
         "projectName": "SWP_Management.API",
-        "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj",
-        "packagesPath": "C:\\Users\\baolh\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.API\\obj\\",
+        "projectPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.API\\SWP_Management.API.csproj",
+        "packagesPath": "C:\\Users\\Nhat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\baolh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nhat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +22,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
-                "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
+              "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
+                "projectPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
               },
-              "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj": {
-                "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj"
+              "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj": {
+                "projectPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj"
               }
             }
           }
@@ -101,21 +102,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
+    "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
+        "projectUniqueName": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
         "projectName": "SWP_Management.Repo",
-        "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
-        "packagesPath": "C:\\Users\\baolh\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\obj\\",
+        "projectPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
+        "packagesPath": "C:\\Users\\Nhat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\baolh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nhat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -184,21 +185,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj": {
+    "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj",
         "projectName": "SWP_Management.Service",
-        "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj",
-        "packagesPath": "C:\\Users\\baolh\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Service\\obj\\",
+        "projectPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Service\\SWP_Management.Service.csproj",
+        "packagesPath": "C:\\Users\\Nhat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\baolh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nhat\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -212,8 +213,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
-                "projectPath": "D:\\Github\\repo\\SWP_Project\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
+              "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
+                "projectPath": "C:\\Users\\Nhat\\Desktop\\SWP\\SWP-project\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
               }
             }
           }
@@ -243,7 +244,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

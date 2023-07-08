@@ -39,19 +39,23 @@ namespace SWP_Management.API.Controllers
             return View();
         }
 
-
-        public ViewResult SelectStudentCourse() => View();
-
         // Add
         [HttpPost]
-        public async Task<IActionResult> SelectStudentCourse(String CourseId, String studentId)
+        public async Task<IActionResult> AddStudentCourse(String CourseId, String studentId)
         {
+            AddStudentCourse();
             Student student = new Student();
             StudentCourse studentCourse = new StudentCourse();
             Course course = new Course();
 
             course = _courseRepository.GetById(CourseId);
             student = _studentRepository.GetById(studentId);
+            var existing = _studentCourseRepository.GetList().Where(p => p.StudentId.Equals(studentId)).FirstOrDefault();
+            if (existing != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
 
             // Insert data to an entity for add
             studentCourse.Course = course;
@@ -88,17 +92,12 @@ namespace SWP_Management.API.Controllers
             var student = _studentRepository.GetById(studentId);
             var course = _courseRepository.GetById(courseId);
             //If duplicate exists, these list are neccessary so UpdateStudentCourse page won't return null in CourseList/StudentList Viewdata
-            var courseList = _courseRepository.GetList();
-            ViewData["CourseList"] = courseList;
-
-            var studentList = _studentRepository.GetList();
-            ViewData["StudentList"] = studentList;
+            UpdateStudentCourse(id);
 
             var studentCourse = _studentCourseRepository.GetById(id);
             if (studentCourse != null)
             {
-                var existing = _studentCourseRepository.GetList().Where(p => p.CourseId.Equals(courseId)
-                                                                             && p.StudentId.Equals(studentId)).FirstOrDefault();
+                var existing = _studentCourseRepository.GetList().Where(p => p.StudentId.Equals(studentId)).FirstOrDefault();
                 if (existing != null && existing.Id != studentCourse.Id)
                 {
                     ViewBag.Result = "Duplicate";

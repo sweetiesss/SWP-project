@@ -13,23 +13,19 @@
     <br />
     @if (ViewData["IdLength"] == "IdLength")
     {
-        <h3>ID can only contain at max 50 characters</h3>
+        <div style="color:red">ID can only contain at max 50 characters</div>
         <br />
     }
 
 
     @if (ViewData["Invalid"] == "Invalid")
     {
-        <h3>ID must start with "T" and followed by any number</h3>
+        <div style="color:red">ID must start with "T" and followed by any number</div>
         <br />
     }
 
 
-    @if (ViewBag.Result == "Duplicate")
-    {
-        <h3>THIS ID ALREADY EXIST</h3>
-        <br />
-    }
+
     <select class="form-select form-select-lg" name="CourseId" id="CourseId" required>
         <option value="" selected>Course Id</option>
         @{
@@ -45,3 +41,9 @@
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3 class="text-center" style="color:red">THIS ID ALREADY EXIST</h3>
+    <br />
+}

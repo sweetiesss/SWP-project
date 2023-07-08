@@ -49,12 +49,13 @@
 
 @if (ViewBag.Result == "Duplicate Student")
 {
-    <h2>This student Id has already been assigned to an account</h2>
-}@if (ViewBag.Result == "Duplicate Lecturer")
+        <h3 style="color:red" class="text-center">This student Id has already been assigned to an account</h3>
+}
+@if (ViewBag.Result == "Duplicate Lecturer")
 {
-    <h2>This lecturer Id has already been assigned to an account</h2>
+        <h3 style="color:red" class="text-center">This lecturer Id has already been assigned to an account</h3>
 }
 @if (ViewBag.Result == "Duplicate Username")
 {
-    <h2>This username already exists</h2>
+        <h3 style="color:red" class="text-center">This username already exists</h3>
 }

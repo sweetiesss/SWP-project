@@ -147,7 +147,7 @@ namespace SWP_Management.API.Controllers
                 ViewData["DateTime"] = "DateTime";
                 returnSwitch = true;
             }
-            if (returnSwitch) return View();
+            if (returnSwitch) return View(_courseRepository.GetById(Id));
 
             Semester semester = new Semester();
             Subject subject = new Subject();

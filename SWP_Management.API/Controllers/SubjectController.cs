@@ -85,7 +85,7 @@ namespace SWP_Management.API.Controllers
                 ViewData["NameLength"] = "NameLength";
                 returnSwitch = true;
             }
-            if (returnSwitch) return View();
+            if (returnSwitch) return View(Subject);
 
 
 

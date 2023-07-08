@@ -1,12 +1,12 @@
 ﻿@model Account
 @{
-    ViewBag.Title = "Asign an assignment to a student";
+    ViewBag.Title = "Assign an assignment to a student";
     List<Assignment> AssignmentList = (List<Assignment>)ViewData["AssignList"];
     List<Student> StudentList = (List<Student>)ViewData["StudentList"];
 }
 
-<h2>Add a Assignment <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
-<form asp-action="SelectAssignmentStudent" method="post">
+<h2>Assign an assignment to a student <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<form asp-action="AddAssignmentStudent" method="post">
     <select class="form-select form-select-lg" name="TaskId" id="TaskId" required>
         <option value ="" selected>Task Id</option>
         @{
@@ -29,7 +29,7 @@
      </select>
      <br />
     <label for="Status">Status </label>
-    <select name="Status" id="Status" required>
+    <select class="form-select-sm" name="Status" id="Status" required>
         <option value="Ongoing">Ongoing</option>
         <option value="Closed">Closed</option>
         <option value="Completed">Completed</option>
@@ -39,4 +39,7 @@
     </div>
 </form>
 
-<h3 class="alert">@ViewBag.Result</h3>
+@if (ViewBag.Result == "Duplicate")
+{
+    <h3 style="color:red" class="text-center">This task has already been assigned to this student.</h3>
+}

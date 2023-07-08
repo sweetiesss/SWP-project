@@ -3,7 +3,7 @@
     ViewBag.Title = "Add a Semester";
 }
 
-<h2>Add a Student <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
+<h2>Add a Semester <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
 <form asp-action="AddSemester" method="post">
     <div class="form-group">
         <label for="Id">Id:</label>
@@ -12,22 +12,17 @@
 
     @if (ViewData["IdLength"] == "IdLength")
     {
-        <h3>ID can only contain at max 50 characters</h3>
+        <div style="color:red">ID can only contain at max 50 characters</div>
         <br />
     }
 
 
     @if (ViewData["Invalid"] == "Invalid")
     {
-        <h3>ID must start with "Semester" and followed by a number ranging from 1 to 9</h3>
+        <div style="color:red">ID must start with "Semester" and followed by a number ranging from 1 to 9</div>
+        <br/>
     }
 
-
-    @if (ViewBag.Result == "Duplicate")
-    {
-        <h3>THIS ID ALREADY EXIST</h3>
-        <br />
-    }
 
     <div class="form-group">
         <label for="Name">Name:</label>
@@ -37,10 +32,17 @@
 
     @if (ViewData["NameLength"] == "NameLength")
     {
-        <h3>Name can only contain at max 200 characters</h3>
+        <div style="color:red">Name can only contain at max 200 characters</div>
         <br />
     }
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
+
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <div class="text-center" style="color:red">THIS ID ALREADY EXIST</div>
+    <br />
+}

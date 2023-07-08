@@ -87,8 +87,7 @@ namespace SWP_Management.API.Controllers
             var student = _studentRepository.GetById(StudentId);
             var team = _teamRepository.GetById(TeamId);
             var studentTeam = _studentTeamRepository.GetById(id);
-            //var existingStudentTeam = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(TeamId)
-            //                                                                   && p.StudentId.Equals(StudentId)).FirstOrDefault();
+
             var existingStudent = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(StudentId)).FirstOrDefault();
             if (existingStudent != null)
             {

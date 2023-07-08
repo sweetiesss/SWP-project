@@ -72,6 +72,12 @@ namespace SWP_Frontend_Admin.Controllers
             if (returnSwitch) return View(Assignment);
 
             // add
+            var existing = _assignmentRepository.GetById(Assignment.Id);
+            if(existing != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
             _assignmentRepository.Add(Assignment);
             return RedirectToAction("Index");
         }
@@ -112,7 +118,6 @@ namespace SWP_Frontend_Admin.Controllers
 
             // update
             _assignmentRepository.Update(Assignment);
-            ViewBag.Result = "Success";
 			return RedirectToAction("Index");
         }
 

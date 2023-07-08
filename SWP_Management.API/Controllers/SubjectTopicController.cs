@@ -86,7 +86,7 @@ namespace SWP_Management.API.Controllers
 
             var subjectTopic = _subjectTopicRepository.GetById(id);
             var existing = _subjectTopicRepository.GetList().Where(p => p.SubjectId.Equals(SubjectId)
-                                                             && p.TopicId.Equals(TopicId)).FirstOrDefault();
+                                                                     && p.TopicId.Equals(TopicId)).FirstOrDefault();
             if(existing != null && existing.Id != subjectTopic.Id) 
                 {
                 ViewBag.Result = "Duplicate";

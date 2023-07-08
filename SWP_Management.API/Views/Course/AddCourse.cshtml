@@ -1,10 +1,9 @@
 ﻿@model Course
 @{
-    ViewBag.Title = "Add a Student";
+    ViewBag.Title = "Add a Course";
     List<Semester> semesterList = (List<Semester>)ViewData["SemesterList"];
     List<Subject> subjectList = (List<Subject>)ViewData["SubjectList"];
     List<Lecturer> lecturerList = (List<Lecturer>)ViewData["LecturerList"];
-    DateTime dateEnd = new DateTime();
 }
 
 <h2>Add a Course <a asp-action="Index" class="btn btn-sm btn-secondary">Back</a></h2>
@@ -16,24 +15,18 @@
 
     @if (ViewData["IdLength"] == "IdLength")
     {
-        <h3>Id can only contain at max 50 characters</h3>
+        <div style="color:red">Id can only contain at max 50 characters</div>
         <br />
     }
 
 
     @if (ViewData["Invalid"] == "Invalid")
     {
-        <h3>ID must start with "C" and followed by any number</h3>
+        <div style="color:red">ID must start with "C" and followed by any number</div>
         <br />
     }
 
 
-
-    @if (ViewBag.Result == "Duplicate Course")
-    {
-        <h3>Course Id already exist</h3>
-        <br />
-    }
     <div class="form-group">
         <label for="Name">Name:</label>
         <input class="form-control" name="Name" required />
@@ -41,7 +34,7 @@
 
     @if (ViewData["NameLength"] == "NameLength")
     {
-        <h3>Name can only contain at max 200 characters</h3>
+        <div style="color:red">Name can only contain at max 200 characters</div>
         <br />
     }
 
@@ -56,7 +49,7 @@
 
     @if (ViewData["DateTime"] == "DateTime")
     {
-        <h3>Date Start must occurs before Date Ends</h3>
+        <div style="color:red">Date Start must occurs before Date Ends</div>
         <br />
     }
     <br />
@@ -99,3 +92,8 @@
 
 
 
+@if (ViewBag.Result == "Duplicate Course")
+{
+    <div style="color:red">This Course already exist</div>
+    <br />
+}

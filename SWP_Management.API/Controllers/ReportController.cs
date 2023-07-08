@@ -104,7 +104,7 @@ namespace SWP_Management.API.Controllers
                 ViewData["DescriptionLength"] = "DescriptionLength";
                 returnSwitch = true;
             }
-            if (returnSwitch) return View();
+            if (returnSwitch) return View(_reportRepository.GetById(id));
 
             var team = _teamRepository.GetById(TeamId);
             var report = _reportRepository.GetById(id);
