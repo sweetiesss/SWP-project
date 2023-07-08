@@ -49,12 +49,6 @@ namespace SWP_Management.API.Controllers
             AddCourse();
             // Validation
             bool returnSwitch = false;
-            if (name.Length > 200)
-            {
-                ViewData["NameLength"] = "NameLength";
-                returnSwitch = true;
-            }
-
             if (Id.Length > 50)
             {
                 ViewData["IdLength"] = "IdLength";
@@ -64,6 +58,12 @@ namespace SWP_Management.API.Controllers
             if (!new Validator().validate(Id, @"^[C]\d*$"))
             {
                 ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
+            if (name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
                 returnSwitch = true;
             }
 
@@ -132,6 +132,22 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> UpdateCourse(string SemesterId, string SubjectId, string LecturerId,
                                                    string Id, string name, DateTime dateStart, DateTime dateEnd)
         {
+            UpdateCourse(Id);
+            //Validation
+            bool returnSwitch = false;
+
+            if (name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (dateStart.Date > dateEnd.Date)
+            {
+                ViewData["DateTime"] = "DateTime";
+                returnSwitch = true;
+            }
+            if (returnSwitch) return View();
 
             Semester semester = new Semester();
             Subject subject = new Subject();

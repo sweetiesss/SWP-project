@@ -16,6 +16,11 @@
         <label asp-for="@Model.Name">Name:</label>
         <input class="form-control" asp-for="@Model.Name" required />
     </div>
+    @if (ViewData["NameLength"] == "NameLength")
+    {
+        <h3>Name can only contain at max 200 characters</h3>
+        <br />
+    }
     <div class="form-group">
         <label asp-for="@Model.DateStart">DateStart:</label>
         <input class="form-control" asp-for="@Model.DateEnd" required />
@@ -25,6 +30,11 @@
         <input class="form-control" asp-for="@Model.DateEnd" required />
     </div>
     <br />
+    @if (ViewData["DateTime"] == "DateTime")
+    {
+        <h3>Date Start must occurs before Date Ends</h3>
+        <br />
+    }
     <select class="form-select form-select-lg" name="SemesterId" id="SemesterId" required>
         <option selected value="@Model.SemesterId">@Model.SemesterId</option>
         @{

@@ -10,11 +10,35 @@
         <label for="Id">Id:</label>
         <input class="form-control" name="Id" required />
     </div>
+    @if (ViewData["Invalid"] == "Invalid")
+    {
+        <h3>ID must start with "RP" and followed by any number</h3>
+        <br />
+    }
+
+    @if (ViewData["IdLength"] == "IdLength")
+    {
+        <h3>Name can only contain at max 50 characters</h3>
+        <br />
+    }
+
+
+    @if (ViewBag.Result == "Duplicate")
+    {
+        <h3>THIS ID ALREADY EXIST</h3>
+        <br />
+    }
+
     <div class="form-group">
         <label for="Descripton">Descripton:</label>
         <input class="form-control" name="Descripton" required />
     </div>
     <br />
+    @if (ViewData["DescriptionLength"] == "DescriptionLength")
+    {
+        <h3>Description can only contain at max 200 characters</h3>
+        <br />
+    }
     <select class="form-select form-select-lg" name="TeamId" id="TeamId" required>
         <option value = "" selected>Team Id</option>
         @{
@@ -29,28 +53,3 @@
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
-
-
-@if (ViewData["Invalid"] == "Invalid")
-{
-    <h3>ID must start with "RP" and followed by any number</h3>
-    <br />
-}
-
-@if (ViewData["IdLength"] == "IdLength")
-{
-    <h3>Name can only contain at max 50 characters</h3>
-    <br />
-}
-
-@if (ViewData["DescriptionLength"] == "DescriptionLength")
-{
-    <h3>Description can only contain at max 200 characters</h3>
-    <br />
-}
-
-
-@if (ViewBag.Result == "Duplicate")
-{
-    <h3>THIS ID ALREADY EXIST</h3>
-}

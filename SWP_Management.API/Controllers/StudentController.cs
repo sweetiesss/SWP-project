@@ -83,6 +83,22 @@ namespace SWP_Frontend_Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateStudent(string id, Student Student)
         {
+            //Validation
+            bool returnSwitch = false;
+            if (Student.Name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (Student.Main.Length > 200)
+            {
+                ViewData["MainLength"] = "MainLength";
+                returnSwitch = true;
+            }
+            if (returnSwitch) return View(Student);
+
+            // update
             _studentRepository.Update(Student);
             ViewBag.Result = "Success";
             return RedirectToAction("Index");

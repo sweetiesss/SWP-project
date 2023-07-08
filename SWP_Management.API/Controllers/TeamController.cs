@@ -86,6 +86,7 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> UpdateTeam(string id, string CourseId)
         {
             UpdateTeam(id);
+
             var course = _courseRepository.GetById(CourseId);
             var team = _teamRepository.GetById(id);
             //if (team != null)

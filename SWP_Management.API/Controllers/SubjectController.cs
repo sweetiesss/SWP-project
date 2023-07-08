@@ -77,6 +77,18 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateSubject(Subject Subject)
         {
+
+            //Validation
+            bool returnSwitch = false;
+            if (Subject.Name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+            if (returnSwitch) return View();
+
+
+
             var subject = _subjectRepository.GetById(Subject.Id);
             
             subject.Name = Subject.Name;

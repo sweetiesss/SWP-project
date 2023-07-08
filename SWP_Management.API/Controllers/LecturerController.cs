@@ -79,6 +79,20 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateLecturer(string id, Lecturer Lecturer)
         {
+            //Validation
+            bool returnSwitch = false;
+            if (Lecturer.Name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (Lecturer.Main.Length > 200)
+            {
+                ViewData["MainLength"] = "MainLength";
+                returnSwitch = true;
+            }
+            if (returnSwitch) return View(Lecturer);
             _lecturerRepository.Update(Lecturer);
             ViewBag.Result = "Success";
             return RedirectToAction("Index");

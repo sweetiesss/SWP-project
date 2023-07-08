@@ -48,6 +48,12 @@ namespace SWP_Management.API.Controllers
                 returnSwitch = true;
             }
 
+            if (!new Validator().validate(id, @"^TP\d*$"))
+            {
+                ViewData["Invalid"] = "Invalid";
+                returnSwitch = true;
+            }
+
             if (name.Length > 200)
             {
                 ViewData["NameLength"] = "NameLength";
@@ -57,12 +63,6 @@ namespace SWP_Management.API.Controllers
             if (descripton.Length > 200)
             {
                 ViewData["DescriptionLength"] = "DescriptionLength";
-                returnSwitch = true;
-            }
-
-            if (!new Validator().validate(id, @"^TP\d*$"))
-            {   
-                ViewData["Invalid"] = "Invalid";
                 returnSwitch = true;
             }
 
@@ -105,6 +105,23 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> UpdateTopic(string id, string LecturerId, string name, string descripton, bool approval)
         {
             UpdateTopic(id);
+
+            //Validation
+            bool returnSwitch = false;
+            if (name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (descripton.Length > 200)
+            {
+                ViewData["DescriptionLength"] = "DescriptionLength";
+                returnSwitch = true;
+            }
+            if (returnSwitch) return View();
+
+
             var lecturer = _lecturerRepository.GetById(LecturerId);
             var topic = _topicRepository.GetById(id);
 

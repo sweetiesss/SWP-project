@@ -9,14 +9,39 @@
         <label for="Id">Id:</label>
         <input class="form-control" name="Id" required />
     </div>
+
+    @if (ViewData["Id"] == "Invalid")
+    {
+        <h3>ID must start with "Task" and followed by any number</h3>
+        <br />
+    }
+
+
+    @if (ViewData["IdLength"] == "IdLength")
+    {
+        <h3>Id can only contain at max 50 characters</h3>
+        <br />
+    }
     <div class="form-group">
         <label for="Name">Name:</label>
         <input class="form-control" name="Name" required />
     </div>
+
+    @if (ViewData["NameLength"] == "NameLength")
+    {
+        <h3>Name can only contain at max 200 characters</h3>
+        <br />
+    }
     <div class="form-group">
         <label for="Description">Description:</label>
         <input class="form-control" name="Description" required />
     </div>
+
+    @if (ViewData["DescriptionLength"] == "DescriptionLength")
+    {
+        <h3>Description can only contain at max 200 characters</h3>
+        <br />
+    }
     <div class="form-group">
         <label for="DateStart">DateStart:</label>
         <input class="form-control" name="DateStart" required />
@@ -25,37 +50,13 @@
         <label for="DateEnd">DateEnd:</label>
         <input class="form-control" name="DateEnd" required />
     </div>
+
+    @if (ViewData["DateTime"] == "DateTime")
+    {
+        <h3>Date Start must occurs before Date Ends</h3>
+        <br />
+    }
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
-
-@if (ViewData["DateTime"] == "DateTime")
-{
-    <h3>Date Start must occurs before Date Ends</h3>
-    <br />
-}
-
-@if (ViewData["IdLength"] == "IdLength")
-{
-    <h3>Id can only contain at max 50 characters</h3>
-    <br />
-}
-
-@if (ViewData["NameLength"] == "NameLength")
-{
-    <h3>Name can only contain at max 200 characters</h3>
-    <br />
-}
-
-@if (ViewData["DescriptionLength"] == "DescriptionLength")
-{
-    <h3>Description can only contain at max 200 characters</h3>
-    <br />
-}
-
-@if (ViewData["Id"] == "Invalid")
-{
-    <h3>ID must start with "Task" and followed by any number</h3>
-}
-

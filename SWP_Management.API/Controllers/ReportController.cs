@@ -95,6 +95,17 @@ namespace SWP_Management.API.Controllers
         public async Task<IActionResult> UpdateReport(string id, string TeamId, string descr)
         {
             UpdateReport(id);
+
+            //Validation
+            bool returnSwitch = false;
+
+            if (descr.Length > 200)
+            {
+                ViewData["DescriptionLength"] = "DescriptionLength";
+                returnSwitch = true;
+            }
+            if (returnSwitch) return View();
+
             var team = _teamRepository.GetById(TeamId);
             var report = _reportRepository.GetById(id);
             report.Team = team;

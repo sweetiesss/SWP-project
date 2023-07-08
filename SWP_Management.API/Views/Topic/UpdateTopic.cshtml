@@ -29,10 +29,20 @@
         <label asp-for="@Model.Name">Name:</label>
         <input class="form-control" asp-for="@Model.Name" name="name" required />
     </div>
+    @if (ViewData["NameLength"] == "NameLength")
+    {
+        <h3>Name can only contain at max 200 characters</h3>
+        <br />
+    }
     <div class="form-group">
         <label asp-for="@Model.Description">Description:</label>
         <input class="form-control" asp-for="@Model.Description" name="descripton" required />
     </div>
+    @if (ViewData["DescriptionLength"] == "DescriptionLength")
+    {
+        <h3>Description can only contain at max 200 characters</h3>
+        <br />
+    }
     <label asp-for="@Model.Approval">Approval? </label>
     <select asp-for="@Model.Approval" id="Approval">
         <option value=true>Yes</option>
@@ -41,5 +51,4 @@
     <div class="text-center panel-body">
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
-
 </form>

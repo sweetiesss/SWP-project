@@ -37,20 +37,19 @@ namespace SWP_Management.API.Controllers
                 returnSwitch = true;
             }
 
-            if (semester.Name.Length > 200)
-            {
-                ViewData["NameLength"] = "NameLength";
-                returnSwitch = true;
-            }
-
-
             if (!new Validator().validate(semester.Id, @"^Semester\d$"))
             {
                 ViewData["Invalid"] = "Invalid";
                 returnSwitch = true;
             }
 
-            if(returnSwitch) return View(semester);
+            if (semester.Name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View(semester);
 
             // Check for Duplicate
             var existingSemester = _semesterRepository.GetList().Where(p => p.Id.Equals(semester.Id)).FirstOrDefault();
@@ -75,6 +74,15 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateSemester(string id, string name)
         {
+            //Validation
+            bool returnSwitch = false;
+            if (name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+            if (returnSwitch) return View();
+
             var semester = _semesterRepository.GetById(id);
             semester.Name = name;
             _semesterRepository.Update(semester);

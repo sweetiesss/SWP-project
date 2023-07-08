@@ -14,11 +14,21 @@
         <label asp-for="@student.Name">Name:</label>
         <input class="form-control" asp-for="@student.Name" required />
     </div>
+    @if (ViewData["NameLength"] == "NameLength")
+    {
+        <h3>Name can only contain at max 200 characters</h3>
+        <br />
+    }
     <div class="form-group">
         <label asp-for="@student.Main">Main:</label>
         <input class="form-control" asp-for="@student.Main" required />
     </div>
     <br />
+    @if (ViewData["MainLength"] == "MainLength")
+    {
+        <h3>Main must contain at max 200 characters</h3>
+        <br />
+    }
     <label asp-for="@student.Leader">Is Leader? </label>
     <select asp-for="@student.Leader" id="Leader">
         <option value=true>Yes</option>

@@ -45,15 +45,15 @@ namespace SWP_Frontend_Admin.Controllers
                 returnSwitch = true;
             }
 
-            if(Assignment.DateStart.Date > Assignment.DateEnd.Date)
-            {
-                ViewData["DateTime"] = "DateTime";
-                returnSwitch = true;
-            }
-
             if(Assignment.Id.Length > 50)
             {
                 ViewData["IdLength"] = "IdLength";
+                returnSwitch = true;
+            }
+
+            if (Assignment.DateStart.Date > Assignment.DateEnd.Date)
+            {
+                ViewData["DateTime"] = "DateTime";
                 returnSwitch = true;
             }
 
@@ -88,6 +88,29 @@ namespace SWP_Frontend_Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateAssignment(string id, Assignment Assignment)
         {
+            //Validation
+            bool returnSwitch = false;
+            if (Assignment.DateStart.Date > Assignment.DateEnd.Date)
+            {
+                ViewData["DateTime"] = "DateTime";
+                returnSwitch = true;
+            }
+
+            if (Assignment.Name.Length > 200)
+            {
+                ViewData["NameLength"] = "NameLength";
+                returnSwitch = true;
+            }
+
+            if (Assignment.Description.Length > 200)
+            {
+                ViewData["DescriptionLength"] = "DescriptionLength";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View(Assignment);
+
+            // update
             _assignmentRepository.Update(Assignment);
             ViewBag.Result = "Success";
 			return RedirectToAction("Index");

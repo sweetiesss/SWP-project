@@ -11,6 +11,26 @@
         <input class="form-control" name="Id" required />
     </div>
     <br />
+    @if (ViewData["IdLength"] == "IdLength")
+    {
+        <h3>ID can only contain at max 50 characters</h3>
+        <br />
+    }
+
+
+    @if (ViewData["Invalid"] == "Invalid")
+    {
+        <h3>ID must start with "TP" and followed by any number</h3>
+        <br />
+    }
+
+
+    @if (ViewBag.Result == "Duplicate")
+    {
+        <h3>THIS ID ALREADY EXIST</h3>
+        <br />
+    }
+
     <select class="form-select form-select-lg" name="LecturerId" id="LecturerId" required>
         <option value="" selected>Lecturer Id</option>
         @{
@@ -26,10 +46,21 @@
         <label for="Name">Name:</label>
         <input class="form-control" name="Name" required />
     </div> 
+    @if (ViewData["NameLength"] == "NameLength")
+    {
+        <h3>Name can only contain at max 200 characters</h3>
+        <br />
+    }
     <div class="form-group">
         <label for="Descripton">Descripton:</label>
         <input class="form-control" name="Descripton" required />
     </div>
+    @if (ViewData["DescriptionLength"] == "DescriptionLength")
+    {
+        <h3>Description can only contain at max 200 characters</h3>
+        <br />
+    }
+
     <label for="Approval">Approval? </label>
     <select name="Approval" id="Approval">
         <option value=true>Yes</option>
@@ -40,34 +71,3 @@
         <button type="submit" class="btn btn-sm btn-primary">Add</button>
     </div>
 </form>
-
-@if (ViewData["NameLength"] == "NameLength")
-{
-    <h3>Name can only contain at max 200 characters</h3>
-    <br />
-}
-
-
-@if (ViewData["IdLength"] == "IdLength")
-{
-    <h3>ID can only contain at max 50 characters</h3>
-    <br />
-}
-
-@if (ViewData["DescriptionLength"] == "DescriptionLength")
-{
-    <h3>Name can only contain at max 200 characters</h3>
-    <br />
-}
-
-@if (ViewData["Invalid"] == "Invalid")
-{
-    <h3>ID must start with "TP" and followed by any number</h3>
-    <br />
-}
-
-
-@if (ViewBag.Result == "Duplicate")
-{
-    <h3>THIS ID ALREADY EXIST</h3>
-}

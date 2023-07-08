@@ -15,6 +15,11 @@
         <input class="form-control" asp-for="@Model.Description" name="descr" required />
     </div>
     <br />
+    @if (ViewData["DescriptionLength"] == "DescriptionLength")
+    {
+        <h3>Description can only contain at max 200 characters</h3>
+        <br />
+    }
     <select class="form-select form-select-lg" name="TeamId" id="TeamId" required>
         @{
             <option value="@Model.TeamId" selected>@Model.TeamId</option>
