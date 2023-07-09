@@ -10,19 +10,15 @@ import Cookies from 'universal-cookie';
 export const AccountContext = createContext();
 
 
-const BeginLayout = ({ children }) => {
+const BeginLayout = ({ children },props) => {
     const cookies = new Cookies();
+    console.log('cookie')
     console.log(cookies.get('myCat')); 
     const [courseId, updateCourseId] = useState('');
     const [accountId, updateAccount] = useState('SE173508');
     const [studentProfile, updateStudentProfile] = React.useState([]);
-    //update Task
-    const [selectedTask, upDateSelectedTask] = React.useState();
-
-    const [selectedTaskLink, setSelectedTaskLink] = React.useState();
-
-
-
+    console.log(props.accountId)
+    console.log(accountId)
     const handeClickCourse = (newCourse) => {
         updateCourseId(newCourse);
     }

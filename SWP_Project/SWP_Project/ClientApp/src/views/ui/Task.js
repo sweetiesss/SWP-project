@@ -12,8 +12,11 @@ const Task = () => {
     const [task, updateTask] = React.useState([]);
     const [editId, setEditId] = React.useState(-1);
     const [link, updateLink] = React.useState();
+    const [link2, updateLink2] = React.useState();
     const [selectedTask, updateSelectedTask] = React.useState();
+    const [selectedTask2, updateSelectedTask2] = React.useState();
     const courseCon = useContext(AccountContext);
+    console.log(courseCon.accountId)
     const taskArray = [];
     useEffect(() => {
         (async () => {
@@ -24,10 +27,11 @@ const Task = () => {
                 })
         })()
     }, []);
-    
+
     useEffect(() => {
         for (let i = 0; i < showTaskApi.length; i++) {
             if (showTaskApi[i].studentId === courseCon.accountId) {
+                console.log(showTaskApi[i])
                 taskArray.push(showTaskApi[i])
             }
         }
@@ -38,8 +42,14 @@ const Task = () => {
     const handleSubmit = (e) => {
         const data = new FormData(e.target)
         e.preventDefault()
-        console.log(Object.fromEntries(data.entries()))
-        postData('https://localhost:7219/api/assignments', Object.fromEntries(data.entries()))
+        const result = Object.fromEntries(data.entries());
+        const assStu = {
+            "taskId": result.id,
+            "studentId": courseCon.accountId,
+            "status": "Ongoing",
+        }
+        postData('https://localhost:7219/api/assignments', result)
+        postData('https://localhost:7219/api/assignmentstudents', assStu)
     }
 
     async function postData(url = "", data = {}) {
@@ -57,123 +67,126 @@ const Task = () => {
             console.error("Error:", error);
         }
     }
-    console.log(showTaskApi)
 
-    async function deleteData(url = "", data = {}) {
+
+    async function deleteData(url = "", data = "") {
         try {
-            const response = await fetch(url + data);
+            const link = url + data;
+            const result = await fetch(link, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then((response) => {
+                if (!response.ok) {
+                    throw new Error('Something went Wrong')
+                }
+            })
         } catch (error) {
             console.error("Error:", error);
         }
     }
 
-    function handleEdit(object, url, location) {
-        console.log(location)
-        const path = url + location;
+    function handleEdit(object, object2, url, url2) {
+        const path = url + object.id;
+        const path2 = url2 + object2.id;
         updateLink(path);
+        updateLink2(path2);
         updateSelectedTask(object);
-        setEditId(location);
-
+        updateSelectedTask2(object2);
+        setEditId(object.id);
     }
 
     function resetEditId() {
         setEditId(-1)
     }
-    console.log(task)
-    return (
-        editId !== -1 ? <UpdatePage object={selectedTask} link={link} setEditId={resetEditId} />:
-    <div>
-        <form onSubmit={handleSubmit}>
-            <Table bordered>
-                <thead>
-                    <tr>
-                        <th>
-                            #
-                        </th>
-                        <th>
-                            Task Id
-                        </th>
-                        <th>
-                            Task Name
-                        </th>
-                        <th>
-                            Description
-                        </th>
-                        <th>
-                            Date Start
-                        </th>
-                        <th>
-                            Date End
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                        <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">
-                            {num++}
-                        </th>
-                        <td>
-                            <input type="text" style={{ width: 90, height: 30 }} name='id' />
-                        </td>
-                        <td>
-                            <input type="text" style={{ width: 90, height: 30 }} name='name' />
-                        </td>
-                        <td>
-                            <input type="text" style={{ width: 80, height: 30 }} name='description' />
-                        </td>                          <td>
-                            <input type="datetime-local" style={{ width: 170, height: 30 }} name='dateStart' />
-                        </td>                          <td>
-                            <input type="datetime-local" style={{ width: 170, height: 30 }} name='dateEnd' />
-                        </td>
-                        <td>
-                            <input type="input" disabled style={{ width: 65, height: 30 }} />
-                        </td>
-                        <td>
-                            <button
-                                style={{ width: 108 }} >
-                                Create Task
-                            </button></td>
-                    </tr>
-                            {task.map((x) => (
-                        <tr key={x.id}>
-                            <th scope="row">
-                                {num++}
-                            </th>
-                            <td>
-                                {x.task.id}
-                            </td>
-                            <td>
-                                {x.task.name}
-                            </td>
-                            <td>
-                                {x.task.description}
-                            </td>
-                            <td>
-                                {x.task.dateStart}
-                            </td>
-                            <td>
-                                {x.task.dateEnd}
-                            </td>
-                            <td>
-                                {x.status}
-                            </td>
-                            <td>
-                                <button>Delete</button>
-                            
-                                <button onClick={() => {handleEdit(x,'https://localhost:7219/api/assignments/',x.task.id)}}>Edit</button>
-                            </td>
-                        </tr>
-                    ))}
 
-                </tbody>
-            </Table>
-        </form>
-    </div>
-  );
+    function handleDelete(url,data) {
+        deleteData('https://localhost:7219/api/assignments/', data);
+    }
+
+    return (
+        editId !== -1 ? <UpdatePage object={selectedTask} object2={selectedTask2} link={link} link2={link2} resetEditId={resetEditId} /> :(
+            <div>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" style={{ width: 90, height: 30 }} name='id' />
+                        <input type="text" style={{ width: 90, height: 30 }} name='name' />
+                        <input type="text" style={{ width: 80, height: 30 }} name='description' />
+                        <input type="datetime-local" style={{ width: 170, height: 30 }} name='dateStart' />
+                        <input type="datetime-local" style={{ width: 170, height: 30 }} name='dateEnd' />
+                        <input type="input" disabled style={{ width: 65, height: 30 }} />
+                        <button
+                            style={{ width: 108 }} >
+                            Create Task
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <Table bordered>
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Task Id
+                                </th>
+                                <th>
+                                    Task Name
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Date Start
+                                </th>
+                                <th>
+                                    Date End
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {task.map((x) => (
+                                <tr key={x.id}>
+                                    <th scope="row">
+                                        {num++}
+                                    </th>
+                                    <td>
+                                        {x.task.id}
+                                    </td>
+                                    <td>
+                                        {x.task.name}
+                                    </td>
+                                    <td>
+                                        {x.task.description}
+                                    </td>
+                                    <td>
+                                        {x.task.dateStart}
+                                    </td>
+                                    <td>
+                                        {x.task.dateEnd}
+                                    </td>
+                                    <td>
+                                        {x.status}
+                                    </td>
+                                    <td>
+                                        <button onClick={() => handleDelete('https://localhost:7219/api/assignments/', x.task.id)}>Delete</button>
+                                        <button onClick={() => { handleEdit(x,x.task, 'https://localhost:7219/api/assignmentstudents/', 'https://localhost:7219/api/assignments/') }}>Edit</button>
+                                    </td>
+                                </tr>
+                            ))}
+
+                        </tbody>
+                    </Table>
+                </div>
+            </div>
+            )
+    );
 };
 
 export default Task;

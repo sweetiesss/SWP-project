@@ -1,37 +1,47 @@
 import React, { useEffect,useState,useRef } from "react";
 import Home from "./Home";
     
-function LoginWithLocalStorage(){
-    const [username,setUsername] = useState('');
-    const [password,setPassword] = useState('');
+function LoginWithLocalStorage(props){
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
     const getUsername=localStorage.getItem("usernameData")
     const getPassword = localStorage.getItem("passwordData")
-    const [accountUsername, setAccountUserName] = useState('');
+    const [accountUsername, setAccountUserName] = React.useState('')
+    const [accountArray, setAccountArray] = React.useState()
 
-    //useEffect(() => {
 
-    //    fetch('https://localhost:7219/api/students/' + accountId)
-    //       .then(res => res.json())
-    //        .then(stu => {
-                        
-    //        })
-    //}, [accountUsername])
+    useEffect(() => {
+        (async () => {
+            const data = await fetch('https://localhost:7219/api/accounts')
+                .then(res => res.json())
+                .then(tasks => {
+                    setAccountArray(tasks)
+                })
+        })()
+    }, []);
+    console.log(accountArray)
     const handleSubmit = (e) => {
-        
             const data = new FormData(e.target)
             const result = Object.fromEntries(data.entries());
-        setAccountUserName(result.username)
-       
+        for (var i = 0; i < accountArray.length; i++) {
+            if (accountArray[i].username === result.username && accountArray[i].password === result.password) {
+                console.log((accountArray[i].studentId));
+                if (accountArray[i].studentId === null)
+                break;
+                props.updateLoginStatus(true);
+                
+                props.updateAccount(accountArray[i].studentId);
+                break;
+            }
+        }
+               
+  
         e.preventDefault();
-          
-        
     }
 
     return(
         <div>
             {
-                getUsername&&getPassword?
-                <Home/>:
             <form onSubmit={handleSubmit}>
                 <div>
                             <input type="text" name='username' value={username} onChange={(e)=> setUsername(e.target.value)} />
