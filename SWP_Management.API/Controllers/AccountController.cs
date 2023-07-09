@@ -140,6 +140,14 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateAccount(int id, string Username, string Password, string? lecturerId, string? studentId)
         {
+
+            UpdateAccount(id);
+
+            Account? account = new Account();
+            account = _accountRepository.GetById(id);
+
+
+
             //Validation
             bool returnSwitch = false;
 
@@ -155,7 +163,7 @@ namespace SWP_Management.API.Controllers
                 returnSwitch = true;
             }
 
-            if (returnSwitch) return View();
+            if (returnSwitch) return View(account);
 
 
 
@@ -163,10 +171,10 @@ namespace SWP_Management.API.Controllers
             var lecturer = _lecturerRepository.GetById(lecturerId);
 
             //If duplicate exist, call back method to get two list on Viewdata and the chosen account
-            UpdateAccount(id);
+            //UpdateAccount(id);
 
-            Account? account = new Account();
-            account = _accountRepository.GetById(id);
+            //Account? account = new Account();
+            //account = _accountRepository.GetById(id);
             var accountList = _accountRepository.GetList().ToList();
             if (account != null)
             {
