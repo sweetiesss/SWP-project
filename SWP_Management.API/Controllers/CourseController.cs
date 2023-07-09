@@ -21,10 +21,29 @@ namespace SWP_Management.API.Controllers
             _semesterRepository = semesterRepository;
             _lecturerRepository = lecturerRepository;
         }
-        public IActionResult Index()
+        public IActionResult Index(string SemesterId, string SubjectId, string LecturerId)
         {
+            ViewData["SemesterList"] = _semesterRepository.GetList();
+            ViewData["SubjectList"] = _subjectRepository.GetList();
+            ViewData["LecturerList"] = _lecturerRepository.GetList();
+            ViewData["CourseList"] = _courseRepository.GetList();
+
+            if (SemesterId == null) SemesterId = string.Empty;
+            if (SubjectId == null) SubjectId = string.Empty;
+            if (LecturerId == null) LecturerId = string.Empty;
+
+            var courses = new List<Course>();
             var courseList = _courseRepository.GetList().ToList();
-            return View(courseList);
+
+            foreach(Course r in courseList)
+            {
+                if(r.SemesterId.Contains(SemesterId) && 
+                   r.SubjectId.Contains(SubjectId) && 
+                   r.LecturerId.Contains(LecturerId)) courses.Add(r);
+            }
+
+
+            return View(courses);
         }
 
 

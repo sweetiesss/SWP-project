@@ -13,11 +13,23 @@
         <label for="Username">Username:</label>
         <input class="form-control" name="Username" required />
     </div>
+
+    @if (ViewData["Username"] == "Username")
+    {
+        <div style="color:red">Username can only contain alphabet letters and numbers</div>
+        <br />
+    }
+
     <div class="form-group">
         <label for="Password">Password:</label>
         <input class="form-control" name="Password" required />
     </div>
     <br />
+    @if (ViewData["Password"] == "Password")
+    {
+        <div style="color:red">Password can only contain alphabet letters and numbers</div>
+        <br />
+    }
     <label>Lecturer Id:</label>
     <select class="form-select form-select-lg" name="LecturerId" id="LecturerId">
         <option value="" selected>Lecturer Id</option>

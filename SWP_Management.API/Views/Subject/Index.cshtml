@@ -5,6 +5,17 @@
 
 <h2>All Subject</h2>
 <a asp-action="AddSubject" class="btn btn-sm btn-primary">Add Subject</a>
+<br />
+
+<form asp-controller="Subject" asp-action="Index" method="">
+    <div>
+        Search by Name: <input type="text" name="Name" required />
+        <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+    </div>
+</form>
+<form asp-controller="Subject" asp-action="Index" method="">
+    <input class="btn btn-sm btn-primary" type="submit" value="Show All" />
+</form>
 
 <table class="table table-sm table-striped table-bordered m-2">
     <thead>

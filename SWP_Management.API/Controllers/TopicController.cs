@@ -17,10 +17,23 @@ namespace SWP_Management.API.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(string LecturerId)
         {
+            ViewData["TopicList"] = _topicRepository.GetList();
+            ViewData["LecturerList"] = _lecturerRepository.GetList();
+
+
+            if (LecturerId == null) LecturerId = string.Empty;
+
             var topicList = _topicRepository.GetList();
-            return View(topicList);
+            List<Topic> topics = new List<Topic>();
+
+            foreach (Topic tp in topicList)
+            {
+                if (tp.LecturerId.Contains(LecturerId)) topics.Add(tp);
+            }
+
+            return View(topics);
         }
 
 

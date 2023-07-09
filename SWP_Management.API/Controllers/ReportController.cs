@@ -17,10 +17,23 @@ namespace SWP_Management.API.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(string TeamId)
         {
+            ViewData["TeamList"] = _teamRepository.GetList();
+            ViewData["ReportList"] = _reportRepository.GetList();
+
+
+            if (TeamId == null) TeamId = string.Empty;
+
             var reportList = _reportRepository.GetList();
-            return View(reportList);
+            List<Report> reports = new List<Report>();
+
+            foreach (Report rp in reportList)
+            {
+                if (rp.TeamId.Contains(TeamId)) reports.Add(rp);
+            }
+
+            return View(reports);
         }
 
 

@@ -2,10 +2,81 @@
 
 @{
     ViewData["Title"] = "All Course";
-
+    var semesterList = (List<Semester>)ViewData["SemesterList"];
+    var subjectList = (List<Subject>)ViewData["SubjectList"];
+    var lecturerList = (List<Lecturer>)ViewData["LecturerList"];
+    var courseList = (List<Course>)ViewData["CourseList"];
 }
 <h2>All Course</h2>
 <a asp-action="AddCourse" class="btn btn-sm btn-primary">Add Course</a>
+<br />
+<form asp-controller="Course" asp-action="Index" method="">
+    <div>
+        @{
+            Dictionary<string, bool> DupPreventer = new Dictionary<string, bool>();
+
+            foreach (var r in courseList)
+            {
+                if (!DupPreventer.ContainsKey(r.SemesterId)) DupPreventer.Add(@r.SemesterId, false);
+                if (!DupPreventer.ContainsKey(r.SubjectId)) DupPreventer.Add(@r.SubjectId, false);
+                if (!DupPreventer.ContainsKey(r.LecturerId)) DupPreventer.Add(@r.LecturerId, false);
+            }
+        }
+        Filter by:
+        <select class="form-select-sm" name="SemesterId" id="SemesterId" >
+            <option selected value="">Semester Id</option>
+            @{
+
+                foreach (var r in semesterList)
+                {
+                    if (DupPreventer.ContainsKey(@r.Id))
+                        if (!DupPreventer[@r.Id])
+                        {
+                            <option value="@r.Id"> @r.Id</option>
+                            DupPreventer[@r.Id] = true;
+                        }
+                }
+            }
+        </select>
+        <select class="form-select-sm" name="SubjectId" id="SubjectId" >
+            <option selected value="">Subject Id</option>
+            @{
+                foreach (var r in subjectList)
+                {
+                    if (DupPreventer.ContainsKey(@r.Id))
+                        if (!DupPreventer[@r.Id])
+                        {
+                            <option value="@r.Id"> @r.Id</option>
+                            DupPreventer[@r.Id] = true;
+                        }
+                }
+            }
+        </select>
+        <select class="form-select-sm" name="LecturerId" id="LecturerId" >
+            <option selected value="">Lecturer Id</option>
+            @{
+                foreach (var r in lecturerList)
+                {
+                    if (DupPreventer.ContainsKey(@r.Id))
+                        if (!DupPreventer[@r.Id])
+                        {
+                            <option value="@r.Id"> @r.Id</option>
+                            DupPreventer[@r.Id] = true;
+                        }
+                }
+            }
+        </select>
+        <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+    </div>
+</form>
+
+<form asp-controller="Course" asp-action="Index" method="">
+    <input class="btn btn-sm btn-primary" type="submit" value="Show All" />
+</form>
+
+
+
+
 <table class="table table-sm table-striped table-bordered m-2">
     <thead>
         <tr>

@@ -19,15 +19,21 @@ namespace SWP_Frontend_Admin.Controllers
             _assignmentRepository = assignmentRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Name)
         {
-            List<Assignment> AssignmentList = new List<Assignment>();
 
-            var response = _assignmentRepository.GetList().ToJson();
-            AssignmentList = JsonConvert.DeserializeObject<List<Assignment>>(response);
+            if (Name == null) Name = string.Empty;
 
-            ViewData["AssignList"] = AssignmentList;
-            return View(AssignmentList);
+
+            var AssignmentList = _assignmentRepository.GetList();
+            List<Assignment> assignments = new List<Assignment>();
+            foreach (Assignment asm in AssignmentList)
+            {
+                if (asm.Name.Contains(Name)) assignments.Add(asm);
+            }
+
+            ViewData["AssignList"] = assignments;
+            return View(assignments);
         }
 
         public ViewResult AddAssignment() => View();

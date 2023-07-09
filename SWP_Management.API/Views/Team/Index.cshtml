@@ -1,10 +1,49 @@
 ﻿@model IEnumerable<Team>
 @{
     ViewData["Title"] = "All Team";
+    var teamList = (List<Team>)ViewData["TeamList"];
+    var courseList = (List<Course>)ViewData["courseList"];
 }
 
 <h2>All Team</h2>
 <a asp-action="AddTeam" class="btn btn-sm btn-primary">Add Team</a>
+<br />
+
+
+<form asp-controller="Team" asp-action="Index" method="">
+    <div>
+        @{
+            Dictionary<string, bool> DupPreventer = new Dictionary<string, bool>();
+
+            foreach (var r in teamList)
+            {
+                if (!DupPreventer.ContainsKey(r.CourseId)) DupPreventer.Add(@r.CourseId, false);
+            }
+        }
+        Filter by:
+        <select class="form-select-sm" name="CourseId" id="CourseId" required>
+            <option selected value="">Course Id</option>
+            @{
+
+                foreach (var r in courseList)
+                {
+                    if (DupPreventer.ContainsKey(@r.Id))
+                        if (!DupPreventer[@r.Id])
+                        {
+                            <option value="@r.Id"> @r.Id</option>
+                            DupPreventer[@r.Id] = true;
+                        }
+                }
+            }
+        </select>
+        <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+    </div>
+</form>
+<form asp-controller="Team" asp-action="Index" method="">
+    <input class="btn btn-sm btn-primary" type="submit" value="Show All" />
+</form>
+
+
 
 <table class="table table-sm table-striped table-bordered m-2">
     <thead>

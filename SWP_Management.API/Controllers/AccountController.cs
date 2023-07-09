@@ -40,12 +40,32 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAccount(string Username, string Password, string? lecturerId, string? studentId)
         {
+
             var student = _studentRepository.GetById(studentId);
             var lecturer = _lecturerRepository.GetById(lecturerId);
-
             AddAccount();
 
-            if(lecturerId != null && studentId != null)
+
+            //Validation
+            bool returnSwitch = false;
+
+            if (!new Validator().validate(Username, @"^(\d|\w)+$"))
+            {
+                ViewData["Username"] = "Username";
+                returnSwitch = true;
+            }
+
+            if (!new Validator().validate(Password, @"^(\d|\w)+$"))
+            {
+                ViewData["Password"] = "Password";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View();
+
+
+
+            if (lecturerId != null && studentId != null)
             {
                 ViewBag.Result = "Error Role";
                 return View();
@@ -120,6 +140,24 @@ namespace SWP_Management.API.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateAccount(int id, string Username, string Password, string? lecturerId, string? studentId)
         {
+            //Validation
+            bool returnSwitch = false;
+
+            if (!new Validator().validate(Username, @"^(\d|\w)+$"))
+            {
+                ViewData["Username"] = "Username";
+                returnSwitch = true;
+            }
+
+            if (!new Validator().validate(Password, @"^(\d|\w)+$"))
+            {
+                ViewData["Password"] = "Password";
+                returnSwitch = true;
+            }
+
+            if (returnSwitch) return View();
+
+
 
             var student = _studentRepository.GetById(studentId);
             var lecturer = _lecturerRepository.GetById(lecturerId);

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Newtonsoft.Json;
 using NuGet.Protocol;
 using SWP_Management.API.Controllers;
@@ -16,15 +17,21 @@ namespace SWP_Frontend_Admin.Controllers
             _studentRepository = studentRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Name, string Main)
         {
+            if (Name == null) Name = string.Empty;
+
+            var studentList = _studentRepository.GetList();
             List<Student> students = new List<Student>();
-            var response = _studentRepository.GetList().ToJson();
-            students = JsonConvert.DeserializeObject<List<Student>>(response);
+            foreach (Student stu in studentList)
+            {
+                if (stu.Name.Contains(Name, StringComparison.OrdinalIgnoreCase)) students.Add(stu);
+            }
 
             ViewData["StudentList"] = students;
             return View(students);
         }
+
 
         public ViewResult AddStudent() => View();
 
@@ -105,6 +112,7 @@ namespace SWP_Frontend_Admin.Controllers
         }
 
 
+        //Delete
         [HttpPost]
         public async Task<IActionResult> DeleteStudent(string id)
         {

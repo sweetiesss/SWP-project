@@ -16,10 +16,18 @@ namespace SWP_Management.API.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(String Name)
         {
+            if (Name == null) Name = string.Empty;
+
             var subjectList = _subjectRepository.GetList();
-            return View(subjectList);
+            List<Subject> students = new List<Subject>();
+            foreach (Subject sub in subjectList)
+            {
+                if (sub.Name.Contains(Name, StringComparison.OrdinalIgnoreCase)) students.Add(sub);
+            }
+
+            return View(students);
         }
 
 

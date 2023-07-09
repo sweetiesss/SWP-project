@@ -2,11 +2,51 @@
 
 @{
     ViewData["Title"] = "All Topic";
+    var topicList = (List<Topic>)ViewData["TopicList"];
+    var lecturerList = (List<Lecturer>)ViewData["LecturerList"];
 
 }
 
 <h2>All Topic</h2>
 <a asp-action="AddTopic" class="btn btn-sm btn-primary">Add Topic</a>
+<br />
+
+
+<form asp-controller="Topic" asp-action="Index" method="">
+    <div>
+        @{
+            Dictionary<string, bool> DupPreventer = new Dictionary<string, bool>();
+
+            foreach (var r in topicList)
+            {
+                if (!DupPreventer.ContainsKey(r.LecturerId)) DupPreventer.Add(@r.LecturerId, false);
+            }
+        }
+        Filter by:
+        <select class="form-select-sm" name="LecturerId" id="LecturerId" required>
+            <option selected value="">Lecturer Id</option>
+            @{
+
+                foreach (var r in lecturerList)
+                {
+                    if (DupPreventer.ContainsKey(@r.Id))
+                        if (!DupPreventer[@r.Id])
+                        {
+                            <option value="@r.Id"> @r.Id</option>
+                            DupPreventer[@r.Id] = true;
+                        }
+                }
+            }
+        </select>
+        <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+    </div>
+</form>
+<form asp-controller="Topic" asp-action="Index" method="">
+    <input class="btn btn-sm btn-primary" type="submit" value="Show All" />
+</form>
+
+
+
 <table class="table table-sm table-striped table-bordered m-2">
     <thead>
         <tr>

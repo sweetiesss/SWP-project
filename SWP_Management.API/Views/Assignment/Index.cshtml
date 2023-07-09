@@ -7,7 +7,14 @@
 
 <h2>All Assignments</h2>
 <a asp-action="AddAssignment" class="btn btn-sm btn-primary">Add Assignment</a>
-@*<a asp-action="GetAssignment" class="btn btn-sm btn-secondary">Get Assignment</a>*@
+<br />
+
+<form asp-controller="Assignment" asp-action="Index" method="">
+    <p>
+        Search by Name: <input type="text" name="Name" required />
+        <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+    </p>
+</form>
 
 <table class="table table-sm table-striped table-bordered m-2">
     <thead>

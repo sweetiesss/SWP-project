@@ -14,10 +14,19 @@ namespace SWP_Management.API.Controllers
             _lecturerRepository = lecturerRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string Name)
         {
+            if (Name == null) Name = string.Empty;
+
             var lecturerList = _lecturerRepository.GetList();
-            return View(lecturerList);
+            List<Lecturer> lecturers = new List<Lecturer>();
+
+            foreach (Lecturer lec in lecturerList)
+            {
+                if (lec.Name.Contains(Name, StringComparison.OrdinalIgnoreCase)) lecturers.Add(lec);
+            }
+
+            return View(lecturers);
         }
 
 

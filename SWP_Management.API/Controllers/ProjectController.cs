@@ -21,10 +21,23 @@ namespace SWP_Management.API.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(string TopicId)
         {
+            ViewData["TopicList"] = _topicRepository.GetList();
+            ViewData["ProjectList"] = _projectRepository.GetList();
+
+
+            if(TopicId == null) TopicId = string.Empty;
+
             var projectList = _projectRepository.GetList();
-            return View(projectList);
+            List<Project> projects = new List<Project>();
+
+            foreach (Project pro in projectList)
+            {
+                if (pro.TopicId.Contains(TopicId)) projects.Add(pro);
+            }
+
+            return View(projects);
         }
 
         // Add
