@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\testtemplate\\testtemplate.csproj": {}
+    "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\template.net\\testtemplate.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\testtemplate\\testtemplate.csproj": {
+    "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\template.net\\testtemplate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\testtemplate\\testtemplate.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\template.net\\testtemplate.csproj",
         "projectName": "testtemplate",
-        "projectPath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\testtemplate\\testtemplate.csproj",
+        "projectPath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\template.net\\testtemplate.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\testtemplate\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\New folder\\template.net\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
