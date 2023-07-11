@@ -1,0 +1,147 @@
+/* _content/testtemplate/Views/Shared/_HeaderOnly.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-ghd0rgn734] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-ghd0rgn734] {
+  color: #0077cc;
+}
+
+.btn-primary[b-ghd0rgn734] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-ghd0rgn734], .nav-pills .show > .nav-link[b-ghd0rgn734] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-ghd0rgn734] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-ghd0rgn734] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-ghd0rgn734] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-ghd0rgn734] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-ghd0rgn734] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/testtemplate/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-lhuv8cw3xy] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-lhuv8cw3xy] {
+  color: #0077cc;
+}
+
+.btn-primary[b-lhuv8cw3xy] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-lhuv8cw3xy], .nav-pills .show > .nav-link[b-lhuv8cw3xy] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-lhuv8cw3xy] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-lhuv8cw3xy] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-lhuv8cw3xy] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-lhuv8cw3xy] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-lhuv8cw3xy] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/testtemplate/Views/Shared/_LectureLayout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-wnb8gmws7j] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-wnb8gmws7j] {
+  color: #0077cc;
+}
+
+.btn-primary[b-wnb8gmws7j] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-wnb8gmws7j], .nav-pills .show > .nav-link[b-wnb8gmws7j] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-wnb8gmws7j] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-wnb8gmws7j] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-wnb8gmws7j] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-wnb8gmws7j] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-wnb8gmws7j] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

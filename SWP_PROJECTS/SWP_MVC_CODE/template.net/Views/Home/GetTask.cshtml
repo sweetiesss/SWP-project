@@ -1,0 +1,75 @@
+﻿@using Azure;
+@model IEnumerable<Assignment>
+
+@{
+    ViewData["Title"] = "All Assignments";
+    Layout = "_Layout";
+    List<Assignment> TaskList = (List<Assignment>)ViewData["TaskList"];
+    List<AssignmentStudent> AssignmentStudentList = (List<AssignmentStudent>)ViewData["AssignmentStudent"];
+    String cookieValue = ViewData["cookieValue"].ToString();
+
+}
+
+<a asp-action="AddTask" class="btn btn-sm bg-white" style="background-color:#4db749!important; color:white!important; border-radius:12px;">Add Assignment</a>
+<br />
+@*
+<form asp-controller="Home" asp-action="GetTask" method="">
+    <p>
+        Search by Name: <input type="text" name="Name" required />
+        <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+    </p>
+</form>
+*@
+@if(TaskList != null){
+<table class="table table-hover table-sm  table-bordered m-2" 
+style="-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;">
+    <thead style="background-color:lightgrey;color:black;">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Descripton</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Status</th>
+            <th style="width:15%; text-align:center">Edit</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+            @foreach (var r in TaskList)
+            {
+                <tr>
+                   @{
+                        var assignmentStudent = AssignmentStudentList.Where(p => p.TaskId.Equals(r.Id) &&
+                        p.StudentId.Equals(cookieValue)).FirstOrDefault();
+                    }
+                    <td style="vertical-align:middle!important;">@r.Id</td>
+                    <td style="vertical-align:middle!important;">@r.Name</td>
+                    <td style="vertical-align:middle!important;">@r.Description</td>
+                    <td style="vertical-align:middle!important;">@r.DateStart</td>
+                    <td style="vertical-align:middle!important;">@r.DateEnd</td>
+                    <td style="vertical-align:middle!important;">@assignmentStudent.Status</td>
+                    <td style="vertical-align:middle!important;" >
+                        <div class="d-flex justify-content-around">
+                        <form asp-action="UpdateTask" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#4db749; color:white; border-radius:12px;"  type="submit" class="btn btn-sm">Update</button>
+                        </form>
+                        <form asp-action="DeleteTask" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#4db749;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                        </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        
+        
+    </tbody>
+    </table>
+}
+else
+{
+    <div> No task available</div>
+}

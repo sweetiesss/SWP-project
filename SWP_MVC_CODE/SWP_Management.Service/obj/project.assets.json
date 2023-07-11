@@ -2550,11 +2550,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj",
       "projectName": "SWP_Management.Service",
-      "projectPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Service\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2571,8 +2571,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
+            "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
             }
           }
         }

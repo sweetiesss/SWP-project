@@ -1,0 +1,29 @@
+﻿@model Topic
+@{
+    ViewBag.Title = "Update an Topic";
+    Topic topic = (Topic)ViewData["Topic"];
+    Layout = "_Layout";
+
+}
+<h2>Update topic <a asp-action="GetTopic" class="btn btn-sm btn-secondary">Back </a></h2>
+<form asp-action="UpdateTopic" method="post" style="width:730px;">
+    <div class="form-group d-flex justify-content-between">
+        <div>
+            <label asp-for="@topic.Id">Id:</label>
+            <input class="form-control" asp-for="@topic.Id" name="id" required style="width:350px;" readonly/>
+        </div>
+        <div>
+            <label asp-for="@topic.Name">Name:</label>
+            <input class="form-control" asp-for="@topic.Name" name="name" required s style="width:350px;" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@topic.Description">Description:</label>
+        <input class="form-control" asp-for="@topic.Description" name="descripton" required style="width:730px;" />
+    </div>
+    <input type="hidden" name="LecturerId" value="@topic.LecturerId" />
+    <input type="hidden" name="approval" value="@topic.Approval" />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary"  style="width:730px;font-size:20px">Update</button>
+    </div>
+</form>

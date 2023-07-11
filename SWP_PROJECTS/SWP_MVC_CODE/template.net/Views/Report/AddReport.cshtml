@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    StudentTeam team = (StudentTeam)ViewData["TeamId"];
+    string cookie = ViewData["Cookie"].ToString();
+}
+<h2>Add a report @cookie @team.TeamId<a asp-action="Index" class="btn btn-sm btn-secondary">
+    Back </a></h2>
+<form asp-action="AddReport" method="post" style="width:730px;">
+    <div class="form-group d-flex justify-content-between">
+        <div>
+            <label for="Id">Id:</label>
+            <input class="form-control" name="id" required  style="width:350px;"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div>
+        <label for="Description">Description:</label>
+        <input class="form-control" name="descripton" required style="width:730px;" />
+        </div>
+    </div>
+    <input type="hidden" name="teamId" value="@team.TeamId" />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary"  style="width:730px;font-size:20px">Add</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <br />
+    <h3 style="color:red" class="text-center">This Id already exists</h3>
+}

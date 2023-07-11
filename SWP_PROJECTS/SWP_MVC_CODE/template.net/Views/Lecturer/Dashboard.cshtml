@@ -1,0 +1,20 @@
+﻿@{
+	string cookie = ViewData["cookie"].ToString();
+	string CourseId = ViewData["CourseId"].ToString();
+}
+
+<h2>@cookie</h2>
+<h2>@CourseId</h2>
+
+<form asp-action="GetTopic">
+	<button type="submit" name="id" value="@cookie"> Get topic by manage by this id </button>
+</form>
+
+<form asp-action="ViewReport">
+	<input type="hidden" name="courseId" value="@CourseId" />
+	<button type="submit"> View report by course manage by this Id </button>
+</form>
+
+<form asp-action="ViewTeam">
+	<button type="submit" name="id" value="@CourseId"> View team in course manage by this id </button>
+</form>

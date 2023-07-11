@@ -1,0 +1,63 @@
+﻿@model Report;
+
+@{
+    List<Report> ReportList = (List<Report>)ViewData["ReportList"];
+    String cookieValue = ViewData["cookieValue"].ToString();
+}
+
+<form asp-controller="Report" asp-action="AddReport" method="">
+    <input type="hidden" name="id" value="@cookieValue" />
+    <button class="btn btn-sm bg-white" type="submit"
+            style="background-color:#4db749!important; color:white!important; border-radius:12px;">
+        Make a report
+    </button>
+</form>
+@*<a asp-action="AddReport" class="btn btn-sm bg-white" style="background-color:#4db749!important; color:white!important; border-radius:12px;">Add Report</a>*@
+<br />
+
+
+@if (ReportList != null)
+{
+    <table class="table table-hover table-bordered"
+           style="-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;
+            width:777px!important;
+align-content:baseline;
+">
+        <thead style="background-color:lightgrey;color:black;">
+            <tr>
+                <th>ID</th>
+                <th>Descripton</th>    
+                <th style="text-align:center!important">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var r in ReportList)
+            {
+                <tr>
+                    <td style="width:80px !important;vertical-align:middle!important;">@r.Id</td>
+                    <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
+                    <td style="width:170px !important; vertical-align:middle!important;">
+                        <div class="d-flex justify-content-around" >
+                        <form asp-action="UpdateReport" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#4db749; color:white; border-radius:12px; width:70px!important " type="submit" class="btn btn-sm">Update</button>
+                        </form>
+                        <form asp-action="DeleteReport" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#4db749;color:white; border-radius:12px;width:70px!important " type="submit" class="btn btn-sm">Delete</button>
+                        </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div> No report available</div>
+}
+

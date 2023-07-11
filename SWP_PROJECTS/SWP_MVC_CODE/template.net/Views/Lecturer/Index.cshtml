@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_HeaderOnly";
+}
+@{
+    List<Semester> SemesterList = (List<Semester>)ViewData["SemesterList"];
+    List<Course> CourseList = (List<Course>)ViewData["CourseList"];
+
+
+}
+
+<div class="text-left">
+
+    @foreach (var r in SemesterList)
+    {
+        <div class="dropdown">
+            <h4 class="dropbtn">@r.Name</h4>
+            <div class="dropdown-content">
+                @foreach (var x in CourseList)
+                {
+                    @if (x.SemesterId.Equals(r.Id))
+                    {
+                        <form asp-controller="Lecturer" asp-action="Dashboard" method="">
+                            <input type="hidden" value="@x.Id" name="CourseId" />
+                            <button class="dropdown-content " style="border-radius: 12px;border: 1px solid gray;">@x.Id</button>
+                        </form>
+                    }
+                }
+            </div>
+        </div>
+        <br />
+    }
+</div>
