@@ -1,0 +1,59 @@
+﻿@using Azure;
+@model IEnumerable<Assignment>
+
+@{
+    ViewData["Title"] = "All Assignments";
+    Layout = "_Layout";
+   
+}
+
+<h2>All Assignments</h2>
+<a asp-action="AddTask" class="btn btn-sm bg-white" style="background-color:#4db749!important; color:white!important; border-radius:12px;">Add Assignment</a>
+<br />
+@*
+<form asp-controller="Home" asp-action="GetTask" method="">
+    <p>
+        Search by Name: <input type="text" name="Name" required />
+        <input class="btn btn-sm btn-primary" type="submit" value="Filter" />
+    </p>
+</form>
+*@
+<table class="table table-sm table-striped table-bordered m-2 ">
+    <thead style="background-color:#f46f20;color:white;">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Descripton</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var r in Model)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.Name</td>
+                    <td>@r.Description</td>
+                    <td>@r.DateStart</td>
+                    <td>@r.DateEnd</td>
+                    <td>
+                        <form asp-action="UpdateTask" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#4db749; color:white; border-radius:12px;"  type="submit" class="btn btn-sm">Update</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteTask" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#4db749;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

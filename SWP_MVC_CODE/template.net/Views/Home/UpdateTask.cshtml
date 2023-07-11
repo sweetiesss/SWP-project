@@ -1,0 +1,36 @@
+﻿@model Assignment
+@{
+    ViewBag.Title = "Update an Assignment";
+    Layout = "_Layout";
+}
+
+<h2>Update an Assignment <a asp-action="GetTask" class="btn btn-sm btn-secondary">Back</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="@Model.Id">Id:</label>
+        <input class="form-control" asp-for="@Model.Id" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Name">Name:</label>
+        <input class="form-control" asp-for="@Model.Name" required />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Description">Descripton:</label>
+        <input class="form-control" asp-for="@Model.Description" required />
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="@Model.DateStart">DateStart:</label>
+        <input class="form-control" asp-for="@Model.DateStart" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.DateEnd">DateEnd:</label>
+        <input class="form-control" asp-for="@Model.DateEnd" required />
+    </div>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+    </div>
+</form>
