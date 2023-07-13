@@ -1,0 +1,14 @@
+F:\PRN211\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+F:\PRN211\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+F:\PRN211\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+F:\PRN211\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
