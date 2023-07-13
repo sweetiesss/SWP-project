@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\template.net",
+    "\\template.net\\Views",
+    "\\template.net\\Views\\Home",
+    "\\template.net\\Views\\Info",
+    "\\template.net\\Views\\Lecturer",
+    "\\template.net\\Views\\Login",
+    "\\template.net\\Views\\Shared"
+  ],
+  "SelectedNode": "\\template.net\\Views\\Login\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

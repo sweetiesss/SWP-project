@@ -1,0 +1,62 @@
+﻿@model Team 
+@{
+    ViewData["Title"] = "Home Page";
+    List<Course> courseList = (List<Course>)ViewData["CourseList"];
+    List<Team> teamList = (List<Team>)ViewData["TeamList"];
+        Layout = "_LectureLayout";
+}
+
+@if(courseList.Count != 0){
+<div class="d-flex flex-wrap justify-content-around " style="width:800px; row-gap:25px;" >
+    @foreach (var r in courseList)
+    {
+        <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" style="
+    position: relative !important;
+    display: flex !important;
+    height: 55px !important;
+    background: #fff !important;
+    padding: 20px !important;
+    font-weight: 400 !important;
+    border-radius: 8px !important;
+border:none;
+    align-items: center !important;
+    cursor: pointer !important;
+    justify-content: center !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1) !important;
+    min-width: 200px !important;
+    max-width: 200px !important;">
+                @r.Id
+            </button>
+            <div class="dropdown-menu">
+                <div style="width:100%;" class="dropdown-item">
+                    <form asp-controller="Lecturer" asp-action="ViewAll">
+                        @*<form asp-action="ViewInfoTeam" method="">*@
+                            <input type="hidden" value="@r.Id" name="CourseId" />
+                            <button class="dropdown-content "  style="background:none;border:none;width:100%;">Show All</button>
+                        </form>
+                        </div>
+                @foreach (var x in teamList)
+                {
+                    @if (x.CourseId.Equals(r.Id))
+                    {
+                            <div style="width:100%;"class="dropdown-item">
+                        <form asp-controller="Lecturer" asp-action="ViewInfoTeam">
+                        @*<form asp-action="ViewInfoTeam" method="">*@
+                            <input type="hidden" value="@x.Id" name="TeamId" />
+                            <button class="dropdown-content "  style="background:none;border:none;width:100%;">@x.Id</button>
+                        </form>
+                        </div>
+                    }
+                }
+            </div>
+        </div
+        <br />
+    }
+</div>
+}
+else
+{
+    <h3> You don't have any course</h3>
+}
+@*/////////////////*@

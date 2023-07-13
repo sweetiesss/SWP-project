@@ -1,33 +1,49 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-        Layout= "_HeaderOnly";
+    Layout = "_HeaderOnly";
+
 }
 @{
     ViewData["Title"] = "Home Page";
     List<Semester> SemesterList = (List<Semester>)ViewData["SemesterList"];
-    List<Course> CourseList = (List<Course>)ViewData["CourseList"];
-     
+    List<StudentCourse> CourseList = (List<StudentCourse>)ViewData["CourseList"];
+
 
 }
+<div class="d-flex container flex-wrap justify-content-around" style="width:800px; row-gap:25px;" >
 
-<div class="text-left">
-
-@foreach (var r in SemesterList){
-    <div class="dropdown">
-        <h4 class="dropbtn">@r.Name</h4>
-        <div class="dropdown-content">
-            @foreach (var x in CourseList)
-            {
-                @if (x.SemesterId.Equals(r.Id))
-                {
+    @foreach (var r in SemesterList)
+    {
+        <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" style="
+    position: relative !important;
+    display: flex !important;
+    height: 55px !important;
+    padding: 20px !important;
+    font-weight: 400 !important;
+    border-radius: 8px !important;
+border:none;
+    align-items: center !important;
+    cursor: pointer !important;
+    justify-content: center !important;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1) !important;
+    min-width: 200px !important;
+    max-width: 200px !important;">
+                @r.Name
+            </button>
+            <div class="dropdown-menu">
+                @foreach (var x in CourseList){
+                    @if (x.Course.SemesterId.Equals(r.Id))
+                    {<div style="width:100%;"class="dropdown-item">
                         <form asp-action="Dashboard" method="">
-                            <input type="hidden" value="@x.Id" name="CourseId" />
-                            <button class="dropdown-content " style="border-radius: 12px;border: 1px solid gray;">@x.Id</button>
+                            <input type="hidden" value="@x.CourseId" name="CourseId" />
+                            <button class="dropdown-button" style="background:none;border:none;width:100%;">@x.Course.Name - @x.Course.SubjectId - @x.Course.Subject.Name</button>
                         </form>
+                        </div>
+                    }
                 }
-            }
-        </div>
-    </div>
-                <br />
-}
+            </div>
+        </div
+        <br />
+    }
 </div>

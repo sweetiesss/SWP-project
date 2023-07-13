@@ -1,0 +1,35 @@
+﻿@model Topic
+@{
+    ViewBag.Title = "Add an Topic";
+    String cookie = ViewData["cookie"].ToString();
+    Layout = "_LectureLayout";
+
+}
+<form asp-action="AddTopic" method="post" style="width:730px;">
+    <div class="form-group d-flex justify-content-between">
+        <div>
+            <label for="id">Id:</label>
+            <input class="form-control" name="id" required style="width:350px;" />
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <input class="form-control" name="name" required s style="width:350px;" />
+        </div>
+    </div>
+  
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        <input class="form-control" name="descripton" required  style="width:730px;"/>
+    </div>
+    <input type="hidden" name="LecturerId" value="@cookie" />
+    <input type="hidden" name="approval" value="false" />
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm" style="width:730px;font-size:20px;background-color:#99B898;">Add</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <br />
+    <h3 style="color:red" class="text-center">This Id already exists</h3>
+}

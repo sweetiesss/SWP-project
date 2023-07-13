@@ -1,0 +1,14 @@
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Release\net6.0\SWP_Management.Repo.deps.json
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Release\net6.0\SWP_Management.Repo.runtimeconfig.json
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Release\net6.0\SWP_Management.Repo.dll
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Release\net6.0\SWP_Management.Repo.pdb
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.dll
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\refint\SWP_Management.Repo.dll
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.pdb
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Release\net6.0\ref\SWP_Management.Repo.dll

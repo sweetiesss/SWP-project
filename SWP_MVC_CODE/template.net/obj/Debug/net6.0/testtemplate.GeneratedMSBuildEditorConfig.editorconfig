@@ -9,69 +9,145 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = testtemplate
 build_property.RootNamespace = testtemplate
-build_property.ProjectDir = C:\Users\ASUS\Documents\GitHub\SWP-project\SWP_MVC_CODE\template.net\
+build_property.ProjectDir = C:\Users\ASUS\Desktop\SWP_MVC_CODE\template.net\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ASUS\Documents\GitHub\SWP-project\SWP_MVC_CODE\template.net
+build_property.MSBuildProjectDirectory = C:\Users\ASUS\Desktop\SWP_MVC_CODE\template.net
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/CourseChoose.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/CourseChoose.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlQ2hvb3NlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Home/AddTask.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/AddTask.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRUYXNrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Home/Dashboard.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Home/GetTask.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/GetTask.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRUYXNrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Home/Index.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Home/Privacy.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Home/Test.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/Test.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Home/UpdateTask.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/UpdateTask.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVcGRhdGVUYXNrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Login/Login.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/ViewTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3VGVhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Info/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Info/LecturerInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb1xMZWN0dXJlckluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Info/StudentInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mb1xTdHVkZW50SW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/AddTopic.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcQWRkVG9waWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/GetTopic.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcR2V0VG9waWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/UpdateTopic.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcVXBkYXRlVG9waWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/ViewAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcVmlld0FsbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/ViewInfoTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcVmlld0luZm9UZWFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/ViewReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcVmlld1JlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/ViewTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcVmlld1RlYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Shared/Error.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Report/AddReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEFkZFJlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Report/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Report/UpdateReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFVwZGF0ZVJlcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/_ViewImports.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/_ViewStart.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Shared/_HeaderOnly.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Shared/_HeaderOnly.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXJPbmx5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-ghd0rgn734
 
-[C:/Users/ASUS/Documents/GitHub/SWP-project/SWP_MVC_CODE/template.net/Views/Shared/_Layout.cshtml]
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-lhuv8cw3xy
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Shared/_LectureLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MZWN0dXJlTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-wnb8gmws7j
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-28ag7qk2ka

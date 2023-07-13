@@ -1,45 +1,97 @@
 ﻿@model Assignment
 @{
     ViewBag.Title = "Add an Assignment";
-  
+    List<StudentTeam> StudentList = (List<StudentTeam>)ViewData["StudentList"];
     Layout = "_Layout";
 
 }
-
-<h2>Add an Assignment <a asp-action="GetTask" class="btn btn-sm btn-secondary">Back</a></h2>
-<form asp-action="AddTask" method="post" style="width:730px;">
-    <div class="form-group d-flex justify-content-between">
-        <div>
-            <label for="Id">Id:</label>
-            <input class="form-control" name="id" required  style="width:350px;"/>
-        </div>
-        <div>
-            <label for="Name">Name:</label>
-            <input class="form-control" name="name" required s style="width:350px;"/>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="Description">Description:</label>
-        <input class="form-control" name="description" required  style="width:730px;"/>
-    </div>
-    <div class="form-group d-flex justify-content-between">
-        <div>
-            <label for="DateStart">DateStart:</label>
-            <input class="form-control" type="date" name="DateStart" required  size="40" style="width:350px;" />
-        </div>
-        <div>
-            <label for="DateEnd">DateEnd: </label>
-            <input class="form-control" type="date" name="DateEnd" required size="40" style="width:350px;" />
-        </div>
-    </div
-    <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary"  style="width:730px;font-size:20px">Add</button>
-    </div>
-</form>
-
-@if (ViewBag.Result == "Duplicate")
+@if (ViewBag.Result != "Leader")
 {
-    <br />
-    <h3 style="color:red" class="text-center">This Id already exists</h3>
+    <div class="get-assignment-conteainer d-flex flex-column align-items-center">
+        <div class="label-container">
+            <h2>Add an Assignment </h2>
+        </div>
+        <hr/>
+        <div class="form-container">
+            @*<a asp-action="GetTask" class="btn btn-sm btn-secondary">Back </a>*@
+            <form asp-action="AddTask" method="post" style="width:730px;">
+                <div class="form-group d-flex justify-content-between">
+                    <div>
+                        <label for="Id">Id:</label>
+                        <input class="form-control" name="TaskId" required style="width:350px;" />
+                    </div>
+                    <div>
+                        <label for="Name">Name:</label>
+                        <input class="form-control" name="Name" required s style="width:350px;" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Descripton">Description:</label>
+                    <input class="form-control" name="Descripton" required style="width:730px;" />
+                </div>
+                <div class="form-group d-flex justify-content-between">
+                    <div>
+                        <label for="DateStart">DateStart:</label>
+                        <input class="form-control" type="date" name="DateStart" required size="40" style="width:350px;" />
+                    </div>
+                    <div>
+                        <label for="DateEnd">DateEnd: </label>
+                        <input class="form-control" type="date" name="DateEnd" required size="40" style="width:350px;" />
+                    </div>
+                </div>
+                <div class="text-center panel-body">
+                    <button type="submit" class="btn btn-sm " style="width:730px;font-size:20px;background-color: #99B898;">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    @if (ViewBag.Result == "Duplicate")
+    {
+        <br />
+        <h3 style="color:red" class="text-center">This Id already exists</h3>
+    }
+}
+else
+{
+    <h2>Add an Assignment </h2>
+    @*    <a asp-action="GetTask" class="btn btn-sm btn-secondary">Back </a>*@
+    <form asp-action="AddTask" method="post" style="width:730px;">
+        <div class="form-group d-flex justify-content-between">
+            <div>
+                <label for="Id">Id:</label>
+                <input class="form-control" name="TaskId" required style="width:350px;" />
+            </div>
+            <div>
+                <label for="Name">Name:</label>
+                <input class="form-control" name="Name" required s style="width:350px;" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Descripton">Description:</label>
+            <input class="form-control" name="Descripton" required style="width:730px;" />
+        </div>
+        <div class="form-group d-flex justify-content-between">
+            <div>
+                <label for="DateStart">DateStart:</label>
+                <input class="form-control" type="date" name="DateStart" required size="40" style="width:350px;" />
+            </div>
+            <div>
+                <label for="DateEnd">DateEnd: </label>
+                <input class="form-control" type="date" name="DateEnd" required size="40" style="width:350px;" />
+            </div>
+        </div>
+        <label for="StudentId"> Assign to </label>
+        <select class="form-select-sm" for="StudentId" id="StudentId" name="StudentId">
+            @foreach (var r in StudentList)
+            {
+                <option value="@r.StudentId">@r.StudentId</option>
+            }
+        </select>
+
+        <div class="text-center panel-body">
+            <button type="submit" class="btn btn-sm btn-primary" style="width:730px;font-size:20px">Add</button>
+        </div>
+    </form>
 }

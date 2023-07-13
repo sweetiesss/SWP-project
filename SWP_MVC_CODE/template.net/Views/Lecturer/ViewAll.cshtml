@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<StudentCourse> studentList = (List<StudentCourse>)ViewData["StudentList"];
+    Layout = "_LectureLayout";
+}
+
+
+@if (studentList.Count != 0)
+{
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Main</th>
+                <th scope="col">Leader</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var r in studentList)
+            {
+                <tr>
+                    <td style="vertical-align:middle!important;">@r.Student.Id</td>
+                    <td style="vertical-align:middle!important;">@r.Student.Name</td>
+                    <td style="vertical-align:middle!important;">@r.Student.Main</td>
+                    <td style="vertical-align:middle!important;">@r.Student.Leader</td>
+
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <h3 style="text-align:center"> No student available</h3>
+}

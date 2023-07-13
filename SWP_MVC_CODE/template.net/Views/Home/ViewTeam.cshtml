@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<StudentTeam> studentTeams = (List<StudentTeam>)ViewData["StudentList"];
+    Team team = (Team)ViewData["Team"];
+}
+@if (team != null)
+{
+    <h1> Team: @team.Id</h1>
+
+    @if (studentTeams.Count != 0)
+    {
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Main</th>
+                    <th scope="col">Leader</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in studentTeams)
+                {
+                    <tr>
+                        <td style="vertical-align:middle!important;">@r.Student.Id</td>
+                        <td style="vertical-align:middle!important;">@r.Student.Name</td>
+                        <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;vertical-align:middle!important;">@r.Student.Main</td>
+                        <td style="vertical-align:middle!important;width:112px!important;">@r.Student.Leader</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div>No student found</div>
+    }
+}else{
+    <div>You are not in a team</div>
+}

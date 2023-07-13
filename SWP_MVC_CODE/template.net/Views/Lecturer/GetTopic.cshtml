@@ -1,0 +1,67 @@
+﻿@using Azure;
+@model IEnumerable<Topic>
+
+@{
+    ViewData["Title"] = "All Assignments";
+    Layout = "_LectureLayout";
+    List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
+
+}
+
+@if(ViewBag.Result == "Leader")
+{
+    <h3> All topics</h3>
+}
+
+<a asp-action="AddTopic" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Add Topic</a>
+<br />
+<br/>
+@if (TopicList.Count != 0)
+{
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Descripton</th>
+                <th scope="col">LecturerId</th>
+                <th scope="col">Approval</th>
+                <th scope="col" style="text-align:center!important">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var r in TopicList)
+            {
+                <tr>
+                    <td>@r.Id</td>
+                    <td style ="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Name</td>
+                    <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
+                    <td>@r.LecturerId</td>
+                    <td>@r.Approval</td>
+                    <td class="d-flex justify-content-around" style="margin:0!important;">
+                        <form asp-action="UpdateTopic" method="">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Update</button>
+                        </form>
+                        <form asp-action="DeleteTopic" method="post">
+                            <input type="hidden" value="@r.Id" name="id" />
+                            <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+        @if(ViewBag.Result == "Duplicate")
+        {
+            <h3 style="color:red">ID already exist</h3>
+        }
+    }
+
+
+else
+{
+    <h2 style="text-align:center"> No topic available</h2>
+}

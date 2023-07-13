@@ -2634,11 +2634,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
       "projectName": "SWP_Management.Repo",
-      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

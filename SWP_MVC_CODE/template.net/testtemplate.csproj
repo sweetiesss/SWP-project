@@ -7,17 +7,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\dist\css\Login.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Shared\dropdown.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Shared\dropdown.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="4.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\NewFolder\" />
+    <ProjectReference Include="..\SWP_Management.Repo\SWP_Management.Repo.csproj" />
+    <ProjectReference Include="..\SWP_Management.Service\SWP_Management.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SWP_Management.Repo\SWP_Management.Repo.csproj" />
-    <ProjectReference Include="..\SWP_Management.Service\SWP_Management.Service.csproj" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\dist\css\Login.css" />
   </ItemGroup>
 
 </Project>

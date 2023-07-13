@@ -2718,11 +2718,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\template.net\\testtemplate.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\testtemplate.csproj",
       "projectName": "testtemplate",
-      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\template.net\\testtemplate.csproj",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\testtemplate.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\template.net\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2740,11 +2740,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
+            "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj"
             },
-            "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj"
+            "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Service\\SWP_Management.Service.csproj"
             }
           }
         }

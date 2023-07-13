@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Microsoft.EntityFrameworkCore;
 using SWP_Management.Repo.Entities;
 
@@ -39,6 +40,9 @@ namespace SWP_Management.Repo.Repositories
 
         public void Update(AssignmentStudent entity)
         {
+            //_dbContext.Entry(entity.Task).State = EntityState.Unchanged;
+            //_dbContext.Entry(entity.Student).State = EntityState.Unchanged;
+            _dbContext.Entry(entity.Task).State = EntityState.Detached;
             _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }

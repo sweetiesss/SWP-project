@@ -11,61 +11,56 @@
     <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../../dist/css/Main.css">
 
-    <link rel="stylesheet" href="../../dist/css/dropdown.css" />
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
+        
         <!-- Navbar -->
-        <nav class=" navbar navbar-expand navbar-white navbar-light" style="background-color:#f46f20;">
+        <nav class=" navbar navbar-expand navbar-white navbar-light" style="background-color:#E84A5F ;max-height: 48px; position:fixed!important; width:100%;top:0!important;z-index:100!important;">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link text-light">Home</a>
+                    <a href="/#" class="nav-link text-light">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/Home/Index" class="nav-link text-light">Semester</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link text-light">Contact</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link text-light">Semester</a>
                 </li>
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <div class="user-panel d-flex ">
-                    <div class="image">
-                        <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="width:40px">
-                    </div>
-                    <div class=" nav-item d-none d-sm-inline-block">
-                        <a href="#" class="nav-link text-light">Alexander Pierce</a>
-                    </div>
+            <div class="dropdown">
+                <button type="button" id="d   ropdownMenuButton" data-toggle="dropdown" style="width:inherit!important;background:none!important;border:none!important">
+                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="width:40px">
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="/Home/Logout">Log Out</a>
                 </div>
+            </div>
+            </ul>
         </nav>
+
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-
-            <!-- Sidebar -->
-
+        <!-- Sidebar -->
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="margin-left:0px!important">
+        <div class="content-wrapper" style="margin-left:0px!important; margin-top:54px!important;">
             <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>WELCOME</h1>
-                        </div>
-                    </div>
-                </div><!-- /.container-fluid -->
-            </section>
-
             <!-- Main content -->
+           
             <section class="content">
 
                 <!-- Default box -->
@@ -82,8 +77,10 @@
                             </button>
                         </div>
                     </div>
+
                     <div class="card-body">
                         @RenderBody()
+
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
@@ -97,7 +94,6 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.2.0
@@ -106,18 +102,22 @@
         </footer>
 
         <!-- Control Sidebar -->
-      
         <!-- /.control-sidebar -->
+    </div>
     </div>
     <!-- ./wrapper -->
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
+
+
+    @*    <script src="../../js/DropDown.js"></script>*@
+
 </body>
 </html>
 @*

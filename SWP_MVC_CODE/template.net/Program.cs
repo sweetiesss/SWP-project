@@ -26,7 +26,8 @@ builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 //    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
 //});
-builder.Services.AddCors(p => p.AddPolicy("MyCors", build => {
+builder.Services.AddCors(p => p.AddPolicy("MyCors", build =>
+{
     build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
 
@@ -96,6 +97,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

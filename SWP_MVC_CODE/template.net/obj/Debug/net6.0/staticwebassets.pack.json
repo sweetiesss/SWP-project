@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\Main.css",
+      "PackagePath": "staticwebassets\\dist\\css\\Main.css"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\adminlte.css",
       "PackagePath": "staticwebassets\\dist\\css\\adminlte.css"
     },
@@ -119,10 +123,6 @@
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\alt\\adminlte.plugins.min.css.map",
       "PackagePath": "staticwebassets\\dist\\css\\alt\\adminlte.plugins.min.css.map"
-    },
-    {
-      "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\dropdown.css",
-      "PackagePath": "staticwebassets\\dist\\css\\dropdown.css"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\AdminLTELogo.png",
@@ -287,6 +287,10 @@
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\js\\DropDown.js",
+      "PackagePath": "staticwebassets\\js\\DropDown.js"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\js\\site.js",

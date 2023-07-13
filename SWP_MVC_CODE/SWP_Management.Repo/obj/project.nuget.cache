@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rInRA6Oa0n74AwbIQNZHegyNhFzzWowSecFTylNBa7qymjEEQFr2z2o5naIYKnBv3WCn6QtdGRhYHZS53Umhpw==",
+  "dgSpecHash": "CHJ9grZd+uWLfI+Wi9Ok3ln0sXxpVT7c+Gn7RtQR2Wr3+64nMEF+cTp0zr43FXTxt/h90pb7RXSvKsNHolemVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\Documents\\GitHub\\SWP-project\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\SWP_Management.Repo\\SWP_Management.Repo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
