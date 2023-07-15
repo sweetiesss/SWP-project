@@ -1,0 +1,36 @@
+﻿@model Team
+@{
+    ViewBag.Title = "Add a Team";
+    Layout = "_LectureLayout";
+    List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
+
+}
+<form asp-action="CurrentCourseTeamAdd" method="post" style="width:730px;">
+    <div class="form-group d-flex justify-content-between">
+        <div>
+            <label for="TeamId">Id:</label>
+            <input class="form-control" name="TeamId" required style="width:350px;" />
+        </div>
+    </div>
+    <br />
+@*    <select class="form-select form-select-lg" name="TopicId" id="TopicId" required>
+        <option selected>Topic: </option>
+        @{
+            foreach (Topic r in TopicList)
+            {
+                <option value="@r.Id"> @r.Id: @r.Name</option>
+            }
+        }
+        }
+    </select>*@
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm" style="width:730px;font-size:20px;background-color:#99B898;">Add</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <br />
+    <h3 style="color:red" class="text-center">This Id already exists</h3>
+}

@@ -94,11 +94,15 @@ namespace testtemplate.Controllers
             if(team != null) 
             {
                 var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).FirstOrDefault();
-                var topic = _topicRepository.GetById(project.TopicId);
+                if (project != null)
+                {
+                    var topic = _topicRepository.GetById(project.TopicId);
+                    ViewData["CurrentProject"] = topic;
+                }
                 var listReport = _reportRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).ToList();
                 ViewData["ReportList"] = listReport;
                 ViewData["Team"] = team;
-                ViewData["CurrentProject"] = topic;
+                
             }
             else
             {
@@ -308,12 +312,15 @@ namespace testtemplate.Controllers
 
         public async Task<IActionResult> ViewTeam()
         {
+            
             string courseId = ReadCookieCourse();
             string studentId = ReadCookie();
             var team = _teamRepository.GetList().Where(p => p.CourseId.Equals(courseId)).FirstOrDefault();
             if (team != null)
             {
                 var studentList = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).ToList();
+                var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).FirstOrDefault();
+                ViewData["CurrentProject"] = project;
                 ViewData["StudentList"] = studentList;
                 ViewData["Team"] = team;
             }

@@ -10,36 +10,22 @@
 
 
 }
-<div class="d-flex container flex-wrap justify-content-around" style="width:800px; row-gap:25px;" >
-
+<div class="d-flex container flex-wrap justify-content-between body_content">
     @foreach (var r in SemesterList)
     {
-        <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" style="
-    position: relative !important;
-    display: flex !important;
-    height: 55px !important;
-    background: #fff !important;
-    padding: 20px !important;
-    font-weight: 400 !important;
-    border-radius: 8px !important;
-border:none;
-    align-items: center !important;
-    cursor: pointer !important;
-    justify-content: center !important;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1) !important;
-    min-width: 200px !important;
-    max-width: 200px !important;">
+        <div class="body_dropdown_container">
+            <button type="button" class="dropdown_Menu_Button" data-toggle="dropdown">
                 @r.Name
             </button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu body_dropdown_menu">
                 @foreach (var x in CourseList)
                 {
                     @if (x.SemesterId.Equals(r.Id))
-                    {<div style="width:100%;"class="dropdown-item">
+                    {<div class="dropdown-item body_dropdown_item">
                         <form asp-controller="Lecturer" asp-action="Dashboard" method="">
                             <input type="hidden" value="@x.Id" name="CourseId" />
-                            <button class="dropdown-content "  style="background:none;border:none;width:100%;">@x.Id - @x.Subject.Id - @x.Subject.Name</button>
+                            <button class="body_dropdown_button dropdown-button">@x.Name - @x.Subject.Id: 
+                                                                            <br>@x.Subject.Name</button>
                         </form>
                         </div>
                     }

@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<Team> TeamList = (List<Team>)ViewData["TeamList"];
+    List<StudentCourse> student = (List<StudentCourse>)ViewData["StudentList"];
+    Layout = "_LectureLayout";
+}
+
+
+<div class="get-assignment-conteainer d-flex flex-column align-items-center">
+    <div class="label-container">
+        <h2>Assign a student </h2>
+    </div>
+    <hr />
+    <div class="form-container">
+        <form asp-action="AssignStudentTeam" method="post" style="width:730px;">
+            <select class="form-select form-select-lg" name="StudentId" id="StudentId" required>
+                <option selected>Student: </option>
+                @{
+                    foreach (StudentCourse r in student)
+                    {
+                        <option value="@r.StudentId"> @r.StudentId - @r.Student.Name</option>
+                    }
+                }
+                }
+            </select>
+            <br />
+            <select class="form-select form-select-lg" name="TeamId" id="TeamId" required>
+                <option selected>Team: </option>
+                @{
+                    foreach (Team r in TeamList)
+                    {
+                         <option value="@r.Id"> @r.Id</option>
+                    }
+                  }
+
+            </select>
+            <div class="text-center panel-body">
+                <button type="submit" class="btn btn-sm " style="width:730px;font-size:20px;background-color: #99B898;">Assign</button>
+            </div>
+        </form>
+    </div>
+</div>
+@if (ViewBag.Result == "Duplicate")
+{
+    <br />
+    <h3 style="color:red" class="text-center">This student is already in this team</h3>
+}
+@if (ViewBag.Result == "Already Exists")
+{
+    <br />
+    <h3 style="color:red" class="text-center">This student is already in another team in the same course</h3>
+}

@@ -4,7 +4,7 @@
     List<Report> ReportList = (List<Report>)ViewData["ReportList"];
     String cookieValue = ViewData["cookieValue"].ToString();
 }
-
+<h3>Assignment management:</h3>
 <form asp-controller="Report" asp-action="AddReport" method="">
     <input type="hidden" name="id" value="@cookieValue" />
     <button class="btn btn-sm bg-white" type="submit"
@@ -18,7 +18,8 @@
 
 @if (ReportList != null)
 {
-    <table class="table table-hover">
+  <div class="table_scroll">
+            <table class="table table-hover table_header_fixed" >
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
@@ -85,6 +86,7 @@
             </table>*@
         </tbody>
     </table>
+    </div>
 }
 else
 {

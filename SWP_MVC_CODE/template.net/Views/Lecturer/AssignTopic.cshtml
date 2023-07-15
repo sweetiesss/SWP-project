@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
+    List<Course> CourseList = (List<Course>)ViewData["CourseList"];
+    List<Team> TeamList = (List<Team>)ViewData["TeamList"];
+    Layout = "_LectureLayout";
+}
+
+
+<div class="get-assignment-conteainer d-flex flex-column align-items-center">
+    <div class="label-container">
+        <h2>Assign a topic </h2>
+    </div>
+    <hr />
+    <div class="form-container">
+        @*<a asp-action="GetTask" class="btn btn-sm btn-secondary">Back </a>*@
+        <form asp-action="AssignTopic" method="post" style="width:730px;">
+            <select class="form-select form-select-lg" name="TopicId" id="TopicId" required>
+                <option selected>Topic: </option>
+                @{
+                    foreach (Topic r in TopicList)
+                    {
+                        <option value="@r.Id"> @r.Id: @r.Name</option>
+                    }
+                }
+                }
+            </select>
+            <br/>
+            <select class="form-select form-select-lg" name="TeamId" id="TeamId" required>
+                <option selected>Team: </option>
+                @{
+                    foreach (Course r in CourseList)
+                    {
+                        foreach(Team x in TeamList)
+                        {
+                            if (r.Id.Equals(x.CourseId))
+                            {
+                                <option value="@x.Id"> @x.Id</option>
+                            }
+                        }
+                    }
+                }
+                }
+            </select>
+            <div class="text-center panel-body">
+                <button type="submit" class="btn btn-sm " style="width:730px;font-size:20px;background-color: #99B898;">Assign</button>
+            </div>
+        </form>
+    </div>
+</div>
+@if (ViewBag.Result == "Duplicate")
+{
+    <br />
+    <h3 style="color:red" class="text-center">This team already has a topic</h3>
+}

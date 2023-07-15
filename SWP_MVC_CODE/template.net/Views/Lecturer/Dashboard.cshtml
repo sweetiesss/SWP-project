@@ -1,10 +1,14 @@
 ﻿@{
 	string cookie = ViewData["cookie"].ToString();
 	string CourseId = ViewData["CourseId"].ToString();
+	Course currentCourse = (Course)ViewData["Course"];
 	Layout = "_LectureLayout";
 }
 
-
+@if (currentCourse != null)
+{
+	<h6 class="m-0" style="font-weight:650!important;">Dashboard - @currentCourse.Name - @currentCourse.SubjectId</h6>
+}
 @*<form asp-action="GetTopic">
 	<button type="submit" name="id" value="@cookie"> Get topic by manage by this id </button>
 </form>

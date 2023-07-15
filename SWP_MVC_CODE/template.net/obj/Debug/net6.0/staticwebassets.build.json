@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1qTJnHAhZVjyZIy9/KKejxJhIcMdofTXH0L3Y5Sa/aA=",
+  "Hash": "pY+YnEFrBhqZOK9D9zN1Xt1MUN6rZQcmiizw0qZ0OGs=",
   "Source": "testtemplate",
   "BasePath": "_content/testtemplate",
   "Mode": "Default",
@@ -544,6 +544,23 @@
       "OriginalItemSpec": "wwwroot\\dist\\css\\alt\\adminlte.plugins.min.css.map"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\ForHeaderOnly.css",
+      "SourceId": "testtemplate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\",
+      "BasePath": "_content/testtemplate",
+      "RelativePath": "dist/css/ForHeaderOnly.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\css\\ForHeaderOnly.css"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\Main.css",
       "SourceId": "testtemplate",
       "SourceType": "Discovered",
@@ -559,6 +576,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\css\\Main.css"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\Student.css",
+      "SourceId": "testtemplate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\",
+      "BasePath": "_content/testtemplate",
+      "RelativePath": "dist/css/Student.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\css\\Student.css"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\AdminLTELogo.png",
@@ -865,6 +899,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\img\\photo4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\pink-sky.jpeg",
+      "SourceId": "testtemplate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\",
+      "BasePath": "_content/testtemplate",
+      "RelativePath": "dist/img/pink-sky.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\img\\pink-sky.jpeg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\prod-1.jpg",
@@ -1239,6 +1290,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\js\\pages\\dashboard3.js"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\js\\Sticky.js",
+      "SourceId": "testtemplate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\",
+      "BasePath": "_content/testtemplate",
+      "RelativePath": "dist/js/Sticky.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\js\\Sticky.js"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\favicon.ico",

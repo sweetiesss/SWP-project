@@ -14,11 +14,13 @@
 }
 
 <a asp-action="AddTopic" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Add Topic</a>
+<a asp-action="AssignTopic" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Assign Topic</a>
 <br />
 <br/>
 @if (TopicList.Count != 0)
 {
-    <table class="table table-hover">
+   <div class="table_scroll">
+            <table class="table table-hover table_header_fixed" >
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -53,6 +55,7 @@
             }
         </tbody>
     </table>
+    </div>
 
         @if(ViewBag.Result == "Duplicate")
         {

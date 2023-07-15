@@ -50,6 +50,12 @@
                             {
                                 <h6 class="m-0" style="font-weight:650!important;">Dashboard - @currentCourse.Name - @currentCourse.SubjectId</h6>
                             }
+                            @if(topic != null)
+                            {
+                                <h6 class="m-0" style="font-weight:650!important;">Current topic: @topic.Name</h6>
+                            }else{
+                                <h6 class="m-0" style="font-weight:650!important;">Current topic: None</h6>
+                            }
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -194,7 +200,7 @@
                             <!-- DIRECT CHAT -->
                             <!--/.direct-chat -->
                             <!-- TO DO List -->
-                            <div class="card">
+                            <div class="card" style="height:280px!important;">
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         <i class="ion ion-clipboard mr-1"></i>
@@ -213,7 +219,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 @*<form asp-controller="Home" asp-action="UpdateTask" method="post">*@
-                                <div class="card-body">
+                                <div class="card-body scroll" style=" height:400px;">
                                     <ul class="todo-list" data-widget="todo-list">
                                         @if (TaskList != null) {
                                             @for(int i = 0; i<TaskList.Count; i++)
@@ -331,18 +337,9 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div>
-        </footer>
 
         <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
+
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->

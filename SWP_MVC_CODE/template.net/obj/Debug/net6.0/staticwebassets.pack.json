@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\ForHeaderOnly.css",
+      "PackagePath": "staticwebassets\\dist\\css\\ForHeaderOnly.css"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\Main.css",
       "PackagePath": "staticwebassets\\dist\\css\\Main.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\Student.css",
+      "PackagePath": "staticwebassets\\dist\\css\\Student.css"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\css\\adminlte.css",
@@ -197,6 +205,10 @@
       "PackagePath": "staticwebassets\\dist\\img\\photo4.jpg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\pink-sky.jpeg",
+      "PackagePath": "staticwebassets\\dist\\img\\pink-sky.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\prod-1.jpg",
       "PackagePath": "staticwebassets\\dist\\img\\prod-1.jpg"
     },
@@ -251,6 +263,10 @@
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\js\\.eslintrc.json",
       "PackagePath": "staticwebassets\\dist\\js\\.eslintrc.json"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\js\\Sticky.js",
+      "PackagePath": "staticwebassets\\dist\\js\\Sticky.js"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\js\\adminlte.js",

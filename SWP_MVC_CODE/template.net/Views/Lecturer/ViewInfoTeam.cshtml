@@ -4,13 +4,21 @@
 @{
 
     List<Student> studentList = (List<Student>)ViewData["TeamInfo"];
-     Layout = "_LectureLayout";
+    string teamId = ViewData["TeamId"].ToString();
+    Layout = "_LectureLayout";
 }
-
-
+<h3>Team: @teamId</h3>
+<a asp-action="AssignStudentTeam" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">
+        Add a student
+   
+</a>
+<br/>
+<br/>
 @if (studentList.Count != 0)
 {
-    <table class="table table-hover">
+    
+  <div class="table_scroll">
+            <table class="table table-hover table_header_fixed" >
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Id</th>
@@ -28,13 +36,20 @@
                     <td style="vertical-align:middle!important;">@r.Name</td>
                     <td style="vertical-align:middle!important;">@r.Main</td>
                     <td style="vertical-align:middle!important;">@r.Leader</td>
-                    
+                    <td>
+                    <form asp-action="AssignStudentTeamDelete" method="post">
+                        <input type="hidden" value="@r.Id" name="StudentId" />
+                        <input type="hidden" value="@teamId" name="TeamId" />                     
+                        <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                    </form>
+                    </td>
                 </tr>
             }
 
 
         </tbody>
     </table>
+    </div>
 }
 else
 {

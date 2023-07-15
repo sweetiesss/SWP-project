@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Update a Team";
+    Layout = "_LectureLayout";
+    List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
+    Team team = (Team)ViewData["Team"];
+    List<Project> projectList = (List<Project>)ViewData["Project"];
+    var project = projectList.Where(p => p.TeamId.Equals(team.Id)).FirstOrDefault();
+}
+<form asp-action="CurrentCourseTeamUpdate" method="post" style="width:730px;">
+    <div class="form-group d-flex justify-content-between">
+        <div>
+            <label asp-for="@team.Id">Id:</label>
+            <input class="form-control" asp-for="@team.Id" name="TeamId" required style="width:350px;" readonly/>
+        </div>
+    </div>
+    <br />
+    <select class="form-select form-select-lg" name="TopicId" required>
+     @if(project != null)
+            {
+            <option value="@project.TopicId" selected>@project.TopicId: @project.Topic.Name </option>
+            }else{
+            <option value="" selected>Topic: </option>
+                 }
+            @{
+                 foreach (Topic r in TopicList)
+                 {
+                    <option value="@r.Id"> @r.Id: @r.Name</option>
+                 }
+             }
+    </select>
+
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm" style="width:730px;font-size:20px;background-color:#99B898;">Update</button>
+    </div>
+</form>
+
+@if (ViewBag.Result == "Duplicate")
+{
+    <br />
+    <h3 style="color:red" class="text-center">This Id already exists</h3>
+}

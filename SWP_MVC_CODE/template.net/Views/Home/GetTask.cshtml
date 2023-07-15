@@ -9,14 +9,17 @@
     String cookieValue = ViewData["cookieValue"].ToString();
 
 }
+
+<h3>Assignment management:</h3>
 @if(ViewBag.Result != "Leader"){
 
     <a asp-action="AddTask" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Add Assignment</a>
 <br />
 <br />
 @if(TaskList.Count != 0){
-        <table class="table table-hover">
-            <thead class="thead-dark">
+    <div class="table_scroll">
+            <table class="table table-hover table_header_fixed" >
+                <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
@@ -59,6 +62,7 @@
                 }
             </tbody>
         </table>
+        </div>
 }
 else
 {
@@ -74,7 +78,8 @@ else
 
 @if (TaskList.Count != 0)
 {
-    <table class="table table-hover table-sm  m-2"
+    <div class="table_scroll">
+            <table class="table table-hover table-sm  m-2 table_header_fixed"
            style="-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;">
             <thead class="thead-dark">
                 <tr>
@@ -121,10 +126,9 @@ else
                         </td>
                 </tr>
             }
-
-
         </tbody>
     </table>
+    </div>
 }
 else
 {

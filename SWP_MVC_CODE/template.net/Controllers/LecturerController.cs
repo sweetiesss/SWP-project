@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using SWP_Management.Repo.Entities;
 using SWP_Management.Repo.Repositories;
 using System.Data.Common;
@@ -18,6 +20,7 @@ namespace testtemplate.Controllers
         private readonly IReportRepository _reportRepository;
         private readonly IStudentTeamRepository _studentTeamRepository;
         private readonly IStudentCourseRepository _studentCourseRepository;
+        private readonly IProjectRepository _projectRepository;
           
 
 
@@ -29,7 +32,8 @@ namespace testtemplate.Controllers
                                 ITeamRepository teamRepository,
                                 IReportRepository reportRepository,
                                 IStudentTeamRepository studentTeamRepository,
-                                IStudentCourseRepository studentCourseRepository)
+                                IStudentCourseRepository studentCourseRepository,
+                                IProjectRepository projectRepository)
         {
             _semesterRepository = semesterRepository;
             _courseRepository = courseRepository;
@@ -40,6 +44,7 @@ namespace testtemplate.Controllers
             _reportRepository = reportRepository;
             _studentTeamRepository = studentTeamRepository;
             _studentCourseRepository = studentCourseRepository;
+            _projectRepository = projectRepository;
         }
         public IActionResult Index()
         {
@@ -70,15 +75,19 @@ namespace testtemplate.Controllers
             }
 
             string lecturerId = ReadCookie();
+                var currentCourse = _courseRepository.GetById(CourseId);
+
 
                 ViewData["CourseId"] = CourseId;
+                ViewData["Course"] = currentCourse;
 				ViewData["cookie"] = lecturerId;
 
             return View();
         }
 
-        public IActionResult GetTopic(string id)
+        public IActionResult GetTopic()
         {
+            string id;
             id = ReadCookie();
             var lecturer = _lecturerRepository.GetById(id);
             if(lecturer.Leader == true)
@@ -175,7 +184,120 @@ namespace testtemplate.Controllers
             return RedirectToAction("GetTopic");
         }
 
+        public IActionResult AssignTopic()
+        {
+            GetTopic();
+            ViewTeam();
 
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AssignTopic(string TopicId, string TeamId)
+        {
+            AssignTopic();
+            var existing = _projectRepository.GetList().Where(p => p.TeamId.Equals(TeamId)).FirstOrDefault();
+            if (existing != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
+            var topic = _topicRepository.GetById(TopicId);
+            var team = _teamRepository.GetById(TeamId);
+            Project project = new Project();
+            project.Topic = topic;
+            project.Team = team;
+            project.TopicId = TopicId;
+            project.TeamId = TeamId;
+            _projectRepository.Add(project);
+
+            return RedirectToAction("GetTopic");
+        }
+
+
+
+        public IActionResult CurrentCourseTeam()
+        {
+            string lecId = ReadCookie();
+            string courseId = ReadCookieCourse();
+            
+            var teamList = _teamRepository.GetList().Where(p => p.CourseId.Equals(courseId)).ToList();
+
+            ViewData["TeamList"] = teamList;
+            ViewData["Course"] = _courseRepository.GetById(courseId);
+            ViewData["Project"] = _projectRepository.GetList().ToList();
+            return View();
+        }
+
+        public ViewResult CurrentCourseTeamAdd() => View();
+
+        [HttpPost]
+        public IActionResult CurrentCourseTeamAdd(string TeamId)
+        {
+            GetTopic();
+            string CourseId = ReadCookieCourse();
+            var course = _courseRepository.GetById(CourseId);
+            var existing = _teamRepository.GetById(TeamId);
+            if (existing != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
+            Team team = new Team();
+            team.Id = TeamId;
+            team.CourseId = CourseId;
+            team.Course = course;
+            _teamRepository.Add(team);
+
+
+            return RedirectToAction("CurrentCourseTeam");
+        }
+
+        public IActionResult CurrentCourseTeamUpdate(string TeamId)
+        {
+            GetTopic();
+            var team = _teamRepository.GetById(TeamId);
+            ViewData["Project"] = _projectRepository.GetList().ToList();
+            ViewData["Team"] = team;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CurrentCourseTeamUpdate(string TeamId, string TopicId)
+        {
+            CurrentCourseTeamUpdate(TeamId);
+            var team = _teamRepository.GetById(TeamId);
+            var topic = _topicRepository.GetById(TopicId);
+            var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).FirstOrDefault();
+            if (project == null)
+            {
+                Project newProject = new Project();
+                newProject.TeamId = team.Id;
+                newProject.Team = team;
+                newProject.Topic = topic;
+                newProject.TopicId = topic.Id;
+
+                _projectRepository.Add(newProject);
+                return RedirectToAction("CurrentCourseTeam");
+            }
+            project.TopicId = topic.Id;
+            project.Topic = topic;
+            
+
+            _projectRepository.Update(project);
+            return RedirectToAction("CurrentCourseTeam");
+        }
+
+        public IActionResult CurrentCourseTeamDelete(string TeamId)
+        {
+            var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(TeamId)).FirstOrDefault();
+            if(project != null)
+            {
+                _projectRepository.Delete(project.Id);
+            }
+            _teamRepository.Delete(TeamId);
+            return RedirectToAction("CurrentCourseTeam");
+        }
 
         public IActionResult ViewReport(string courseId)
         {
@@ -236,9 +358,70 @@ namespace testtemplate.Controllers
                     }
                 }
             }
+            ViewData["TeamId"] = teamId;
             ViewData["TeamInfo"]= list;
             return View();
 
+        }
+
+        public IActionResult AssignStudentTeam()
+        {
+            ViewAll(ReadCookieCourse());
+            var TeamList = _teamRepository.GetList().Where(p => p.CourseId.Equals(ReadCookieCourse())).ToList();
+            ViewData["TeamList"] = TeamList;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AssignStudentTeam(string StudentId, string TeamId)
+        {
+            AssignStudentTeam();
+            var team = _teamRepository.GetById(TeamId);
+            var student = _studentRepository.GetById(StudentId);
+            var existing = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(StudentId) &&
+                                                                       p.TeamId.Equals(TeamId)).FirstOrDefault();
+            if (existing != null)
+            {
+                ViewBag.Result = "Duplicate";
+                return View();
+            }
+
+            var currentCourse = _courseRepository.GetById(ReadCookieCourse());
+            var existTeam = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(StudentId)).ToList();
+            if (existTeam != null)
+            {
+                for (int i = 0; i < existTeam.Count; i++)
+                {
+                    if (existTeam[i].Team.Course.Id.Equals(currentCourse.Id))
+                    {
+                        ViewBag.Result = "Already Exists";
+                        return View();
+                    }
+                }
+            }
+            
+
+
+
+  
+            StudentTeam studentTeam = new StudentTeam();
+            studentTeam.StudentId = StudentId;
+            studentTeam.TeamId = TeamId;
+            studentTeam.Team = team;
+            studentTeam.Student = student;
+
+            _studentTeamRepository.Add(studentTeam);
+            return RedirectToAction("CurrentCourseTeam");
+
+        }
+
+        [HttpPost]
+        public IActionResult AssignStudentTeamDelete(string StudentId, string TeamId)
+        {
+            var student = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(StudentId) && p.TeamId.Equals(TeamId)).FirstOrDefault();
+
+            _studentTeamRepository.Delete(student.Id);
+            return RedirectToAction("CurrentCourseTeam");
         }
 
         public void CreateCookie(string CourseId)

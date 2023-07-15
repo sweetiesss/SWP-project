@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\template.net",
+    "\\template.net\\Controllers",
     "\\template.net\\Views",
     "\\template.net\\Views\\Home",
     "\\template.net\\Views\\Info",
@@ -9,6 +10,6 @@
     "\\template.net\\Views\\Login",
     "\\template.net\\Views\\Shared"
   ],
-  "SelectedNode": "\\template.net\\Views\\Login\\Index.cshtml",
+  "SelectedNode": "\\template.net\\Controllers\\LecturerController.cs",
   "PreviewInSolutionExplorer": false
 }

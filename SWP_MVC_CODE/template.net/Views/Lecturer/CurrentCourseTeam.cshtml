@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Course Course = (Course)ViewData["Course"];
+    List<Team> TeamList = (List<Team>)ViewData["TeamList"];
+    List<Project> Project = (List<Project>)ViewData["Project"];
+    Layout = "_LectureLayout";
+    int count = 0;
+}
+
+        <h1>
+            Team in course : @Course.Name
+            </h1>
+
+<a asp-action="CurrentCourseTeamAdd" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Add Team</a>
+<br/>
+<br/>
+@if (TeamList.Count != 0)
+{
+
+
+  <div class="table_scroll">
+            <table class="table table-hover table_header_fixed" >
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Course Id</th>
+                <th scope="col">Current Topic</th>
+                <th scope="col" style="text-align:center!important">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var r in TeamList)
+            {
+                var projectList = Project.Where(p => p.TeamId.Equals(r.Id)).FirstOrDefault();
+                <tr>
+                    <td>@r.Id</td>
+                    <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.CourseId</td>
+                    @if (projectList != null)
+                    {
+                        <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@projectList.Topic.Name</td>
+                    }
+                    else
+                    {
+                        <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">No topic</td>
+                    }
+
+
+                    <td class="d-flex justify-content-around" style="margin:0!important;">
+                        <form asp-action="ViewInfoTeam" method="">
+                            <input type="hidden" value="@r.Id" name="TeamId" />
+                            <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">View</button>
+                        </form>
+                        <form asp-action="CurrentCourseTeamUpdate" method="">
+                            <input type="hidden" value="@r.Id" name="TeamId" />
+                            <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Change Topic</button>
+                        </form>
+                        <form asp-action="CurrentCourseTeamDelete" method="post">
+                            <input type="hidden" value="@r.Id" name="TeamId" />
+                            <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+
+    @if (ViewBag.Result == "Duplicate")
+    {
+        <h3 style="color:red">Team already exist</h3>
+    }
+
+}else
+{
+    <h2 style="text-align:center"> No team available</h2>
+}

@@ -42,10 +42,10 @@ namespace testtemplate.Controllers
         {
             var account = _accountRepository.GetList().Where(p => p.Username.Equals(Username)
                                                                 && p.Password.Equals(Password)).FirstOrDefault();
-            
-            if(account != null)
+
+            if (account != null)
             {
-                if(account.StudentId != null)
+                if (account.StudentId != null)
                 {
                     CreateCookie(account.StudentId);
                     return RedirectToAction("Index", "Home");
@@ -56,8 +56,8 @@ namespace testtemplate.Controllers
                     return RedirectToAction("Index", "Lecturer");
                 }
             }
-            ViewBag.Result = "Failed";
-            return RedirectToAction("Index");
+                ViewBag.Result = "Failed";
+                return RedirectToAction("Index");
         }
 
 

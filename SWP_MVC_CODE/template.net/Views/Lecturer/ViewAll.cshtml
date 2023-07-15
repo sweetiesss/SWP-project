@@ -9,7 +9,8 @@
 
 @if (studentList.Count != 0)
 {
-    <table class="table table-hover">
+  <div class="table_scroll">
+            <table class="table table-hover table_header_fixed" >
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Id</th>
@@ -34,6 +35,7 @@
 
         </tbody>
     </table>
+    </div>
 }
 else
 {

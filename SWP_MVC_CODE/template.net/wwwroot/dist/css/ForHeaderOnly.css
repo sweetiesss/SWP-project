@@ -1,0 +1,201 @@
+﻿
+htmll {
+    scroll-behavior: smooth;
+}
+
+.sticky {
+    position: sticky !important;
+    top: 0;
+    width: 100%;
+    transition: all 1s ease-in;
+    background: rgba(255,255,255,0.8) !important;
+    animation-duration: 4s;
+    backdrop-filter: blur(18px);
+}
+
+    .sticky + .this_content_wrapper {
+        padding-top: 102px !important;
+    }
+
+
+#this_wrapper {
+    display: flex;
+    flex-direction: column;
+    content: "";
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background: rgba(0,0,0,0.1) url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat;
+    background-blend-mode: darken;
+}
+
+#header_header {
+    background: none;
+    max-height: 48px;
+    position: relative;
+    width: 100%;
+    top: 0 !important;
+    z-index: 100 !important;
+    transition: all 0.4s ease-in-out;
+    background-color: transparent;
+}
+
+#sidebar_sidebar {
+    background-color: #F9B195;
+    position: fixed !important;
+    width: 17.5rem;
+}
+
+#header_header .navbar-nav .nav-link {
+    color: black !important;
+}
+
+
+.this_hover_link {
+    color: black !important;
+    font-weight: 400 !important;
+}
+
+.this_hover_link_radius18:hover {
+    font-weight: 800;
+    color: black !important;
+    display: block !important;
+    background: rgba(255,255,255,0.5);
+    border-radius: 18px;
+    backdrop-filter: blur(7px);
+}
+
+.this_hover_link:hover {
+    font-weight: 800 !important;
+    color: black !important;
+    display: block !important;
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(7px);
+}
+
+#dropdown_menu {
+    width: 150px !important;
+    background: #ffffff52;
+    backdrop-filter: blur(7px);
+    border-radius: 18px;
+    padding: 0;
+}
+
+    #dropdown_menu .this_hover_link:first-child:hover {
+        border-radius: 18px 18px 0 0 !important;
+    }
+
+    #dropdown_menu .this_hover_link:last-child:hover {
+        border-radius: 0 0 18px 18px !important;
+
+    }
+
+hr {
+    margin: 0 2px;
+}
+
+#this_content_wrapper {
+    position: relative !important;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    left: 50%;
+    margin-top: 5% !important;
+    transform: translateX(-50%);
+    border-radius: 12px !important;
+}
+
+#this_content {
+    background: none;
+    min-width: 60rem;
+}
+
+.content_card {
+    background: none !important;
+    margin: 0 !important;
+    color: rgba(0,0,0);
+    font-weight: 600;
+    border-radius: 12px !important;
+}
+
+.content_card_title {
+    font-weight: 600 !important;
+}
+
+.content_card_body {
+}
+
+.body_dropdown_container {
+    display: flex !important;
+    justify-content: flex-start;
+    flex-direction: column !important;
+    content: "";
+    height: fit-content !important;
+    width: 320px !important;
+    border: none !important;
+    margin-bottom: 3rem !important;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.2) !important;
+    border-radius: 10px;
+    padding-top: 0px !important;
+}
+
+    .body_dropdown_container .dropdown_Menu_Button:hover {
+        background: white !important;
+        border-radius: 10px;
+        color: black !important;
+        font-weight: 800 !important;
+    }
+
+    .body_dropdown_container .dropdown_Menu_Button:focus {
+        background: white !important;
+        border-radius: 10px 10px 0 0;
+        color: black !important;
+        font-weight: 800 !important;
+    }
+
+
+.dropdown_Menu_Button {
+    width: 20rem !important;
+    height: 2.5rem !important;
+    border: none;
+    font-weight: 600;
+    background: none !important;
+}
+
+
+.body_dropdown_container .show {
+    position: relative !important;
+    transform: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: none !important;
+    width: 100%;
+}
+
+.body_dropdown_container .dropdown_menu {
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative !important;
+}
+
+body_dropdown_container .dropdown_menu:hover {
+    background: none !important;
+
+}
+
+.body_dropdown_container .body_dropdown_item {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+    .body_dropdown_container .body_dropdown_item .body_dropdown_button {
+        border: none !important;
+        background: none !important;
+        word-break: keep-all !important;
+        white-space: normal;
+        text-align: left !important;
+    }
+    .body_dropdown_container .body_dropdown_item .body_dropdown_button:hover{
+        font-weight:600;
+    }
