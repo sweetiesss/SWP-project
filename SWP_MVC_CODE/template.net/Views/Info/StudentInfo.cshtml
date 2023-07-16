@@ -3,17 +3,28 @@
 *@
 @{
 
-        Student student = (Student)ViewData["Student"];
+    Student student = (Student)ViewData["Student"];
     Layout = "_Layout";
 }
 
 
-<div><h1>Your info: 
+<h3>
+    Your info
+</h3>
+<div class="d-flex">
+    <div class="identity_card_left" style="margin-right:30px;">
+        <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" style="width:120px">
+    </div>
+    <div class="identity_card_right d-flex flex-column">
+        <div>
+        <h5>Id : @student.Id</h5>
+    </div>
+    <div><h5>Name : @student.Name </h5></div>
+    <div><h5>Main : @student.Main </h5></div>
+    <div><h5>Leader : @student.Leader </h5></div>
+</div>
+</div>
 
-</h1>Id: @student.Id </div>
-</h1>Name: @student.Name </div>
-</h1>Main: @student.Main </div>
-</h1>Leader: @student.Leader </div>
 
 @*them team, list course dang hoc
     project *@  

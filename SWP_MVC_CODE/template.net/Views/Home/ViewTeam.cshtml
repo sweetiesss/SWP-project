@@ -3,26 +3,27 @@
 *@
 @{
     List<StudentTeam> studentTeams = (List<StudentTeam>)ViewData["StudentList"];
-    Team team = (Team)ViewData["Team"];
+    StudentTeam studentTeam = (StudentTeam)ViewData["Team"];
     Project CurrentProject = (Project)ViewData["CurrentProject"];
 
 }
-@if (team != null)
+<h3>Team</h3>
+@if (studentTeam != null)
 {
-    <h1> Team: @team.Id</h1>
-    if(CurrentProject != null)
-    {
-        <h3> Current topic: @CurrentProject.Topic.Name </h3>
-    }else{
-        <h3> Current topic: None </h3>
-    }
-
-
     @if (studentTeams.Count != 0)
     {
+        <h1> Team: @studentTeam.TeamId</h1>
+        if (CurrentProject != null)
+        {
+            <h4> Current topic: @CurrentProject.Topic.Name </h4>
+        }
+        else
+        {
+            <h3> Current topic: None </h3>
+        }
       <div class="table_scroll">
             <table class="table table-hover table_header_fixed" >
-            <thead class="thead-dark">
+            <thead class="thead">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>

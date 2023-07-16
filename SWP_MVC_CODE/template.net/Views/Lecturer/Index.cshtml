@@ -7,32 +7,42 @@
     ViewData["Title"] = "Home Page";
     List<Semester> SemesterList = (List<Semester>)ViewData["SemesterList"];
     List<Course> CourseList = (List<Course>)ViewData["CourseList"];
+    List<Course> list = new List<Course>();
 
 
 }
-<div class="d-flex container flex-wrap justify-content-between body_content">
+<div class=" container  body_content">
     @foreach (var r in SemesterList)
     {
         <div class="body_dropdown_container">
             <button type="button" class="dropdown_Menu_Button" data-toggle="dropdown">
                 @r.Name
             </button>
-            <div class="dropdown-menu body_dropdown_menu">
+            <div class="dropdown-menu body_dropdown_menu table_scroll">
                 @foreach (var x in CourseList)
                 {
                     @if (x.SemesterId.Equals(r.Id))
-                    {<div class="dropdown-item body_dropdown_item">
-                        <form asp-controller="Lecturer" asp-action="Dashboard" method="">
-                            <input type="hidden" value="@x.Id" name="CourseId" />
-                            <button class="body_dropdown_button dropdown-button">@x.Name - @x.Subject.Id: 
-                                                                            <br>@x.Subject.Name</button>
-                        </form>
+                    {
+                        list.Add(x);
+                        <div class="dropdown-item body_dropdown_item  has_content">
+                            <form asp-controller="Lecturer" asp-action="Dashboard" method="">
+                                <input type="hidden" value="@x.Id" name="CourseId" />
+                                <button class="body_dropdown_button dropdown-button">
+                                    @x.Name - @x.Subject.Id:
+                                    <br>@x.Subject.Name
+                                </button>
+                            </form>
                         </div>
                     }
                 }
+                @if (list.Count == 0)
+                {
+                    <div class="dropdown-item body_dropdown_item" style="text-align:center">No course available</div>
+                }
+
             </div>
-        </div
-        <br />
+        </div>
+
     }
 </div>
 

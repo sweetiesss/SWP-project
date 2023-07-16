@@ -5,21 +5,24 @@
     Layout = "_LectureLayout";
 
 }
-<h2>Update topic <a asp-action="GetTopic" class="btn btn-sm btn-secondary">Back </a></h2>
+<div class="form_container">
+    <a asp-action="GetTopic" class="back" style="    position: relative;
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
 <form asp-action="UpdateTopic" method="post" style="width:730px;">
-    <div class="form-group d-flex justify-content-between">
+        <h3>Update topic </h3>
+        <div class="form-group d-flex flex-column justify-content-between">
         <div>
             <label asp-for="@topic.Id">Id:</label>
-            <input class="form-control" asp-for="@topic.Id" name="id" required style="width:350px;" readonly/>
+            <input class="form-control" asp-for="@topic.Id" name="id" required  readonly/>
         </div>
         <div>
             <label asp-for="@topic.Name">Name:</label>
-            <input class="form-control" asp-for="@topic.Name" name="name" required s style="width:350px;" />
+            <input class="form-control" asp-for="@topic.Name" name="name" required  />
         </div>
     </div>
-    <div class="form-group">
+        <div class="form-group d-flex flex-column justify-content-between">
         <label asp-for="@topic.Description">Description:</label>
-        <input class="form-control" asp-for="@topic.Description" name="descripton" required style="width:730px;" />
+        <input class="form-control" asp-for="@topic.Description" name="descripton" required  />
     </div>
     <input type="hidden" name="LecturerId" value="@topic.LecturerId" />
     @if (ViewBag.Result != "Leader")
@@ -42,6 +45,8 @@
         </div>
     }
     <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary"  style="width:730px;font-size:20px">Update</button>
+        <button type="submit" class="btn btn-sm btn-primary" >Update</button>
     </div>
 </form>
+</div>
+

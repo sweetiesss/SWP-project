@@ -5,42 +5,51 @@
     List<AssignmentStudent> AssignmentStudentList = (List<AssignmentStudent>)ViewData["AssignmentStudent"];
     string studentId = ViewData["StudentId"].ToString();
 }
-<h2>Update an Assignment <a asp-action="GetTask" class="btn btn-sm btn-secondary">Back</a></h2>
-<form method="post">
-    <div class="form-group">
-        <label asp-for="@Model.Id">Id:</label>
-        <input class="form-control" asp-for="@Model.Id" name="TaskId" readonly />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Name">Name:</label>
-        <input class="form-control" asp-for="@Model.Name" name="Name" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Description">Descripton:</label>
-        <input class="form-control" asp-for="@Model.Description" name="Descripton" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.DateStart">DateStart:</label>
-        <input class="form-control" asp-for="@Model.DateStart" name="DateStart" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.DateEnd">DateEnd:</label>
-        <input class="form-control" asp-for="@Model.DateEnd" name="DateEnd" required />
-    </div>
-    @{
-        var assignmentStudent = AssignmentStudentList.Where(p => p.TaskId.Equals(Model.Id) &&
-        p.StudentId.Equals(studentId)).FirstOrDefault();
-    }
-   
-    <label asp-for="@assignmentStudent.Status">Status </label>
-    <select class="form-select-sm" asp-for="@assignmentStudent.Status" id="Status" name="Status">
-        <option value=Ongoing>Ongoing</option>
-        <option value="Closed">Closed</option>
-        <option value="Completed">Completed</option>
-    </select>
-    <input type="hidden" name="studentId" value="@studentId" />
-    <input type="hidden" name="AssignmentStudentId" value="@assignmentStudent.Id" />
-    <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary">Update</button>
-    </div>
-</form>
+@*<a asp-action="GetTask" class="btn btn-sm btn-secondary">Back</a>*@
+<div class="form_container">
+    <a asp-action="GetTask" class="back" style="    position: relative;
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+    <form method="post">
+        <h3>Update an Task </h3>
+        <div class="form-group d-flex justify-content-between">
+        <div class="form-group">
+            <label asp-for="@Model.Id">Id:</label>
+            <input class="form-control" asp-for="@Model.Id" name="TaskId" readonly />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Name">Name:</label>
+            <input class="form-control" asp-for="@Model.Name" name="Name" required />
+        </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Description">Descripton:</label>
+            <input class="form-control" asp-for="@Model.Description" name="Descripton" required />
+        </div>
+        <div class="form-group d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="@Model.DateStart">DateStart:</label>
+                <input class="form-control" asp-for="@Model.DateStart" name="DateStart" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DateEnd">DateEnd:</label>
+                <input class="form-control" asp-for="@Model.DateEnd" name="DateEnd" required />
+            </div>
+        </div>
+        @{
+            var assignmentStudent = AssignmentStudentList.Where(p => p.TaskId.Equals(Model.Id) &&
+            p.StudentId.Equals(studentId)).FirstOrDefault();
+        }
+
+        <label asp-for="@assignmentStudent.Status">Status </label>
+        <select class="form-select-sm form-control" asp-for="@assignmentStudent.Status" id="Status" name="Status">
+            <option value=Ongoing>Ongoing</option>
+            <option value="Closed">Closed</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <input type="hidden" name="studentId" value="@studentId" />
+        <input type="hidden" name="AssignmentStudentId" value="@assignmentStudent.Id" />
+        <div class="text-center panel-body">
+            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+        </div>
+    </form>
+</div>

@@ -3,6 +3,15 @@ htmll {
     scroll-behavior: smooth;
 }
 
+body {
+    background: url('../img/trees-drawing-illustration-birds-green-river-95547-wallhere.com.jpg') no-repeat !important;
+    min-height: 100vh !important;
+    background-blend-mode: darken;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+
 .sticky {
     position: sticky !important;
     top: 0;
@@ -25,19 +34,63 @@ htmll {
     min-height: 100vh;
     width: 100%;
     position: relative;
-    background: rgba(0,0,0,0.1) url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat;
     background-blend-mode: darken;
 }
 
 #header_header {
     background: none;
-    max-height: 48px;
+    min-height: 48px;
     position: relative;
     width: 100%;
     top: 0 !important;
     z-index: 100 !important;
     transition: all 0.4s ease-in-out;
     background-color: transparent;
+}
+.active{
+    font-weight: 800!important;
+    transform: scale(1.2)!important;
+    color: black !important;
+    display: block !important;
+    background: rgba(255,255,255,0.8) !important;
+    border-radius: 18px!important;
+    backdrop-filter: blur(7px)!important;
+    border-color: black !important;
+}
+    /*header left link*/
+    #header_header .navbar-nav .nav-link {
+        color: black;
+        font-weight: 600;
+        font-size: 14px;
+        margin-right: 20px;
+        background: rgba(255,255,255,0.32);
+        backdrop-filter: blur(7px);
+        border-left: 3px solid;
+        border-bottom: 3px solid;
+        border-radius: 0px 3px 3px 0px;
+        transition: 0.5s !important;
+    }
+
+
+.this_hover_link_radius18:hover {
+    font-weight: 800 !important;
+    transform: scale(1.2) !important;
+    color: black !important;
+    display: block !important;
+    background: rgba(255,255,255,0.8) !important;
+    border-radius: 18px !important;
+    backdrop-filter: blur(7px) !important;
+    border-color: black !important;
+}
+.this_hover_link_radius18:focus {
+    font-weight: 800 !important;
+    transform: scale(1.2) !important;
+    color: black !important;
+    display: block !important;
+    background: rgba(255,255,255,0.8) !important;
+    border-radius: 18px !important;
+    backdrop-filter: blur(7px) !important;
+    border-color: black !important;
 }
 
 #sidebar_sidebar {
@@ -56,14 +109,6 @@ htmll {
     font-weight: 400 !important;
 }
 
-.this_hover_link_radius18:hover {
-    font-weight: 800;
-    color: black !important;
-    display: block !important;
-    background: rgba(255,255,255,0.5);
-    border-radius: 18px;
-    backdrop-filter: blur(7px);
-}
 
 .this_hover_link:hover {
     font-weight: 800 !important;
@@ -77,9 +122,23 @@ htmll {
     width: 150px !important;
     background: #ffffff52;
     backdrop-filter: blur(7px);
+    border-radius: 0 0 18px 18px!important;
+    padding: 0;
+}
+#profile {
+    width: 150px !important;
+    background: #ffffff52;
+    backdrop-filter: blur(7px);
     border-radius: 18px;
     padding: 0;
 }
+    #profile .this_hover_link:first-child:hover {
+        border-radius: 18px 18px 0 0 !important;
+    }
+
+    #profile .this_hover_link:last-child:hover {
+        border-radius: 0 0 18px 18px !important;
+    }
 
     #dropdown_menu .this_hover_link:first-child:hover {
         border-radius: 18px 18px 0 0 !important;
@@ -98,9 +157,8 @@ hr {
     position: relative !important;
     background: rgba(255,255,255,0.2);
     backdrop-filter: blur(10px);
-    left: 50%;
-    margin-top: 5% !important;
-    transform: translateX(-50%);
+    
+    margin:2.5% 5%!important;
     border-radius: 12px !important;
 }
 
@@ -122,6 +180,12 @@ hr {
 }
 
 .content_card_body {
+}
+
+.body_content {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: auto auto auto;
 }
 
 .body_dropdown_container {
@@ -164,19 +228,21 @@ hr {
 
 
 .body_dropdown_container .show {
-    position: relative !important;
-    transform: none !important;
+    position: absolute !important;
     padding: 0 !important;
     margin: 0 !important;
     border: none !important;
-    background: none !important;
-    width: 100%;
+    background: white !important;
+    width: inherit;
+    border-radius: 0 0 10px 10px !important;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
 }
 
 .body_dropdown_container .dropdown_menu {
     padding: 0 !important;
     margin: 0 !important;
     position: relative !important;
+    box-sizing: content-box!important;
 }
 
 body_dropdown_container .dropdown_menu:hover {
@@ -187,7 +253,10 @@ body_dropdown_container .dropdown_menu:hover {
 .body_dropdown_container .body_dropdown_item {
     padding: 0 !important;
     margin: 0 !important;
+    border-radius: 0 0 10px 10px;
+    box-sizing: content-box!important;
 }
+
 
     .body_dropdown_container .body_dropdown_item .body_dropdown_button {
         border: none !important;
@@ -199,3 +268,13 @@ body_dropdown_container .dropdown_menu:hover {
     .body_dropdown_container .body_dropdown_item .body_dropdown_button:hover{
         font-weight:600;
     }
+
+.table_scroll:has(> .has_content) {
+    overflow: auto !important;
+    max-height: 225px !important;
+}
+.has_content {
+    border-radius:0!important;
+    border-bottom: solid 2px!important;
+    margin-bottom: 2px !important;
+}

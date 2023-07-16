@@ -12,23 +12,27 @@
 {
     <h3> All topics</h3>
 }
+else
+{
+    <h3> Topics </h3 >
+}
 
-<a asp-action="AddTopic" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Add Topic</a>
-<a asp-action="AssignTopic" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Assign Topic</a>
+<a asp-action="AddTopic" class="btn btn-sm " style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Add Topic</a>
+<a asp-action="AssignTopic" class="btn btn-sm " style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Assign Topic</a>
 <br />
 <br/>
 @if (TopicList.Count != 0)
 {
    <div class="table_scroll">
             <table class="table table-hover table_header_fixed" >
-        <thead class="thead-dark">
+        <thead class="thead">
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Descripton</th>
-                <th scope="col">LecturerId</th>
-                <th scope="col">Approval</th>
-                <th scope="col" style="text-align:center!important">Edit</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Descripton</th>
+                <th>LecturerId</th>
+                <th>Approval</th>
+                <th style="text-align:center!important">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -41,15 +45,16 @@
                     <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
                     <td>@r.LecturerId</td>
                     <td>@r.Approval</td>
-                    <td class="d-flex justify-content-around" style="margin:0!important;">
+                    <td> <div class="d-flex justify-content-around">
                         <form asp-action="UpdateTopic" method="">
                             <input type="hidden" value="@r.Id" name="id" />
-                            <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Update</button>
+                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
                         </form>
                         <form asp-action="DeleteTopic" method="post">
                             <input type="hidden" value="@r.Id" name="id" />
-                            <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
                         </form>
+                        </div>
                     </td>
                 </tr>
             }

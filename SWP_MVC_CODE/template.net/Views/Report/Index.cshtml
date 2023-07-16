@@ -4,11 +4,11 @@
     List<Report> ReportList = (List<Report>)ViewData["ReportList"];
     String cookieValue = ViewData["cookieValue"].ToString();
 }
-<h3>Assignment management:</h3>
+<h3>Report</h3>
 <form asp-controller="Report" asp-action="AddReport" method="">
     <input type="hidden" name="id" value="@cookieValue" />
-    <button class="btn btn-sm bg-white" type="submit"
-            style="background-color:#212529!important; color:white!important; border-radius:12px;">
+    <button class="btn btn-sm " type="submit"
+            style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">
         Make a report
     </button>
 </form>
@@ -20,7 +20,7 @@
 {
   <div class="table_scroll">
             <table class="table table-hover table_header_fixed" >
-        <thead class="thead-dark">
+        <thead class="thead">
             <tr>
                 <th>ID</th>
                 <th>Descripton</th>    
@@ -38,11 +38,11 @@
                         <div class="d-flex justify-content-around" >
                         <form asp-action="UpdateReport" method="">
                             <input type="hidden" value="@r.Id" name="id" />
-                                <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Update</button>
+                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
                             </form>
                         <form asp-action="DeleteReport" method="post">
                             <input type="hidden" value="@r.Id" name="id" />
-                                <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
                             </form>
                         </div>
                     </td>

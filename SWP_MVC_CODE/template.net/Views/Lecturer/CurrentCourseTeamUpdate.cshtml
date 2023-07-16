@@ -7,15 +7,19 @@
     List<Project> projectList = (List<Project>)ViewData["Project"];
     var project = projectList.Where(p => p.TeamId.Equals(team.Id)).FirstOrDefault();
 }
+<div class="form_container">
+    <a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
 <form asp-action="CurrentCourseTeamUpdate" method="post" style="width:730px;">
-    <div class="form-group d-flex justify-content-between">
+    <h3>Change Topic</h3>
+        <div class="form-group d-flex flex-column justify-content-between">
         <div>
             <label asp-for="@team.Id">Id:</label>
-            <input class="form-control" asp-for="@team.Id" name="TeamId" required style="width:350px;" readonly/>
+            <input class="form-control" asp-for="@team.Id" name="TeamId" required readonly/>
         </div>
     </div>
     <br />
-    <select class="form-select form-select-lg" name="TopicId" required>
+    <select class="form-select form-select-lg form-control" name="TopicId" required>
      @if(project != null)
             {
             <option value="@project.TopicId" selected>@project.TopicId: @project.Topic.Name </option>
@@ -31,9 +35,10 @@
     </select>
 
     <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm" style="width:730px;font-size:20px;background-color:#99B898;">Update</button>
+        <button type="submit" class="btn btn-sm">Update</button>
     </div>
 </form>
+</div>
 
 @if (ViewBag.Result == "Duplicate")
 {

@@ -11,7 +11,7 @@
     
 
 }
-<div class="d-flex container flex-wrap justify-content-between body_content">
+<div class=" container  body_content">
     
 
     @foreach (var r in SemesterList)
@@ -20,13 +20,13 @@
             <button type="button" class="dropdown_Menu_Button" data-toggle="dropdown">
                 @r.Name
             </button>
-            <div class="dropdown-menu body_dropdown_menu">
+            <div class="dropdown-menu body_dropdown_menu table_scroll">
                 @foreach (var x in CourseList)
                 {
                     @if (x.Course.SemesterId.Equals(r.Id))
                     {
                         list.Add(x);
-                        <div class="dropdown-item body_dropdown_item">
+                        <div class="dropdown-item body_dropdown_item has_content ">
                             <form asp-action="Dashboard" method="">
                                 <input type="hidden" value="@x.CourseId" name="CourseId" />
                                 <button class="body_dropdown_button dropdown-button">
@@ -35,7 +35,6 @@
                                 </button>
                             </form>
                         </div>
-                        <hr />
                     }
                 }
                 @if (list.Count == 0)

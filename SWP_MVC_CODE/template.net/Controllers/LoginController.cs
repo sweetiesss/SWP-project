@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SWP_Management.Repo.Repositories;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace testtemplate.Controllers
 {
     public class LoginController : Controller
     {
+        static bool first = true;
         private readonly IAccountRepository _accountRepository;
         private readonly IStudentRepository _studentRepository;
         private readonly ILecturerRepository _lecturerRepository;
@@ -19,22 +21,26 @@ namespace testtemplate.Controllers
 
         public IActionResult Index()
         {
+
             if (ReadCookie() == null)
             {
                 return View();
             }
+
             var student = _studentRepository.GetById(ReadCookie());
             var lecturer = _lecturerRepository.GetById(ReadCookie());
-            
-            if(student != null)
+            if (student != null)
             {
+                first = false;
                 return RedirectToAction("Index", "Home");
             }
-            if(lecturer != null)
+            if (lecturer != null)
             {
+                first = false;
                 return RedirectToAction("Index", "Lecturer");
             }
-            
+            if (first) first = false;
+            else ViewData["Failed"] = "Failed";
             return View();
         }
 
@@ -42,7 +48,6 @@ namespace testtemplate.Controllers
         {
             var account = _accountRepository.GetList().Where(p => p.Username.Equals(Username)
                                                                 && p.Password.Equals(Password)).FirstOrDefault();
-
             if (account != null)
             {
                 if (account.StudentId != null)
@@ -56,8 +61,8 @@ namespace testtemplate.Controllers
                     return RedirectToAction("Index", "Lecturer");
                 }
             }
-                ViewBag.Result = "Failed";
-                return RedirectToAction("Index");
+            CreateCookie("LoginFailed");
+            return RedirectToAction("Index");
         }
 
 

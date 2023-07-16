@@ -5,11 +5,16 @@
     List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
 
 }
-<form asp-action="CurrentCourseTeamAdd" method="post" style="width:730px;">
-    <div class="form-group d-flex justify-content-between">
+<div class="form_container">
+    <a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+<form asp-action="CurrentCourseTeamAdd" method="post" >
+
+    <h3>Add team into course</h3>
+        <div class="form-group d-flex flex-column justify-content-between">
         <div>
-            <label for="TeamId">Id:</label>
-            <input class="form-control" name="TeamId" required style="width:350px;" />
+            <label for="TeamId">ID</label>
+            <input class="form-control" name="TeamId" required  />
         </div>
     </div>
     <br />
@@ -25,10 +30,10 @@
     </select>*@
 
     <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm" style="width:730px;font-size:20px;background-color:#99B898;">Add</button>
+        <button type="submit" class="btn btn-sm">Add</button>
     </div>
 </form>
-
+</div>
 @if (ViewBag.Result == "Duplicate")
 {
     <br />

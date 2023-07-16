@@ -315,11 +315,15 @@ namespace testtemplate.Controllers
             
             string courseId = ReadCookieCourse();
             string studentId = ReadCookie();
-            var team = _teamRepository.GetList().Where(p => p.CourseId.Equals(courseId)).FirstOrDefault();
+            //var team = _teamRepository.GetList().Where(p => p.CourseId.Equals(courseId)).FirstOrDefault();
+            var team = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(studentId)
+                                                                       && p.Team.CourseId.Equals(courseId)).FirstOrDefault();
+
+
             if (team != null)
             {
-                var studentList = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).ToList();
-                var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).FirstOrDefault();
+                var studentList = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).ToList();
+                var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).FirstOrDefault();
                 ViewData["CurrentProject"] = project;
                 ViewData["StudentList"] = studentList;
                 ViewData["Team"] = team;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pY+YnEFrBhqZOK9D9zN1Xt1MUN6rZQcmiizw0qZ0OGs=",
+  "Hash": "Qo6LznU5hgJXskOtWVAK+Mnj+HnLS9NLdXX7z2Rhi3w=",
   "Source": "testtemplate",
   "BasePath": "_content/testtemplate",
   "Mode": "Default",
@@ -1001,6 +1001,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\img\\prod-5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\trees-drawing-illustration-birds-green-river-95547-wallhere.com.jpg",
+      "SourceId": "testtemplate",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\",
+      "BasePath": "_content/testtemplate",
+      "RelativePath": "dist/img/trees-drawing-illustration-birds-green-river-95547-wallhere.com.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\dist\\img\\trees-drawing-illustration-birds-green-river-95547-wallhere.com.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\SWP_MVC_CODE\\template.net\\wwwroot\\dist\\img\\user1-128x128.jpg",

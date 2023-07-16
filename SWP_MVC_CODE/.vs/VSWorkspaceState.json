@@ -10,6 +10,6 @@
     "\\template.net\\Views\\Login",
     "\\template.net\\Views\\Shared"
   ],
-  "SelectedNode": "\\template.net\\Controllers\\LecturerController.cs",
+  "SelectedNode": "\\template.net\\Views\\Home\\Dashboard.cshtml",
   "PreviewInSolutionExplorer": false
 }

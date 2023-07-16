@@ -10,16 +10,16 @@
 
 }
 
-<h3>Assignment management:</h3>
+<h3>Task</h3>
 @if(ViewBag.Result != "Leader"){
 
-    <a asp-action="AddTask" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Add Assignment</a>
+    <a asp-action="AddTask" class="btn btn-sm" style="background-color:#28a745; color:red; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Add Task</a>
 <br />
 <br />
 @if(TaskList.Count != 0){
     <div class="table_scroll">
             <table class="table table-hover table_header_fixed" >
-                <thead class="thead-dark">
+                <thead class="thead">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
@@ -49,12 +49,12 @@
                             <form asp-action="UpdateTask" method="">
                                 <input type="hidden" value="@r.Id" name="id" />
                                 <input type="hidden" value="@cookieValue" name="studentId" />
-                                <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Update</button>
+                                <button    style ="background-color:#28a745; color:red; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
                             </form>
                             <form asp-action="DeleteTask" method="post">
                                 <input type="hidden" value="@r.Id" name="id" />
 
-                                <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                                        <button style="background-color:#28a745; color:red; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
                             </form>
                             </div>
                         </td>
@@ -72,7 +72,7 @@ else
 }
 else
 {
-    <a asp-action="AddTask" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">Add Assignment</a>
+    <a asp-action="AddTask" class="btn btn-sm" style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Add Assignment</a>
     <br />
     <br/>
 
@@ -81,7 +81,7 @@ else
     <div class="table_scroll">
             <table class="table table-hover table-sm  m-2 table_header_fixed"
            style="-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;">
-            <thead class="thead-dark">
+            <thead class="thead">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
@@ -115,12 +115,12 @@ else
                             <form asp-action="UpdateTask" method="">
                                 <input type="hidden" value="@r.Id" name="id" />
                                 <input type="hidden" value="@cookieValue" name="studentId" />
-                                <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Update</button>
+                                <button  style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
                             </form>
                             <form asp-action="DeleteTask" method="post">
                                 <input type="hidden" value="@r.Id" name="id" />
 
-                                <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                                        <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
                             </form>
                       </div>
                         </td>

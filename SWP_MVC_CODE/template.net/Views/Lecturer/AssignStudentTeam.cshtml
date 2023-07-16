@@ -8,14 +8,12 @@
 }
 
 
-<div class="get-assignment-conteainer d-flex flex-column align-items-center">
-    <div class="label-container">
-        <h2>Assign a student </h2>
-    </div>
-    <hr />
-    <div class="form-container">
-        <form asp-action="AssignStudentTeam" method="post" style="width:730px;">
-            <select class="form-select form-select-lg" name="StudentId" id="StudentId" required>
+<div class="form_container">
+    <a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+        <form asp-action="AssignStudentTeam" method="post">
+               <h2>Assign a student </h2>
+            <select class="form-select form-select-lg form-control" name="StudentId" id="StudentId" required>
                 <option selected>Student: </option>
                 @{
                     foreach (StudentCourse r in student)
@@ -26,7 +24,7 @@
                 }
             </select>
             <br />
-            <select class="form-select form-select-lg" name="TeamId" id="TeamId" required>
+            <select class="form-select form-select-lg form-control" name="TeamId" id="TeamId" required>
                 <option selected>Team: </option>
                 @{
                     foreach (Team r in TeamList)
@@ -34,13 +32,12 @@
                          <option value="@r.Id"> @r.Id</option>
                     }
                   }
-
             </select>
             <div class="text-center panel-body">
-                <button type="submit" class="btn btn-sm " style="width:730px;font-size:20px;background-color: #99B898;">Assign</button>
+                <button type="submit" class="btn btn-sm ">Assign</button>
             </div>
         </form>
-    </div>
+    
 </div>
 @if (ViewBag.Result == "Duplicate")
 {

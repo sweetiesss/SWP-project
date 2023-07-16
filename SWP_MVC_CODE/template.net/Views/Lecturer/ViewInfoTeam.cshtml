@@ -7,8 +7,10 @@
     string teamId = ViewData["TeamId"].ToString();
     Layout = "_LectureLayout";
 }
-<h3>Team: @teamId</h3>
-<a asp-action="AssignStudentTeam" class="btn btn-sm bg-white" style="background-color:#212529!important; color:white!important; border-radius:12px;">
+<a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
+    left: 0;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+<h3>Team:@teamId</h3>
+<a asp-action="AssignStudentTeam" class="btn btn-sm" style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">
         Add a student
    
 </a>
@@ -19,12 +21,13 @@
     
   <div class="table_scroll">
             <table class="table table-hover table_header_fixed" >
-        <thead class="thead-dark">
+        <thead class="thead">
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Main</th>
                 <th scope="col">Leader</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +42,8 @@
                     <td>
                     <form asp-action="AssignStudentTeamDelete" method="post">
                         <input type="hidden" value="@r.Id" name="StudentId" />
-                        <input type="hidden" value="@teamId" name="TeamId" />                     
-                        <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                        <input type="hidden" value="@teamId" name="TeamId" />
+                                <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
                     </form>
                     </td>
                 </tr>
@@ -53,6 +56,6 @@
 }
 else
 {
-    <h3 style="text-align:center"> No student available</h3>
+    <h4 style="text-align:center"> No student available</h4>
 }
 

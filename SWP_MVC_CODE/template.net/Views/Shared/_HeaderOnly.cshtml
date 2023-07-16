@@ -33,7 +33,7 @@
                     <a href="/#" class="nav-link this_hover_link_radius18 this_focus_link_radius18 ">HOME</a>
                 </li>
                 <li class="">
-                    <a href="/Home/Index" class="nav-link this_hover_link_radius18 this_focus_link_radius18">SEMESTERS</a>
+                    <a href="/Home/Index" class="nav-link this_hover_link_radius18 this_focus_link_radius18  @(ViewContext.RouteData.Values["action"].ToString()=="Index"?"active":"")">SEMESTERS</a>
                 </li>
                 <li class="">
                     <a href="#" class="nav-link this_hover_link_radius18 this_focus_link_radius18">CONTACT</a>
@@ -46,8 +46,8 @@
                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" style="width:inherit!important;background:none!important;border:none!important">
                         <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image" style="width:40px">
                     </button>
-                    <div class="dropdown-menu" id="dropdown_menu">
-                        <a class="dropdown-item this_hover_link" href="#">PROFILE</a>
+                    <div class="dropdown-menu" id="profile">
+                        <a class="dropdown-item this_hover_link" href="/Info/Index">PROFILE</a>
                         <a class="dropdown-item this_hover_link" href="#">Another action</a>
                         <hr>
                         <a class="dropdown-item this_hover_link" href="/Home/Logout">LOG OUT</a>
@@ -60,12 +60,10 @@
         <!-- Main Sidebar Container -->
         <!-- Sidebar -->
         <!-- Content Wrapper. Contains page content -->
-        <div id="this_content_wrapper" style="width: min-content!important;">
+        <div id="this_content_wrapper" style="">
             <!-- Content Header (Page header) -->
             <!-- Main content -->
-
             <section class="content" id="this_content">
-
                 <!-- Default box -->
                 <div class="card content_card d-flex">
                     <div class="card-header">
@@ -76,9 +74,6 @@
                         @RenderBody()
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer">
-                        Footer
-                    </div>
                     <!-- /.card-footer-->
                 </div>
                 <!-- /.card -->

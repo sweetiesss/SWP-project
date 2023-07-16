@@ -6,26 +6,30 @@
     StudentTeam team = (StudentTeam)ViewData["TeamId"];
     string cookie = ViewData["Cookie"].ToString();
 }
-<h2>Add a report @cookie @team.TeamId<a asp-action="Index" class="btn btn-sm btn-secondary">
-    Back </a></h2>
-<form asp-action="AddReport" method="post" style="width:730px;">
-    <div class="form-group d-flex justify-content-between">
+@*<a asp-action="Index" class="btn btn-sm btn-secondary">Back</a>*@
+<div class="form_container">
+    <a asp-action="Index" class="back" style="    position: relative;
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+<form asp-action="AddReport" method="post" >
+    <h3>Add a report @cookie @team.TeamId</h3>
+    <div class="form-group">
         <div>
             <label for="Id">Id:</label>
-            <input class="form-control" name="id" required  style="width:350px;"/>
+            <input class="form-control" name="id" required  />
         </div>
     </div>
     <div class="form-group">
         <div>
-        <label for="Description">Description:</label>
-        <input class="form-control" name="descripton" required style="width:730px;" />
+            <label for="Description">Description:</label>
+            <input class="form-control" name="descripton" required  />
         </div>
     </div>
     <input type="hidden" name="teamId" value="@team.TeamId" />
     <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary"  style="width:730px;font-size:20px">Add</button>
+        <button type="submit" class="btn btn-sm btn-primary" >Add</button>
     </div>
 </form>
+</div>
 
 @if (ViewBag.Result == "Duplicate")
 {
