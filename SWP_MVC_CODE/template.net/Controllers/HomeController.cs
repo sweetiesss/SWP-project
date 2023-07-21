@@ -19,7 +19,7 @@ namespace testtemplate.Controllers
         private readonly ISemesterRepository _semesterRepository;
         private readonly ICourseRepository _courseRepository;
         private readonly IAssignmentRepository _assignmentRepository;
-        private readonly IAssignmentStudentRepository _assignmentStudentRepository;
+        private readonly IAssignmentStudenteRepository _assignmentStudentRepository;
         private readonly IStudentRepository _studentRepository;
         private readonly IStudentTeamRepository _studentTeamRepository;
         private readonly IReportRepository _reportRepository;
@@ -31,7 +31,7 @@ namespace testtemplate.Controllers
         public HomeController(ISemesterRepository semesterRepository,
                                 ICourseRepository courseRepository, 
                                 IAssignmentRepository assignmentRepository,
-                                IAssignmentStudentRepository assignmentStudentRepository,
+                                IAssignmentStudenteRepository assignmentStudentRepository,
                                 IStudentRepository studentRepository,
                                 IStudentTeamRepository studentTeamRepository,
                                 IReportRepository reportRepository,
@@ -53,7 +53,10 @@ namespace testtemplate.Controllers
             _studentCourseRepository = studentCourseRepository;
         }
 
-
+        public IActionResult Index1()
+        {
+            return View();
+        }
 
         public IActionResult Index()
         {
@@ -66,13 +69,158 @@ namespace testtemplate.Controllers
 
             var studentCourse = _studentCourseRepository.GetList().Where(p => p.StudentId.Equals(student.Id)).ToList();
             var semesterList = _semesterRepository.GetList().ToList();
-            ViewData["SemesterList"] = semesterList;
+            var sortedSemester = sortSemester(semesterList);
+
+            List<Semester> ongoing = new List<Semester>();
+            List<Semester> future = new List<Semester>();
+            List<Semester> past = new List<Semester>();
+
+            foreach(var r in sortedSemester)
+            {
+                if(compareSemesterDate(r) == 0)
+                {
+                    ongoing.Add(r);
+                }
+                if (compareSemesterDate(r) > 0)
+                {
+                    future.Add(r);
+                }
+                if (compareSemesterDate(r) < 0)
+                {
+                    past.Add(r);
+                }
+            }
+
+            ViewData["SemesterList"] = sortedSemester;
+            ViewData["Ongoing"] = ongoing;
+            ViewData["Future"] = future;
+            ViewData["Past"] = past;
 
             var courseList = _courseRepository.GetList().ToList();
             ViewData["CourseList"] = studentCourse;
 
             return View();
         }
+
+        public int compareSemesterDate(Semester a)
+        {
+            string year = DateTime.Now.Year.ToString();
+            string month = DateTime.Now.Month.ToString();
+
+            string currentSemester = string.Empty;
+
+            if (Int32.Parse(month) > 8) currentSemester += "FA";
+            if (Int32.Parse(month) > 4) currentSemester += "SU";
+            else currentSemester += "SP";
+
+            currentSemester = currentSemester + year[2] + year[3];
+
+            if (currentSemester.Equals(a.Id)) return 0;
+
+            Semester tempSemester = new Semester
+            {
+                Id = currentSemester
+            };
+
+            if (compareSemester(a, tempSemester)) return 1;
+            return -1;
+        }
+
+        public List<Semester> sortSemester(List<Semester> SemesterList)
+        {
+            for (int i = 0; i < SemesterList.Count - 1; i++)
+            {
+                for (int j = i + 1; j < SemesterList.Count; j++)
+                {
+                    if (compareSemester(SemesterList[i], SemesterList[j]))
+                    {
+                        var tempSemester = SemesterList[j];
+                        SemesterList[j] = SemesterList[i];
+                        SemesterList[i] = tempSemester;
+                    }
+                }
+            }
+
+            return SemesterList;
+        }
+
+        public bool compareSemester(Semester a, Semester b)
+        {
+
+            string s1 = a.Id.Substring(2);
+            string s2 = b.Id.Substring(2);
+
+            if (Int32.Parse(s1) > Int32.Parse(s2)) return true;
+            if (Int32.Parse(s1) < Int32.Parse(s2)) return false;
+
+            for (int i = 0; i < 2; i++)
+            {
+                if (a.Id[i].Equals('F')) return true;
+                if (a.Id[i].Equals(b.Id[i]))
+                {
+                    if (a.Id[i + 1].Equals('U')) return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
+
+        public IActionResult HomePage(string CourseId)
+        {
+            string r;
+            if (CourseId != null)
+            {
+                CreateCookie(CourseId);
+            }
+            else
+            {
+                r = ReadCookieCourse();
+                CourseId = r;
+            }
+            string studentId = ReadCookie();
+
+			
+			var student = _studentRepository.GetById(studentId);
+            
+            //var team = _teamRepository.GetList().Where(p => p.CourseId.Equals(CourseId)).FirstOrDefault();
+            var team = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(studentId)
+                                                                    && p.Team.CourseId.Equals(CourseId)).FirstOrDefault();
+
+            if (team != null)
+            {
+                GetAllTaskTeam(studentId);
+                var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).FirstOrDefault();
+                if (project != null)
+                {
+                    var topic = _topicRepository.GetById(project.TopicId);
+                    ViewData["CurrentProject"] = topic;
+                }
+                var listReport = _reportRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).ToList();
+                var studentList = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).ToList();
+                ViewData["ReportList"] = listReport;
+                ViewData["Team"] = team;
+                ViewData["StudentList"] = studentList;
+
+            }
+            else
+            {
+
+                ViewData["Team"] = null;
+                ViewData["ReportList"] = null;
+                ViewData["CurrentProject"] = null;
+                ViewData["StudentList"] = null;
+            }
+            var course = _courseRepository.GetById(CourseId);
+            ViewData["CourseId"] = course;
+            ViewData["Student"] = student;
+
+            //ViewData["Team"] = currentTeam;
+            return View();
+        }
+
 
         public IActionResult Dashboard(string CourseId)
         {
@@ -90,8 +238,8 @@ namespace testtemplate.Controllers
             var student = _studentRepository.GetById(studentId);
             GetAllTaskTeam(studentId);
             var team = _teamRepository.GetList().Where(p => p.CourseId.Equals(CourseId)).FirstOrDefault();
-            
-            if(team != null) 
+
+            if (team != null) 
             {
                 var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(team.Id)).FirstOrDefault();
                 if (project != null)
@@ -109,6 +257,7 @@ namespace testtemplate.Controllers
                 ViewData["Team"] = null;
                 ViewData["ReportList"] = null;
                 ViewData["CurrentProject"] = null;
+                ViewData["TaskList"] = null;
             }
                 var course = _courseRepository.GetById(CourseId);
                 ViewData["CourseId"] = course;
@@ -131,42 +280,50 @@ namespace testtemplate.Controllers
             GetTaskList(studentId);
 
             return View();
-        }
+        }  
 
         public void GetAllTaskTeam(string studentId)
         {
             var team = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(studentId)).FirstOrDefault();
-            var studentList = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).ToList();
-            var assignmentList = _assignmentStudentRepository.GetList().ToList();
-            List<AssignmentStudent> list = new List<AssignmentStudent>();
-            for (int i = 0; i < studentList.Count; i++)
-            {
-                for (int j = 0; j < assignmentList.Count; j++)
-                {
-                    if (studentList[i].StudentId.Equals(assignmentList[j].StudentId))
-                    {
-                        list.Add(assignmentList[j]);
-                    }
-                }
-            }
+            var taskList = _assignmentStudentRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).ToList();
 
 
-            var taskList = _assignmentRepository.GetList().ToList();
-            List<Assignment> tasks = new List<Assignment>();
-            for (int i = 0; i < list.Count; i++)
-            {
-                for (int j = 0; j < taskList.Count; j++)
-                {
-                    if (list[i].TaskId.Equals(taskList[j].Id))
-                    {
-                        tasks.Add(taskList[j]);
-                    }
-                }
-            }
+
+
+            //var team = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(studentId)).FirstOrDefault();
+            //var studentList = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(team.TeamId)).ToList();
+            //var assignmentList = _assignmentStudentRepository.GetList().ToList();
+            //List<AssignmentStudente> list = new List<AssignmentStudente>();
+            //for (int i = 0; i < studentList.Count; i++)
+            //{
+            //    for (int j = 0; j < assignmentList.Count; j++)
+            //    {
+            //        if (studentList[i].StudentId.Equals(assignmentList[j].StudentId))
+            //        {
+            //            list.Add(assignmentList[j]);
+            //        }
+            //    }
+            //}
+
+
+            //var taskList = _assignmentRepository.GetList().ToList();
+            //List<Assignment> tasks = new List<Assignment>();
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    for (int j = 0; j < taskList.Count; j++)
+            //    {
+            //        if (list[i].TaskId.Equals(taskList[j].Id))
+            //        {
+            //            tasks.Add(taskList[j]);
+            //        }
+            //    }
+            //}
+            //ViewData["AssignmentStudent"] = list;
+            //ViewData["TaskList"] = tasks;
             ViewData["StudentId"] = ReadCookie();
-            ViewData["AssignmentStudent"] = list;
-            ViewData["TaskList"] = tasks;
-        }
+            ViewData["TaskList"] = taskList;
+
+		}
 
         public void GetTaskList(string studentId)
         {   
@@ -215,9 +372,13 @@ namespace testtemplate.Controllers
             string studentId = ReadCookie();
 
             var student = _studentRepository.GetById(studentId);
-            
+            var team = _studentTeamRepository.GetList().Where(p => p.StudentId.Equals(studentId)
+                                                                       && p.Team.CourseId.Equals(ReadCookieCourse())).FirstOrDefault();
+            var currentTeam = _teamRepository.GetById(team.TeamId);
+
+
             Assignment assignment = new Assignment();
-            AssignmentStudent assignmentStudent = new AssignmentStudent();
+            AssignmentStudente assignmentStudent = new AssignmentStudente();
 
             var existing = _assignmentRepository.GetById(TaskId);
             if (existing != null)
@@ -232,6 +393,8 @@ namespace testtemplate.Controllers
             assignment.DateStart = DateStart;
             assignment.DateEnd = DateEnd;
 
+
+
             if (student.Leader == true)
             {
 
@@ -242,6 +405,8 @@ namespace testtemplate.Controllers
                 assignmentStudent.TaskId = TaskId;
                 assignmentStudent.Student = selectedStudent;
                 assignmentStudent.Task = assignment;
+                assignmentStudent.TeamId = team.TeamId;
+                assignmentStudent.Team = currentTeam;
 
             }
             else
@@ -252,6 +417,8 @@ namespace testtemplate.Controllers
                 assignmentStudent.TaskId = assignment.Id;
                 assignmentStudent.Student = student;
                 assignmentStudent.Task = assignment;
+                assignmentStudent.TeamId = team.TeamId;
+                assignmentStudent.Team = currentTeam;
 
             }
 
@@ -260,7 +427,7 @@ namespace testtemplate.Controllers
 
             _assignmentStudentRepository.Add(assignmentStudent);
             
-            return RedirectToAction("GetTask");
+            return RedirectToAction("HomePage");
         }
                 
         public async Task<IActionResult> UpdateTask(string id, string studentId)

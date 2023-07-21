@@ -17,8 +17,8 @@ else
     <h3> Topics </h3 >
 }
 
-<a asp-action="AddTopic" class="btn btn-sm " style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Add Topic</a>
-<a asp-action="AssignTopic" class="btn btn-sm " style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Assign Topic</a>
+<a asp-action="AddTopic" class="a-btn"><i class="fa-solid fa-plus"></i> Add Topic</a>
+<a asp-action="AssignTopic" class="a-btn"><i class="fa-solid fa-check"></i> Assign Topic</a>
 <br />
 <br/>
 @if (TopicList.Count != 0)
@@ -28,11 +28,11 @@ else
         <thead class="thead">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th style="width:25%;">Name</th>
                 <th>Descripton</th>
                 <th>LecturerId</th>
                 <th>Approval</th>
-                <th style="text-align:center!important">Edit</th>
+                    <th style="text-align:center!important; width:13%;">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -45,14 +45,14 @@ else
                     <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
                     <td>@r.LecturerId</td>
                     <td>@r.Approval</td>
-                    <td> <div class="d-flex justify-content-around">
+                    <td> <div class="d-flex justify-content-around" >
                         <form asp-action="UpdateTopic" method="">
                             <input type="hidden" value="@r.Id" name="id" />
-                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
+                                    <button type="submit" class="table-btn-icon"><i class="fa-solid fa-gear"></i></button>
                         </form>
                         <form asp-action="DeleteTopic" method="post">
                             <input type="hidden" value="@r.Id" name="id" />
-                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
+                                    <button type="submit" class="table-btn-icon"><i class="fa-solid fa-xmark"></i></button>
                         </form>
                         </div>
                     </td>

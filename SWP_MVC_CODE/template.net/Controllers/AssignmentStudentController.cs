@@ -7,11 +7,11 @@ namespace testtemplate.Controllers
     public class AssignmentStudentController : Controller
     {
 
-        private readonly IAssignmentStudentRepository _assignmentStudentRepository;
+        private readonly IAssignmentStudenteRepository _assignmentStudentRepository;
         private readonly IStudentRepository _studentRepository;
         private readonly IAssignmentRepository _assignmentRepository;
 
-        public AssignmentStudentController(IAssignmentStudentRepository assignmentStudentRepository, IStudentRepository studentRepository, IAssignmentRepository assignmentRepository)
+        public AssignmentStudentController(IAssignmentStudenteRepository assignmentStudentRepository, IStudentRepository studentRepository, IAssignmentRepository assignmentRepository)
         {
             _assignmentStudentRepository = assignmentStudentRepository;
             _studentRepository = studentRepository;
@@ -38,7 +38,7 @@ namespace testtemplate.Controllers
             string studentId = ReadCookie();
             var student = _studentRepository.GetById(studentId);
             var assignment = _assignmentRepository.GetById(taskId);
-            AssignmentStudent assignmentStudent = new AssignmentStudent();
+            AssignmentStudente assignmentStudent = new AssignmentStudente();
             assignmentStudent = _assignmentStudentRepository.GetById(AssignmentStudentId);
 
             assignmentStudent.StudentId = studentId;

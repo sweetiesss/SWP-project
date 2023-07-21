@@ -10,9 +10,10 @@
 
 <div class="form_container">
     <a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
-    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
-        <form asp-action="AssignStudentTeam" method="post">
-               <h2>Assign a student </h2>
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;"><i class="fa-solid fa-arrow-left"></i> </a>
+    <form asp-action="AssignStudentTeam" method="post">
+        <div style="width:100%;text-align:center;"><h3>Assign student</h3></div>
+        <div class="form-group">
             <select class="form-select form-select-lg form-control" name="StudentId" id="StudentId" required>
                 <option selected>Student: </option>
                 @{
@@ -29,15 +30,17 @@
                 @{
                     foreach (Team r in TeamList)
                     {
-                         <option value="@r.Id"> @r.Id</option>
+                        <option value="@r.Id"> @r.Id</option>
                     }
-                  }
+                }
             </select>
-            <div class="text-center panel-body">
-                <button type="submit" class="btn btn-sm ">Assign</button>
-            </div>
-        </form>
-    
+        </div>
+        <div class="text-center panel-body">
+            <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Assign</button>
+        </div>
+
+    </form>
+
 </div>
 @if (ViewBag.Result == "Duplicate")
 {

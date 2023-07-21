@@ -7,8 +7,9 @@
 <h3>Report</h3>
 <form asp-controller="Report" asp-action="AddReport" method="">
     <input type="hidden" name="id" value="@cookieValue" />
-    <button class="btn btn-sm " type="submit"
-            style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">
+    <button type="submit"
+            class="a-btn">
+        <i class="fa-solid fa-plus"></i>
         Make a report
     </button>
 </form>
@@ -18,74 +19,74 @@
 
 @if (ReportList != null)
 {
-  <div class="table_scroll">
-            <table class="table table-hover table_header_fixed" >
-        <thead class="thead">
-            <tr>
-                <th>ID</th>
-                <th>Descripton</th>    
-                <th style="text-align:center!important">Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (var r in ReportList)
-            {
+    <div class="table_scroll">
+        <table class="table table-hover table_header_fixed">
+            <thead class="thead">
                 <tr>
-                    <td style="width:80px !important;vertical-align:middle!important;">@r.Id</td>
-                    <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
-                    <td style="width:170px !important; vertical-align:middle!important;">
-                        <div class="d-flex justify-content-around" >
-                        <form asp-action="UpdateReport" method="">
-                            <input type="hidden" value="@r.Id" name="id" />
-                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
-                            </form>
-                        <form asp-action="DeleteReport" method="post">
-                            <input type="hidden" value="@r.Id" name="id" />
-                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
-                            </form>
-                        </div>
-                    </td>
+                    <th>ID</th>
+                    <th>Descripton</th>
+                    <th style="text-align:center!important; width:14%;">Edit</th>
                 </tr>
-            }
-         @*   //////////*@
-        @*    <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                       
-                        <th scope="col">Descripton</th>
-                       
-                 
-                        <th scope="col" style="text-align:center!important">Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
 
-                    @foreach (var r in TopicList)
-                    {
-                        <tr>
-                            <td>@r.Id</td>
-                            <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Name</td>
-                            <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
-                            <td>@r.LecturerId</td>
-                            <td>@r.Approval</td>
-                            <td class="d-flex justify-content-around" style="margin:0!important;">
-                                <form asp-action="UpdateTopic" method="">
+                @foreach (var r in ReportList)
+                {
+                    <tr>
+                        <td style="width:80px !important;vertical-align:middle!important;">@r.Id</td>
+                        <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
+                        <td style="width:170px !important; vertical-align:middle!important;">
+                            <div class="d-flex justify-content-around">
+                                <form asp-action="UpdateReport" method="">
                                     <input type="hidden" value="@r.Id" name="id" />
-                                    <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Update</button>
+                                    <button type="submit" class="table-btn-icon"><i class="fa-solid fa-gear"></i></button>
                                 </form>
-                                <form asp-action="DeleteTopic" method="post">
+                                <form asp-action="DeleteReport" method="post">
                                     <input type="hidden" value="@r.Id" name="id" />
-                                    <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+                                    <button type="submit" class="table-btn-icon"><i class="fa-solid fa-xmark"></i></button>
                                 </form>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                @*   //////////*@
+                @*    <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+            <th scope="col">ID</th>
+
+            <th scope="col">Descripton</th>
+
+
+            <th scope="col" style="text-align:center!important">Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var r in TopicList)
+            {
+            <tr>
+            <td>@r.Id</td>
+            <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Name</td>
+            <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;">@r.Description</td>
+            <td>@r.LecturerId</td>
+            <td>@r.Approval</td>
+            <td class="d-flex justify-content-around" style="margin:0!important;">
+            <form asp-action="UpdateTopic" method="">
+            <input type="hidden" value="@r.Id" name="id" />
+            <button style="background-color:#212529; color:white; border-radius:12px;" type="submit" class="btn btn-sm">Update</button>
+            </form>
+            <form asp-action="DeleteTopic" method="post">
+            <input type="hidden" value="@r.Id" name="id" />
+            <button style="background-color:#212529;color:white; border-radius:12px;" type="submit" class="btn btn-sm">Delete</button>
+            </form>
+            </td>
+            </tr>
+            }
+            </tbody>
             </table>*@
-        </tbody>
-    </table>
+            </tbody>
+        </table>
     </div>
 }
 else

@@ -11,9 +11,10 @@
 
 <div class="form_container">
     <a asp-action="GetTopic" class="back" style="    position: relative;
-    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;"><i class="fa-solid fa-arrow-left"></i> </a>
         <form asp-action="AssignTopic" method="post">
-        <h3>Assign a topic </h3>
+        <div style="width:100%;text-align:center;"><h3>Assign topic</h3></div>
+        <div class="form-group d-flex flex-column justify-content-between">
         <select class="form-select form-select-lg form-control" name="TopicId" id="TopicId" required>
                 <option selected>Topic: </option>
                 @{
@@ -41,8 +42,9 @@
                 }
                 }
             </select>
+        </div>
             <div class="text-center panel-body">
-                <button type="submit" class="btn btn-sm ">Assign</button>
+            <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Assign</button>
             </div>
         </form>
     </div>

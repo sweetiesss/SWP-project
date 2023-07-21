@@ -1,6 +1,6 @@
 ﻿@{
     List<Assignment> TaskList = (List<Assignment>)ViewData["TaskList"];
-    List<AssignmentStudent> AssignmentStudentList = (List<AssignmentStudent>)ViewData["AssignmentStudent"];
+    List<AssignmentStudente> AssignmentStudentList = (List<AssignmentStudente>)ViewData["AssignmentStudent"];
     string cookieValue = ViewData["StudentId"].ToString();
     List<Report> reportList = (List<Report>)ViewData["ReportList"];
     var currentCourse = (Course)ViewData["CourseId"];
@@ -74,7 +74,7 @@
                                         if (team != null)
                                         {
                                             
-                                            List<AssignmentStudent> assignmentStudents = new List<AssignmentStudent>();
+                                            List<AssignmentStudente> assignmentStudents = new List<AssignmentStudente>();
                                             for (int i = 0; i < TaskList.Count; i++)
                                             {
 

@@ -1,0 +1,369 @@
+﻿@using Azure;
+@model IEnumerable<Assignment>
+
+@{
+
+    List<AssignmentStudente> TaskList = (List<AssignmentStudente>)ViewData["TaskList"];
+    Student student = (Student)ViewData["Student"];
+    List<Report> reportList = (List<Report>)ViewData["ReportList"];
+    var currentCourse = (Course)ViewData["CourseId"];
+    StudentTeam team = (StudentTeam)ViewData["Team"];
+    List<StudentTeam> studentList = (List<StudentTeam>)ViewData["StudentList"];
+    var topic = (Topic)ViewData["CurrentProject"];
+    Layout = "_Layout";
+    string topicName = "None";
+    string teamId = "None";
+    if (topic != null)
+    {
+        topicName = topic.Name;
+    }
+    if (team != null)
+    {
+        teamId = string.Empty;
+
+        foreach (char c in team.TeamId)
+        {
+            if (c.Equals(' '))
+            {
+                break;
+            }
+            else
+            {
+                teamId += c;
+            }
+        }
+    }
+}
+<div class="Home_container" style="position:relative;max-height:80vh;">
+    <span style="font-weight:700;font-size:25px;">@currentCourse.Name</span><br /><br /><hr style=" border-top: 1px solid; " />
+    @*  Your current information*@
+    <div>
+
+        @{
+            string status = "Ongoing";
+            if (currentCourse.DateEnd < DateTime.Now)
+            {
+                status = "Completed";
+            }
+        }
+
+
+        <div class="Current_Information" style="display:grid;grid-template-columns:auto auto;">
+            <div class="Current_Information_left">
+                <span style="font-weight:500;color:#1d2124;"> Semester: </span><span style="font-weight:700;">@currentCourse.Semester.Name</span><br />
+                <span style="font-weight:500;color:#1d2124;">  Subject: </span><span style="font-weight:700;">@currentCourse.SubjectId</span><br />
+                <span style="font-weight:500;color:#1d2124;"> Lecture: </span><span style="font-weight:700;">@currentCourse.Lecturer.Name</span><br />
+                <span style="font-weight:500;color:#1d2124;"> Status: </span><span style="font-weight:700;">@status</span><br />
+            </div>
+            <div class="Current_Information_right">
+                <span style="font-weight:500;color:#1d2124;">  Team: </span><span style="font-weight:700;">@teamId</span><br />
+                <span style="font-weight:500;color:#1d2124;">  Topic: </span><span style="font-weight:700;">@topicName</span><br />
+                <span style="font-weight:500;color:#1d2124;">  Date Start: </span><span style="font-weight:700;">@currentCourse.DateStart.Date.ToString("dd/MM/yyyy h:mm tt")</span><br />
+                <span style="font-weight:500;color:#1d2124;">  Date End: </span><span style="font-weight:700;"> @currentCourse.DateEnd.Date.ToString("dd/MM/yyyy h:mm tt")</span><br />
+            </div>
+        </div>
+
+    </div>
+
+    <h2>Current Course's Information</h2>
+    <div class="warpper">
+        <input class="radio" id="one" name="group" type="radio" checked>
+        <input class="radio" id="two" name="group" type="radio">
+        <input class="radio" id="three" name="group" type="radio">
+
+        <div class="tabs">
+            <label class="tab" id="one-tab" for="one">Reports</label>
+            <label class="tab" id="two-tab" for="two">Project's Tasks</label>
+            <label class="tab" id="three-tab" for="three">Team</label>
+        </div>
+
+        <div class="panels">
+            <div class="panel  scroll" id="three-panel">
+                <div class="panel-content-TeamMember">
+
+                    @if (studentList != null)
+                    {
+                        List<StudentTeam> list = new List<StudentTeam>();
+                        foreach (StudentTeam r in studentList)
+                        {
+                            @if (r.Student.Leader == true)
+                            {
+                                list.Add(r);
+                                <div class="card">
+                                    <div class="card-header" style="background:#c3abef; color:white;">
+                                        <h5>Leader</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            <span style="color:darkgray; font-size:14px;"> ID:</span> @r.StudentId<br />
+                                            <span style="color:darkgray; font-size:14px;"> Name:</span> @r.Student.Name<br />
+                                            <span style="color:darkgray; font-size:14px;"> Main:</span> @r.Student.Main<br />
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        foreach (StudentTeam r in studentList)
+                        {
+                            if (!r.Student.Id.Equals(list[0].Student.Id))
+                            {
+                                <div class="card">
+                                    <div class="card-header" style="background:#c3abef; color:white;">
+                                        <h5>Member</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            <span style="color:darkgray; font-size:14px;"> ID:</span> @r.StudentId<br />
+                                            <span style="color:darkgray; font-size:14px;"> Name:</span> @r.Student.Name<br />
+                                            <span style="color:darkgray; font-size:14px;"> Main:</span> @r.Student.Main<br />
+                                        </p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div>No team member available</div>
+                    }
+                </div>
+            </div>
+
+            <div class="panel" id="two-panel">
+                <div class="btn-container">
+                    <button id="myBtnTask" class="modalBTN"><i class="fa-sharp fa-light fa-plus" style="font-size:18px;"></i> Add your task</button>
+                    <button id="" class="modalBTN"><i class="fa-regular fa-eye" style="font-size:18px;"></i> View your task</button>
+                </div>
+                <div class="panel-content-ProjectTask">
+                    <div class="card">
+                        <div class="card-header" style="display:inline-grid;grid-template-columns:auto auto;background:#c3abef; color:white;"><h5>Ongoing</h5></div>
+                        <div class="task_ongoing scroll">
+                            @{
+                                if (TaskList != null)
+                                {
+                                    List<AssignmentStudente> list = new List<AssignmentStudente>();
+                                    bool yourTask = true;
+                                    foreach (AssignmentStudente a in TaskList)
+                                    {
+                                        if (!a.StudentId.Equals(student.Id))
+                                        {
+                                            yourTask = false;
+                                        }
+                                        if (a.Status.Equals("Ongoing"))
+                                        {
+                                            list.Add(a);
+                                            <div class="panel-content-task">
+                                                <p class="panel-content-task-left">
+                                                    @a.TaskId - <span class="text-muted" style="font-size:14px!important;">@a.Student.Name</span>
+                                                </p> @{
+                                                    if (yourTask == true)
+                                                    {
+                                                        <div class="panel-content-task-right" style="border-radius:100%;content:'';width:20px;height:20px;background:#00c2ff;transform:translateY(25%);"></div>
+                                                    }
+                                                }
+
+                                            </div>
+                                        }
+                                        yourTask = true;
+                                    }
+                                    if (list.Count == 0)
+                                    {
+                                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">No task available</p></div>
+                                    }
+                                    list.Clear();
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">No task available</p></div>
+                                }
+                            }
+
+                        </div>
+
+                    </div>
+                    <div class="card">
+                        <div class="card-header" style="display:inline-grid;grid-template-columns:auto auto;background:#c3abef; color:white;"><h5>Completed</h5></div>
+                        <div class="task_completed scroll">
+                            @{
+                                if (TaskList != null)
+                                {
+                                    List<AssignmentStudente> list = new List<AssignmentStudente>();
+                                    bool yourTask = true;
+                                    foreach (AssignmentStudente a in TaskList)
+                                    {
+                                        if (!a.StudentId.Equals(student.Id))
+                                        {
+                                            yourTask = false;
+                                        }
+                                        if (a.Status.Equals("Completed"))
+                                        {
+                                            list.Add(a);
+                                            <div class="panel-content-task">
+                                                <p class="panel-content-task-left">
+                                                    @a.TaskId - <span class="text-muted" style="font-size:14px!important;">@a.Student.Name</span>
+                                                </p>
+                                                @{
+                                                    if (yourTask == true)
+                                                    {
+                                                        <div class="panel-content-task-right" style="border-radius:100%;content:'';width:20px;height:20px;background:#5ea728;transform:translateY(25%);"></div>
+                                                    }
+
+                                                }
+
+                                            </div>
+                                        }
+                                        yourTask = true;
+                                    }
+                                    if (list.Count == 0)
+                                    {
+                                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">No task available</p></div>
+                                    }
+                                    list.Clear();
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">No task available</p></div>
+                                }
+                            }
+
+
+                        </div>
+
+                    </div>
+                    <div class="card">
+                        <div class="card-header" style="display:inline-grid;grid-template-columns:auto auto;background:#c3abef; color:white;"><h5>Closed</h5></div>
+                        <div class="task_Closed scroll">
+                            @{
+                                if (TaskList != null)
+                                {
+                                    List<AssignmentStudente> list = new List<AssignmentStudente>();
+                                    bool yourTask = true;
+                                    foreach (AssignmentStudente a in TaskList)
+                                    {
+                                        if (!a.StudentId.Equals(student.Id))
+                                        {
+                                            yourTask = false;
+                                        }
+                                        if (a.Status.Equals("Closed"))
+                                        {
+                                            list.Add(a);
+                                            <div class="">
+                                                <p>
+                                                    @a.TaskId - <span class="text-muted" style="font-size:14px!important;">@a.Student.Name</span>  @{
+                                                        if (yourTask == true)
+                                                        {
+                                                            <div style="border-radius:100%;content:'';width:20px;height:20px;background: #83888c;transform:translateY(25%);"></div>
+                                                        }
+
+                                                    }
+                                                </p>
+                                            </div>
+                                        }
+                                        yourTask = true;
+                                    }
+                                    if (list.Count == 0)
+                                    {
+                                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">No task available</p></div>
+                                    }
+                                    list.Clear();
+                                }
+                                else
+                                {
+                                    <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">No task available</p></div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                @*MODAL HERE*@
+
+                <!-- Trigger/Open The Modal -->
+                <!-- The Modal -->
+                <div id="myModalTask" class="modal" style="overflow:unset!important;">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="closeTask">&times;</span>
+                            @* <div class="form_container">*@
+                            <form asp-action="AddTask" method="post">
+                                <h3>Add an Task </h3>
+                                <div>
+                                    <label for="Id">Id:</label>
+                                    <input class="form-control" name="TaskId" required />
+                                </div>
+                                <div>
+                                    <label for="Name">Name:</label>
+                                    <input class="form-control" name="Name" required />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Descripton">Description:</label>
+                                    <input class="form-control" name="Descripton" required />
+                                </div>
+                                <div class="form-group d-flex justify-content-between">
+                                    <div>
+                                        <label for="DateStart">DateStart:</label>
+                                        <input class="form-control" type="date" name="DateStart" required />
+                                    </div>
+                                    <div>
+                                        <label for="DateEnd">DateEnd: </label>
+                                        <input class="form-control" type="date" name="DateEnd" required />
+                                    </div>
+                                </div>
+                                <div class="text-center panel-body">
+                                <button type="submit" class="btn btn-sm modalBTN" style="width:100%;">Add</button>
+                            </div>
+                            </form>
+                    @*    </div>*@
+
+                        @if (ViewBag.Result == "Duplicate")
+                        {
+                            <br />
+                            <h3 style="color:red" class="text-center">This Id already exists</h3>
+                        }
+
+                    </div>
+
+                </div>
+
+				@*MODAL END*@
+
+
+            </div>
+
+          
+        <div class="panel scroll" id="one-panel">
+            <div class="panel-content-Report">
+                    @{
+                        if (reportList != null)
+                        {
+                            if (reportList.Count > 0)
+                            {
+                                foreach (var r in reportList)
+                                {
+                                    <div>
+                                        <div class="report-container">
+                                            <div class="report-header" style="display:flex;"><div class="avatar-circle">@teamId</div>@r.CreateDate</div><div class="report-body">@r.Description</div>
+                                        </div>
+                                    </div>
+                                    //<div class="report-container"> <div class="avatar-circle">@teamId</div> - @r.Description </div>
+                                }
+                            }
+                            else
+                            {
+                                <div>NO REPORT AVAILABLE</div>
+                            }
+                        }
+
+
+            }
+            
+
+ 
+            </div>
+        </div>
+    </div>
+</div>
+

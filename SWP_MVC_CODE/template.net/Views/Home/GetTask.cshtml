@@ -5,67 +5,69 @@
     ViewData["Title"] = "All Assignments";
     Layout = "_Layout";
     List<Assignment> TaskList = (List<Assignment>)ViewData["TaskList"];
-    List<AssignmentStudent> AssignmentStudentList = (List<AssignmentStudent>)ViewData["AssignmentStudent"];
+    List<AssignmentStudente> AssignmentStudentList = (List<AssignmentStudente>)ViewData["AssignmentStudent"];
     String cookieValue = ViewData["cookieValue"].ToString();
 
 }
 
-<h3>Task</h3>
-@if(ViewBag.Result != "Leader"){
-
-    <a asp-action="AddTask" class="btn btn-sm" style="background-color:#28a745; color:red; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Add Task</a>
-<br />
-<br />
-@if(TaskList.Count != 0){
-    <div class="table_scroll">
-            <table class="table table-hover table_header_fixed" >
-                <thead class="thead">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Descripton</th>
-                    <th scope="col">Date Start</th>
-                    <th scope="col">Date End</th>
-                    <th scope="col">Status</th>
-                    <th scope="col" style="text-align:center!important">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var r in TaskList)
-                {
-                    <tr>
-                        @{
-                            var assignmentStudent = AssignmentStudentList.Where(p => p.TaskId.Equals(r.Id) &&
-                            p.StudentId.Equals(cookieValue)).FirstOrDefault();
-                        }
-                        <td style="vertical-align:middle!important;">@r.Id</td>
-                        <td style="vertical-align:middle!important;">@r.Name</td>
-                        <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;vertical-align:middle!important;">@r.Description</td>
-                        <td style="vertical-align:middle!important;width:112px!important;">@r.DateStart</td>
-                        <td style="vertical-align:middle!important;width:112px!important;">@r.DateEnd</td>
-                        <td style="vertical-align:middle!important;">@assignmentStudent.Status</td>
-                        <td style="width:170px !important; vertical-align:middle!important;">
-                            <div class="d-flex justify-content-around">
-                            <form asp-action="UpdateTask" method="">
-                                <input type="hidden" value="@r.Id" name="id" />
-                                <input type="hidden" value="@cookieValue" name="studentId" />
-                                <button    style ="background-color:#28a745; color:red; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
-                            </form>
-                            <form asp-action="DeleteTask" method="post">
-                                <input type="hidden" value="@r.Id" name="id" />
-
-                                        <button style="background-color:#28a745; color:red; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
-                            </form>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        </div>
-}
-else
+<h3>Your task</h3>
+@if (ViewBag.Result != "Leader")
 {
+
+    <a asp-action="AddTask" class="a-btn"><i class="fa-solid fa-plus"></i> Add Task</a>
+    <br />
+    <br />
+    @if (TaskList.Count != 0)
+    {
+        <div class="table_scroll">
+            <table class="table table-hover table_header_fixed">
+                <thead class="thead">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Descripton</th>
+                        <th scope="col">Date Start</th>
+                        <th scope="col">Date End</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" style="text-align:center!important; width:12%;">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var r in TaskList)
+                    {
+                        <tr>
+                            @{
+                                var assignmentStudent = AssignmentStudentList.Where(p => p.TaskId.Equals(r.Id) &&
+                                p.StudentId.Equals(cookieValue)).FirstOrDefault();
+                            }
+                            <td style="vertical-align:middle!important;">@r.Id</td>
+                            <td style="vertical-align:middle!important;">@r.Name</td>
+                            <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;vertical-align:middle!important;">@r.Description</td>
+                            <td style="vertical-align:middle!important;width:112px!important;">@r.DateStart</td>
+                            <td style="vertical-align:middle!important;width:112px!important;">@r.DateEnd</td>
+                            <td style="vertical-align:middle!important;">@assignmentStudent.Status</td>
+                            <td style="width:170px !important; vertical-align:middle!important;">
+                                <div class="d-flex justify-content-around">
+                                    <form asp-action="UpdateTask" method="">
+                                        <input type="hidden" value="@r.Id" name="id" />
+                                        <input type="hidden" value="@cookieValue" name="studentId" />
+                                        <button type="submit" class="table-btn-icon"><i class="fa-solid fa-gear"></i></button>
+                                    </form>
+                                    <form asp-action="DeleteTask" method="post">
+                                        <input type="hidden" value="@r.Id" name="id" />
+
+                                        <button type="submit" class="table-btn-icon"><i class="fa-solid fa-xmark"></i></button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
         <div> No task available</div>
     }
 
@@ -74,64 +76,65 @@ else
 {
     <a asp-action="AddTask" class="btn btn-sm" style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Add Assignment</a>
     <br />
-    <br/>
+    <br />
 
-@if (TaskList.Count != 0)
-{
-    <div class="table_scroll">
+    @if (TaskList.Count != 0)
+    {
+        <div class="table_scroll">
             <table class="table table-hover table-sm  m-2 table_header_fixed"
-           style="-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;">
-            <thead class="thead">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Descripton</th>
-                    <th scope="col">Date Start</th>
-                    <th scope="col">Date End</th>
-                    <th scope="col" style="width:90px!important;">Student Id</th>
-                    <th scope="col">Status</th>
-                    <th scope="col" style="text-align:center!important">Edit</th>
-                </tr>
-            </thead>
-        <tbody>
+                   style="-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888; box-shadow: 0 0 5px #888;">
+                <thead class="thead">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Descripton</th>
+                        <th scope="col">Date Start</th>
+                        <th scope="col">Date End</th>
+                        <th scope="col" style="width:90px!important;">Student Id</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" style="text-align:center!important">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            @foreach (var r in TaskList)
-            {
-                <tr>
-                    @{
-                        var assignmentStudent = AssignmentStudentList.Where(p => p.TaskId.Equals(r.Id)).FirstOrDefault();
-                    }
-                        <td style="vertical-align:middle!important;">@r.Id</td>
-                        <td style="vertical-align:middle!important;">@r.Name</td>
-                        <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;vertical-align:middle!important;">@r.Description</td>
-                        <td style="vertical-align:middle!important;">@r.DateStart</td>
-                        <td style="vertical-align:middle!important;">@r.DateEnd</td>
-                    @if(assignmentStudent != null){
-                    <td style="vertical-align:middle!important;">@assignmentStudent.StudentId</td>
-                            <td style="vertical-align:middle!important;">@assignmentStudent.Status</td>
-                    }
-                        <td style="width:170px !important; vertical-align:middle!important;">
-                            <div class="d-flex justify-content-around">
-                            <form asp-action="UpdateTask" method="">
-                                <input type="hidden" value="@r.Id" name="id" />
-                                <input type="hidden" value="@cookieValue" name="studentId" />
-                                <button  style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
-                            </form>
-                            <form asp-action="DeleteTask" method="post">
-                                <input type="hidden" value="@r.Id" name="id" />
+                    @foreach (var r in TaskList)
+                    {
+                        <tr>
+                            @{
+                                var assignmentStudent = AssignmentStudentList.Where(p => p.TaskId.Equals(r.Id)).FirstOrDefault();
+                            }
+                            <td style="vertical-align:middle!important;">@r.Id</td>
+                            <td style="vertical-align:middle!important;">@r.Name</td>
+                            <td style="word-break:break-all; word-wrap:break-word; white-space:pre-wrap;vertical-align:middle!important;">@r.Description</td>
+                            <td style="vertical-align:middle!important;">@r.DateStart</td>
+                            <td style="vertical-align:middle!important;">@r.DateEnd</td>
+                            @if (assignmentStudent != null)
+                            {
+                                <td style="vertical-align:middle!important;">@assignmentStudent.StudentId</td>
+                                <td style="vertical-align:middle!important;">@assignmentStudent.Status</td>
+                            }
+                            <td style="width:170px !important; vertical-align:middle!important;">
+                                <div class="d-flex justify-content-around">
+                                    <form asp-action="UpdateTask" method="">
+                                        <input type="hidden" value="@r.Id" name="id" />
+                                        <input type="hidden" value="@cookieValue" name="studentId" />
+                                        <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Update</button>
+                                    </form>
+                                    <form asp-action="DeleteTask" method="post">
+                                        <input type="hidden" value="@r.Id" name="id" />
 
                                         <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
-                            </form>
-                      </div>
-                        </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    </div>
-}
-else
-{
-    <div> No task available</div>
-}
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div> No task available</div>
+    }
 }

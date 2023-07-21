@@ -55,6 +55,7 @@ namespace testtemplate.Controllers
             report.Description = descripton;
             report.TeamId = teamId;
             report.Team = team;
+            report.CreateDate = DateTime.Now;
 
             _reportRepository.Add(report);
             return RedirectToAction("Index");

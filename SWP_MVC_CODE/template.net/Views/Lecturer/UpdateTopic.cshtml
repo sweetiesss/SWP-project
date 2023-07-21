@@ -7,9 +7,9 @@
 }
 <div class="form_container">
     <a asp-action="GetTopic" class="back" style="    position: relative;
-    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;"><i class="fa-solid fa-arrow-left"></i></a>
 <form asp-action="UpdateTopic" method="post" style="width:730px;">
-        <h3>Update topic </h3>
+        <div style="width:100%;text-align:center;"><h3>Update topic</h3></div>
         <div class="form-group d-flex flex-column justify-content-between">
         <div>
             <label asp-for="@topic.Id">Id:</label>
@@ -45,7 +45,7 @@
         </div>
     }
     <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary" >Update</button>
+            <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Update</button>
     </div>
 </form>
 </div>

@@ -8,6 +8,7 @@ namespace SWP_Management.Repo.Entities
         public string Id { get; set; }
         public string Description { get; set; }
         public string TeamId { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public virtual Team Team { get; set; }
     }

@@ -12,48 +12,62 @@ F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
 F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
 F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
 F:\PRN211\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
-C:\Users\ASUS\Desktop\API\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
-C:\Users\ASUS\Desktop\SWP Management with API\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
-C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+C:\Users\nhat\Desktop\API REBUILD\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+D:\Github\repo\SWP_Project\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+D:\SWP Project\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+C:\Users\Nhat\Desktop\SWP\SWP-project\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
 C:\Users\nhat\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
 C:\Users\nhat\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
 C:\Users\nhat\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
@@ -68,31 +82,17 @@ C:\Users\nhat\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\refint\S
 C:\Users\nhat\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
 C:\Users\nhat\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
 C:\Users\nhat\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
-C:\Users\ASUS\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
-C:\Users\nhat\Desktop\SWP_PROJECTS\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.deps.json
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.runtimeconfig.json
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.dll
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\bin\Debug\net6.0\SWP_Management.Repo.pdb
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.dll
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\refint\SWP_Management.Repo.dll
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.pdb
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\SWP_Management.Repo.genruntimeconfig.cache
+C:\Users\ASUS\Desktop\SWP_MVC_CODE\SWP_Management.Repo\obj\Debug\net6.0\ref\SWP_Management.Repo.dll

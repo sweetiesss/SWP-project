@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SWP_Management.Repo.Entities
 {
@@ -7,7 +9,7 @@ namespace SWP_Management.Repo.Entities
     {
         public Assignment()
         {
-            AssignmentStudents = new HashSet<AssignmentStudent>();
+            AssignmentStudents = new HashSet<AssignmentStudente>();
         }
 
         public string Id { get; set; }
@@ -16,6 +18,6 @@ namespace SWP_Management.Repo.Entities
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
 
-        public virtual ICollection<AssignmentStudent> AssignmentStudents { get; set; }
+        public virtual ICollection<AssignmentStudente> AssignmentStudents { get; set; }
     }
 }

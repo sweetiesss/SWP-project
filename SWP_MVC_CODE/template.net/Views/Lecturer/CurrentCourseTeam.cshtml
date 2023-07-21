@@ -16,21 +16,19 @@
     Current course:@Course.Name
 </h6>
 
-<a asp-action="CurrentCourseTeamAdd" class="btn btn-sm" style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">Add Team</a>
+<a asp-action="CurrentCourseTeamAdd" class="btn btn-sm table-btn"><i class="fa-solid fa-plus"></i> Add Team</a>
 <br />
 <br />
 @if (TeamList.Count != 0)
 {
-
-
     <div class="table_scroll">
-        <table class="table table-hover table_header_fixed">
+        <table class="table table_header_fixed">
             <thead class="thead">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Course Id</th>
                     <th scope="col">Current Topic</th>
-                    <th scope="col" style="text-align:center!important">Edit</th>
+                    <th scope="col" style="text-align:center!important;width:15%;">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,15 +52,15 @@
                         <td><div class="d-flex justify-content-around" style="margin:0!important;">
                             <form asp-action="ViewInfoTeam" method="">
                                 <input type="hidden" value="@r.Id" name="TeamId" />
-                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">View</button>
+                                    <button type="submit" class="btn btn-sm table-btn-icon"><i class="fa-solid fa-eye"></i></button>
                             </form>
                             <form asp-action="CurrentCourseTeamUpdate" method="">
                                 <input type="hidden" value="@r.Id" name="TeamId" />
-                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Change Topic</button>
+                                    <button type="submit" class="btn btn-sm table-btn-icon"><i class="fa-solid fa-gear"></i></button>
                             </form>
                             <form asp-action="CurrentCourseTeamDelete" method="post">
                                 <input type="hidden" value="@r.Id" name="TeamId" />
-                                    <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Remove</button>
+                                    <button type="submit" class="btn btn-sm table-btn-icon"><i class="fa-solid fa-xmark"></i></button>
                             </form>
                             </div>
                         </td>

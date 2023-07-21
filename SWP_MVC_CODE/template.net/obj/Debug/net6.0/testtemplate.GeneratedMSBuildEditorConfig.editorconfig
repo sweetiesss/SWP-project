@@ -32,8 +32,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRUYXNrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/HomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/Index1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleDEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Home/Privacy.cshtml]
@@ -94,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/GetTopic.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcR2V0VG9waWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/HomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcSG9tZVBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Desktop/SWP_MVC_CODE/template.net/Views/Lecturer/Index.cshtml]

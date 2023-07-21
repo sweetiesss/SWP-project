@@ -6,7 +6,7 @@ using SWP_Management.Repo.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
-builder.Services.AddScoped<IAssignmentStudentRepository, AssignmentStudentRepository>();
+builder.Services.AddScoped<IAssignmentStudenteRepository, AssignmentStudentRepository>();
 builder.Services.AddScoped<ISemesterRepository, SemesterRepository>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();

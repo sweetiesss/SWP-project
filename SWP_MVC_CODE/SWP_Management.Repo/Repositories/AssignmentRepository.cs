@@ -20,7 +20,6 @@ namespace SWP_Management.Repo.Repositories
             return _dbContext.Assignments
                 .Include(a => a.AssignmentStudents)
                 .ToList();
-            
         }
 
         public Assignment GetById(string assignmentId)
@@ -38,7 +37,6 @@ namespace SWP_Management.Repo.Repositories
 
         public void Update(Assignment entity)
         {
-
             _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }

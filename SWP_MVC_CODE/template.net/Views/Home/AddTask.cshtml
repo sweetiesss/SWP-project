@@ -12,11 +12,11 @@
 
 
         <a asp-action="GetTask" class="back" style="    position: relative;
-    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;"><i class="fa-solid fa-arrow-left"></i></a>
         <form asp-action="AddTask" method="post">
-            <h3>Add an Task </h3>
+            <div style="width:100%;text-align:center;"><h3>Add Task</h3></div>
             <div>
-                <label for="Id">Id:</label>
+                <label for="Id">ID:</label>
                 <input class="form-control" name="TaskId" required />
             </div>
             <div>
@@ -30,17 +30,17 @@
                 <input class="form-control" name="Descripton" required />
             </div>
             <div class="form-group d-flex justify-content-between">
-                <div>
+                <div style="width:45%;">
                     <label for="DateStart">DateStart:</label>
                     <input class="form-control" type="date" name="DateStart" required />
                 </div>
-                <div>
+                <div style="width:45%;">
                     <label for="DateEnd">DateEnd: </label>
                     <input class="form-control" type="date" name="DateEnd" required />
                 </div>
             </div>
             <div class="text-center panel-body">
-                <button type="submit" class="btn btn-sm ">Add</button>
+                <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Add</button>
             </div>
         </form>
     </div>

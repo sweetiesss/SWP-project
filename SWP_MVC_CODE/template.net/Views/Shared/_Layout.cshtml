@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="@Url.Content("~/dist/css/Student.css")" rel="stylesheet" type="text/css" />
+    <link href="~/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
@@ -37,14 +39,14 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="">
-                    <a href="/#" class="nav-link this_hover_link_radius18 this_focus_link_radius18 @(ViewContext.RouteData.Values["action"].ToString()=="Dashboard"?"active":"") ">HOME</a>
+                    <a href="/Home/HomePage" class="nav-link .header_link this_hover_link_radius18 @(ViewContext.RouteData.Values["action"].ToString()=="HomePage"?"Header_active":"") "><i class=" fa-solid fa-house"></i>  HOME</a>
                 </li>
                 <li class="">
-                    <a href="/Home/Index" class="nav-link this_hover_link_radius18 this_focus_link_radius18">SEMESTERS</a>
+                    <a href="/Home/Index" class="nav-link .header_link this_hover_link_radius18"><i class="fa-solid fa-calendar-week"></i> SEMESTERS</a>
                 </li>
-                <li class="">
-                    <a href="#" class="nav-link this_hover_link_radius18 this_focus_link_radius18">CONTACT</a>
-                </li>
+                @* <li class="">
+                <a href="#" class="nav-link this_hover_link_radius18 this_focus_link_radius18">CONTACT</a>
+                </li>*@
             </ul>
 
             <!-- Right navbar links -->
@@ -66,70 +68,69 @@
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <div class="d-flex">
-            <aside class=""  id="sidebar_sidebar">
+            <aside class="" id="sidebar_sidebar">
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <!-- Add icons to the links using the .nav-icon class
+                                 with font-awesome or any other icon font library -->
                             <li class="nav-item">
-                                <a href="/Home/Dashboard" class="nav-link text-dark  @(ViewContext.RouteData.Values["action"].ToString()=="Dashboard"?"sidebar_active":"")">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
+                                <a href="#" class="nav-link text-dark  @(ViewContext.RouteData.Values["action"].ToString()=="Dashboard"?"sidebar_active":"")">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
                                         Dashboard
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/Home/GetTask" class="nav-link text-dark  @(ViewContext.RouteData.Values["action"].ToString()=="GetTask"?"sidebar_active":"")">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Task
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        Task
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/Report/Index" class="nav-link text-dark  @(ViewContext.RouteData.Values["action"].ToString()=="Index"?"sidebar_active":"")">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Report
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Report
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/Home/ViewTeam" class="nav-link text-dark  @(ViewContext.RouteData.Values["action"].ToString()=="ViewTeam"?"sidebar_active":"")">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Team
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div id="this_content_wrapper" style="width: min-content!important;">
-            <!-- Main content -->
-            <section class="content" id="this_content">
-                <!-- Default box -->
-                <div class="card content_card">
-
-                    <div class="content_card_body card-body ">
-                        @RenderBody()
-                    </div>
-                    <!-- /.card-body -->
-
+                                    <i class="nav-icon fa-solid fa-people-group"></i>
+                                    <p>
+                                        Team
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div id="this_content_wrapper" style="width: min-content!important;">
+                <!-- Main content -->
+                <section class="content" id="this_content">
+                    <!-- Default box -->
+                    <div class="card content_card">
+
+                        <div class="content_card_body card-body ">
+                            @RenderBody()
+                        </div>
+                        <!-- /.card-body -->
+
+                    </div>
 
 
-            </section>
+                </section>
 
-        </div>
+            </div>
         </div>
         <!-- /.Footer -->
         @*  <footer class="main-footer">
@@ -179,11 +180,12 @@
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.js"></script>
     <!-- AdminLTE for demo purposes -->
-
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard.js"></script>
+                @*<script src="dist/js/pages/dashboard.js"></script>*@
     @*<script src="../wwwroot/dist/js/adminlte.min.js"></script>*@
     <!-- AdminLTE for demo purposes -->
     @* <script src="../../dist/js/demo.js"></script>*@
+    <!-- Button trigger modal -->
+    <script src="~/dist/js/PopUp.js"></script>
 </body>
 </html>

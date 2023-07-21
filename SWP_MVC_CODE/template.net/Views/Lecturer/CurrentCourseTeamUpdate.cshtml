@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Update a Team";
     Layout = "_LectureLayout";
     List<Topic> TopicList = (List<Topic>)ViewData["TopicList"];
@@ -9,35 +8,38 @@
 }
 <div class="form_container">
     <a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
-    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
-<form asp-action="CurrentCourseTeamUpdate" method="post" style="width:730px;">
-    <h3>Change Topic</h3>
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;"><i class="fa-solid fa-arrow-left"></i></a>
+    <form asp-action="CurrentCourseTeamUpdate" method="post" style="width:730px;">
+        <div style="width:100%;text-align:center;"><h3>Change topic</h3></div>
         <div class="form-group d-flex flex-column justify-content-between">
-        <div>
-            <label asp-for="@team.Id">Id:</label>
-            <input class="form-control" asp-for="@team.Id" name="TeamId" required readonly/>
-        </div>
-    </div>
-    <br />
-    <select class="form-select form-select-lg form-control" name="TopicId" required>
-     @if(project != null)
-            {
-            <option value="@project.TopicId" selected>@project.TopicId: @project.Topic.Name </option>
-            }else{
-            <option value="" selected>Topic: </option>
-                 }
-            @{
-                 foreach (Topic r in TopicList)
-                 {
-                    <option value="@r.Id"> @r.Id: @r.Name</option>
-                 }
-             }
-    </select>
+            <div class="form-group">
+                <div>
+                    <label asp-for="@team.Id">ID</label>
+                    <input class="form-control" asp-for="@team.Id" name="TeamId" required readonly />
+                </div>
 
-    <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm">Update</button>
-    </div>
-</form>
+                <br />
+                <select class="form-select form-select-lg form-control" name="TopicId" required>
+                    @if (project != null)
+                    {
+                        <option value="@project.TopicId" selected>@project.TopicId: @project.Topic.Name </option>
+                    }
+                    else
+                    {
+                        <option value="" selected>Topic: </option>
+                    }
+                    @{
+                        foreach (Topic r in TopicList)
+                        {
+                            <option value="@r.Id"> @r.Id: @r.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="text-center panel-body">
+                <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Update</button>
+            </div>
+    </form>
 </div>
 
 @if (ViewBag.Result == "Duplicate")

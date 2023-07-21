@@ -7,10 +7,10 @@
 }
 <div class="form_container">
     <a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
-    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+    left: 3%;font-size:20px;font-weight:800;text-decoration:none;color:black;"><i class="fa-solid fa-arrow-left"></i> </a>
 <form asp-action="CurrentCourseTeamAdd" method="post" >
 
-    <h3>Add team into course</h3>
+        <div style="width:100%;text-align:center;"><h3>Add new team</h3></div>
         <div class="form-group d-flex flex-column justify-content-between">
         <div>
             <label for="TeamId">ID</label>
@@ -18,19 +18,8 @@
         </div>
     </div>
     <br />
-@*    <select class="form-select form-select-lg" name="TopicId" id="TopicId" required>
-        <option selected>Topic: </option>
-        @{
-            foreach (Topic r in TopicList)
-            {
-                <option value="@r.Id"> @r.Id: @r.Name</option>
-            }
-        }
-        }
-    </select>*@
-
     <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm">Add</button>
+            <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Add</button>
     </div>
 </form>
 </div>

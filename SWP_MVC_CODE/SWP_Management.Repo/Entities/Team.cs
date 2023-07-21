@@ -19,5 +19,6 @@ namespace SWP_Management.Repo.Entities
         public virtual ICollection<Project> Projects { get; set; }
         public virtual ICollection<Report> Reports { get; set; }
         public virtual ICollection<StudentTeam> StudentTeams { get; set; }
+        public virtual ICollection<AssignmentStudente> AssignmentStudents { get; set; }
     }
 }

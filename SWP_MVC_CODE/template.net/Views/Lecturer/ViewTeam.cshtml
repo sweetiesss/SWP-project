@@ -11,29 +11,25 @@
     <div class="container  body_content " style=" display: grid!important;grid-template-columns: auto auto auto!important;">
         @foreach (var r in courseList)
         {
-            <div class="body_dropdown_container">
-                <button type="button" class="dropdown_Menu_Button" data-toggle="dropdown">
-                    @r.Id - @r.Name
-                </button>
-                <div class="dropdown-menu body_dropdown_menu table_scroll">
-                    <div class="dropdown-item body_dropdown_item  has_content">
-                        <form asp-controller="Lecturer" asp-action="ViewAll">
-                            @*<form asp-action="ViewInfoTeam" method="">*@
-                            <input type="hidden" value="@r.Id" name="CourseId" />
-                            <button class="body_dropdown_button dropdown-button">Show All</button>
-                        </form>
-                    </div>
+            <div class="card" style="width:18rem;min-height:200px;background:rgba(255,255,255,0.5); ">
+                <div class="card-header"><h5> @r.Id - @r.Name</h5></div>
+
+                <div class="card-body">
+                    <form asp-controller="Lecturer" asp-action="ViewAll">
+                        @*<form asp-action="ViewInfoTeam" method="">*@
+                        <input type="hidden" value="@r.Id" name="CourseId" />
+                        <button class="card-text this_hover_link" style="background:none;border:solid 2px white;width:100%; text-align:start;">Show All</button>
+                    </form>
+
                     @foreach (var x in teamList)
                     {
                         @if (x.CourseId.Equals(r.Id))
                         {
-                            <div class="dropdown-item grid-item body_dropdown_item  has_content">
-                                <form asp-controller="Lecturer" asp-action="ViewInfoTeam">
-                                    @*<form asp-action="ViewInfoTeam" method="">*@
-                                    <input type="hidden" value="@x.Id" name="TeamId" />
-                                    <button class="body_dropdown_button dropdown-button">@x.Id </button>
-                                </form>
-                            </div>
+                            <form asp-controller="Lecturer" asp-action="ViewInfoTeam">
+                                @*<form asp-action="ViewInfoTeam" method="">*@
+                                <input type="hidden" value="@x.Id" name="TeamId" />
+                                <button class="card-text this_hover_link" style="background:none;border:solid 2px white;width:100%; text-align:start;margin-top:20px;">@x.Id </button>
+                            </form>
                         }
                     }
                 </div>

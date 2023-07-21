@@ -8,9 +8,9 @@
     Layout = "_LectureLayout";
 }
 <a asp-action="CurrentCourseTeam" class="back" style="    position: relative;
-    left: 0;font-size:20px;font-weight:800;text-decoration:none;color:black;">&lt- </a>
+    left: 0;font-size:20px;font-weight:800;text-decoration:none;color:black;"><i class="fa-solid fa-arrow-left"></i> </a>
 <h3>Team:@teamId</h3>
-<a asp-action="AssignStudentTeam" class="btn btn-sm" style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;">
+<a asp-action="AssignStudentTeam" class="btn table-btn" >
         Add a student
    
 </a>
@@ -27,7 +27,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Main</th>
                 <th scope="col">Leader</th>
-                <th scope="col">Edit</th>
+                <th scope="col" style="width:10%;">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -35,15 +35,15 @@
             @foreach (var r in studentList)
             {
                 <tr>
-                    <td style="vertical-align:middle!important;">@r.Id</td>
-                    <td style="vertical-align:middle!important;">@r.Name</td>
-                    <td style="vertical-align:middle!important;">@r.Main</td>
-                    <td style="vertical-align:middle!important;">@r.Leader</td>
+                    <td style="vertical-align:left!important;">@r.Id</td>
+                    <td style="vertical-align:left!important;">@r.Name</td>
+                    <td style="vertical-align:left!important;">@r.Main</td>
+                    <td style="vertical-align:left!important;">@r.Leader</td>
                     <td>
                     <form asp-action="AssignStudentTeamDelete" method="post">
                         <input type="hidden" value="@r.Id" name="StudentId" />
                         <input type="hidden" value="@teamId" name="TeamId" />
-                                <button style="background-color:#28a745; border-radius:12px;font-weight:600;color:black;box-shadow: 0px 0px 0px 3px green;" type="submit" class="btn btn-sm">Delete</button>
+                                <button class="table-btn-icon"><i class="fa-solid fa-x"></i></button>
                     </form>
                     </td>
                 </tr>

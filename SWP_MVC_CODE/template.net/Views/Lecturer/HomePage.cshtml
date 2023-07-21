@@ -1,0 +1,286 @@
+﻿@using Azure;
+@model IEnumerable<Assignment>
+
+@{
+    Layout = "_LectureLayout";
+    Course Course = (Course)ViewData["Course"];
+    List<Topic> topicList = (List<Topic>)ViewData["TopicList"];
+    List<Team> teamList = (List<Team>)ViewData["TeamList"];
+    List<Report> reportList = (List<Report>)ViewData["ReportList"];
+    List<StudentCourse> studentList = (List<StudentCourse>)ViewData["StudentList"];
+
+}
+<div class="Home_container" style="position:relative;max-height:80vh;">
+    <span style="font-weight:700;font-size:25px;">@Course.Name</span><br /><br /><hr style=" border-top: 1px solid; " />
+    @*  Your current information*@
+    <div>
+        <p>
+            <div class="Current_Information" style="display:grid;grid-template-columns:auto auto;">
+                <div class="Current_Information_left">
+                    <span style="font-weight:500;color:#1d2124;">Semester:</span> <span style="font-weight:700;">@Course.Semester.Name</span><br />
+
+                    <span style="font-weight:500;color:#1d2124;">Subject: </span> <span style="font-weight:700;">@Course.SubjectId</span><br />
+                </div>
+                <div class="Current_Information_right">
+                    <span style="font-weight:500;color:#1d2124;"> Lecture:</span> <span style="font-weight:700;">@Course.Lecturer.Name</span><br />
+                    <span style="font-weight:500;color:#1d2124;">  Date Start: </span><span style="font-weight:700;">@Course.DateStart.Date.ToString("dd/MM/yyyy h:mm tt")</span><br />
+                    <span style="font-weight:500;color:#1d2124;">  Date End: </span><span style="font-weight:700;"> @Course.DateEnd.Date.ToString("dd/MM/yyyy h:mm tt")</span><br />
+                </div>
+            </div>
+        </p>
+    </div>
+    <div>
+
+        <h4>Your current course's information</h4>
+        <div class="warpper">
+            <input class="radio" id="one" name="group" type="radio" checked>
+            <input class="radio" id="two" name="group" type="radio">
+            <input class="radio" id="three" name="group" type="radio">
+
+            <div class="tabs">
+                <label class="tab" id="one-tab" for="one"> Reports   <button id="myTabBtnReport" class="modalBTN"><i class="fa-regular fa-eye"></i></button></label>
+                <label class="tab" id="two-tab" for="two"> Teams   <button id="myTabBtnTeam" class="modalBTN"><i class="fa-regular fa-eye"></i></button></label>
+                <label class="tab" id="three-tab" for="three"> Topics  <button id="myTabBtnTopic" class="modalBTN"><i class="fa-regular fa-eye"></i></button></label>
+            </div>
+
+            <div class="panels">
+                <div class="panel scroll" id="three-panel" >
+                    <div class="btn-container">
+                        <button id="myBtnTopic" class="modalBTN"><i class="fa-sharp fa-light fa-plus" style="font-size:18px;"></i> Add Topic</button>
+                        <button id="" class="modalBTN"><i class="fa-regular fa-eye"></i> View Topics</button>
+                    </div>
+                    <div class="panel-content-Topic">
+                        @if (topicList != null)
+                        {
+
+                            foreach (Topic t in topicList)
+                            {
+                                <div class="">
+                                    <p> <span class="text-muted">@t.Id</span> - @t.Name</p>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div>
+                                <p>No Topic available</p>
+                            </div>
+                        }
+                        @*<div class="task_ongoing" style="overflow:scroll; max-height:200px;">
+                        <div class="d-flex align-content-center">
+                        <p style="margin-left:20px;margin-right:20px;">Topic 1 - team A</p>
+
+                        </div>
+                        <div class="d-flex align-content-center">
+                        <p style="margin-left:20px;margin-right:20px;">Topic2 - teamB</p>
+
+
+                        </div>
+                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Topic3</p></div>
+                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Topic4</p></div>
+                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Topic5</p></div>
+                        </div>*@
+
+                    </div>
+
+                    @*MODAL HERE*@
+
+                    <!-- Trigger/Open The Modal -->
+                    <!-- The Modal -->
+                    <div id="myModalTopic" class="modal" style="overflow:unset!important;">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="closeTopic"><i class="fa-solid fa-x" style="cursor:pointer;"></i></span>
+
+                            <form asp-action="AddTopic" method="post">
+                                <div style="width:100%;text-align:center;"><h3>Add topic</h3></div>
+                                <div class="form-group d-flex flex-column justify-content-between">
+                                    <div>
+                                        <label for="id">ID</label>
+                                        <input class="form-control " name="id" required />
+                                    </div>
+                                    <div>
+                                        <label for="name">Name</label>
+                                        <input class="form-control " name="name" required />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Description">Description:</label>
+                                    <input class="form-control " name="descripton" required />
+                                </div>
+                                <input type="hidden" name="LecturerId" value="@Course.LecturerId" />
+                                <input type="hidden" name="approval" value="false" />
+                                <div class="text-center panel-body">
+                                    <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Add</button>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+
+                    @*MODAL END*@
+
+                </div>
+                <div class="panel  scroll" id="two-panel" >
+                    <div class="btn-container">
+                        <button id="myBtnTeam" class="modalBTN"><i class="fa-sharp fa-light fa-plus" style="font-size:18px;"></i> Add Team</button>
+                        <button id="" class="modalBTN"><i class="fa-regular fa-eye"></i> View Teams</button>
+                    </div>
+                    <div class="panel-content-TeamMember">
+                        @if (teamList != null)
+                        {
+                            foreach (Team a in teamList)
+                            {
+                                String teamId = string.Empty;
+                                <div class="card">
+                                    @foreach (char c in a.Id)
+                                    {
+                                        if (c.Equals(' '))
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            teamId += c;
+                                        }
+                                    }
+                                    <div class="card-header" style="display:inline-grid;grid-template-columns:auto auto;background:#c3abef; color:white;">
+                                        <p>@teamId</p>
+                                        <div class="icon-container"><button class="button-icon"><i class="fa-regular fa-eye"></i></button></div>
+                                    </div>
+                                    @for (int i = 0; i < a.StudentTeams.Count; i++)
+                                    {
+                                        foreach (var r in studentList)
+                                        {
+                                            if (r.StudentId.Equals(a.StudentTeams.ElementAtOrDefault(i).StudentId))
+                                            {
+
+                                                <div class="card-body">
+                                                    <p> @r.Student.Name</p>
+                                                </div>
+
+                                            }
+                                        }
+                                    }
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div>
+                                <p>No team available</p>
+                            </div>
+                        }
+                        @*<div class="task_ongoing" style="overflow:scroll; max-height:200px;">
+                        <div class="d-flex align-content-center">
+                        <p style="margin-left:20px;margin-right:20px;">SE171111 Nguyen Van A</p>
+                        </div>
+                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">SE173459 Nguyễn Duy Lâm</p></div>
+                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">SE1733</p></div>
+                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">SE1734</p></div>
+                        <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">SE1735</p></div>
+                        </div>
+                        <div class="card-footer"><a>add Student</a></div>*@
+                    </div>
+
+                    @*MODAL HERE*@
+
+                    <!-- Trigger/Open The Modal -->
+                    <!-- The Modal -->
+                    <div id="myModalTeam" class="modal" style="overflow:unset!important;">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="closeTeam"><i class="fa-solid fa-x" style="cursor:pointer;"></i></span>
+
+                            <form asp-action="CurrentCourseTeamAdd" method="post">
+
+                                <div style="width:100%;text-align:center;"><h3>Add topic</h3></div>
+                                <div class="form-group d-flex flex-column justify-content-between">
+                                    <div>
+                                        <label for="TeamId">ID</label>
+                                        <input class="form-control" name="TeamId" required />
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="text-center panel-body">
+                                    <button type="submit" class="table-btn" style="width:100%;height:50px;font-size:25px;">Add</button>
+                                </div>
+                            </form>
+
+                            @if (ViewBag.Result == "Duplicate")
+                            {
+                                <br />
+                                <h3 style="color:red" class="text-center">This Id already exists</h3>
+                            }
+
+                        </div>
+
+                    </div>
+
+                    @*MODAL END*@
+
+
+                </div>
+
+                <div class="panel  scroll" id="one-panel">
+                    <div class="panel-content-Report">
+                        @if (reportList != null)
+                        {
+                            List<Report> list = new List<Report>();
+                            foreach (Report r in reportList)
+                            {
+                                foreach (Team t in teamList)
+                                {
+
+                                    String teamId = string.Empty;
+
+                                    foreach (char c in t.Id)
+                                    {
+                                        if (c.Equals(' '))
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            teamId += c;
+                                        }
+                                    }
+                                    if (r.TeamId.Equals(t.Id))
+                                    {
+                                        list.Add(r);
+                                        <div>
+                                            <div class="report-container">
+                                                <div class="report-header" style="display:flex;"><div class="avatar-circle">@teamId</div>@r.CreateDate</div><div class="report-body">@r.Description</div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            }
+
+                            if (list.Count == 0)
+                            {
+                                <div>
+                                    <p>No report available</p>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                @*<div class="task_ongoing" style="overflow:scroll; max-height:200px;">
+                <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Team1 - this porject is so had</p> </div>
+                <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Team2 - i can't do it correctly</p></div>
+                <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Team3</p></div>
+                <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Team4</p></div>
+                <div class="d-flex align-content-center"> <p style="margin-left:20px;margin-right:20px;">Team5</p></div>
+                </div>
+                <div class="card-footer"><a>add Report</a></div>*@
+            </div>
+        </div>
+    </div>
+</div>
+

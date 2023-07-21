@@ -4,6 +4,7 @@ using Microsoft.Extensions.Primitives;
 using SWP_Management.Repo.Entities;
 using SWP_Management.Repo.Repositories;
 using System.Data.Common;
+using System.Linq;
 
 namespace testtemplate.Controllers
 {
@@ -21,7 +22,8 @@ namespace testtemplate.Controllers
         private readonly IStudentTeamRepository _studentTeamRepository;
         private readonly IStudentCourseRepository _studentCourseRepository;
         private readonly IProjectRepository _projectRepository;
-          
+        private readonly ISubjectRepository _subjectRepository;
+
 
 
         public LecturerController(ISemesterRepository semesterRepository,
@@ -33,7 +35,8 @@ namespace testtemplate.Controllers
                                 IReportRepository reportRepository,
                                 IStudentTeamRepository studentTeamRepository,
                                 IStudentCourseRepository studentCourseRepository,
-                                IProjectRepository projectRepository)
+                                IProjectRepository projectRepository,
+                                ISubjectRepository subjectRepository)
         {
             _semesterRepository = semesterRepository;
             _courseRepository = courseRepository;
@@ -45,21 +48,160 @@ namespace testtemplate.Controllers
             _studentTeamRepository = studentTeamRepository;
             _studentCourseRepository = studentCourseRepository;
             _projectRepository = projectRepository;
+            _subjectRepository = subjectRepository;
         }
+
+        public IActionResult HomePage(string CourseId)
+        {
+            string r;
+            if (CourseId != null)
+            {
+                CreateCookie(CourseId);
+            }
+            else
+            {
+                r = ReadCookieCourse();
+                CourseId = r;
+            }
+            string lecturerId = ReadCookie();
+
+            var Course = _courseRepository.GetById(CourseId);
+            var topicList = _topicRepository.GetList().Where(p => p.LecturerId.Equals(lecturerId)).ToList();
+            var teamList = _teamRepository.GetList().Where(p => p.CourseId.Equals(CourseId)).ToList();
+            var report = _reportRepository.GetList().ToList();
+            var listStudent = _studentCourseRepository.GetList().Where(p => p.CourseId.Equals(CourseId)).ToList();
+            ViewData["StudentList"] = listStudent;
+
+
+            ViewData["TeamList"] = teamList;
+            ViewData["TopicList"] = topicList;
+            ViewData["Course"] = Course;
+            ViewData["ReportList"] = report;
+
+            return View();
+        }
+
+
+
         public IActionResult Index()
         {
 
             string LecturerId = ReadCookie();
             var lecturerList = _courseRepository.GetList().Where(p => p.LecturerId.Equals(LecturerId)).ToList();
             var semesterList = _semesterRepository.GetList().ToList();
-            ViewData["SemesterList"] = semesterList;
+            var abcList = _semesterRepository.GetList().ToList();
+            var sortedSemester = sortSemester(semesterList);
 
-            var courseList = _courseRepository.GetList().ToList();
+            List<Semester> ongoing = new List<Semester>();
+            List<Semester> future = new List<Semester>();
+            List<Semester> past = new List<Semester>();
+
+            foreach (var r in sortedSemester)
+            {
+                if (compareSemesterDate(r) == 0)
+                {
+                    ongoing.Add(r);
+                }
+                if (compareSemesterDate(r) > 0)
+                {
+                    future.Add(r);
+                }
+                if (compareSemesterDate(r) < 0)
+                {
+                    past.Add(r);
+                }
+            }
+
+            List<Subject> subjects = new List<Subject>();
+            foreach (var r in lecturerList)
+            {
+                var subjectList = _subjectRepository.GetList().Where(p => p.Id.Equals(r.SubjectId)).FirstOrDefault();
+                if (subjectList != null)
+                {
+                    subjects.Add(subjectList);
+                }
+            }
+
+
+
+            ViewData["SubjectList"] = subjects.DistinctBy(o => o.Id).ToList();
+
+            ViewData["SemesterList"] = sortedSemester;
+            ViewData["Ongoing"] = ongoing;
+            ViewData["Future"] = future;
+            ViewData["Past"] = past;
+
+
+
             ViewData["CourseList"] = lecturerList;
 
             return View();
-            
+
         }
+
+        public int compareSemesterDate(Semester a)
+        {
+            string year = DateTime.Now.Year.ToString();
+            string month = DateTime.Now.Month.ToString();
+
+            string currentSemester = string.Empty;
+
+            if (Int32.Parse(month) > 8) currentSemester += "FA";
+            if (Int32.Parse(month) > 4) currentSemester += "SU";
+            else currentSemester += "SP";
+
+            currentSemester = currentSemester + year[2] + year[3];
+
+            if (currentSemester.Equals(a.Id)) return 0;
+
+            Semester tempSemester = new Semester
+            {
+                Id = currentSemester
+            };
+
+            if (compareSemester(a, tempSemester)) return 1;
+            return -1;
+        }
+
+        public List<Semester> sortSemester(List<Semester> SemesterList)
+        {
+            for (int i = 0; i < SemesterList.Count - 1; i++)
+            {
+                for (int j = i + 1; j < SemesterList.Count; j++)
+                {
+                    if (compareSemester(SemesterList[i], SemesterList[j]))
+                    {
+                        var tempSemester = SemesterList[j];
+                        SemesterList[j] = SemesterList[i];
+                        SemesterList[i] = tempSemester;
+                    }
+                }
+            }
+
+            return SemesterList;
+        }
+
+        public bool compareSemester(Semester a, Semester b)
+        {
+
+            string s1 = a.Id.Substring(2);
+            string s2 = b.Id.Substring(2);
+
+            if (Int32.Parse(s1) > Int32.Parse(s2)) return true;
+            if (Int32.Parse(s1) < Int32.Parse(s2)) return false;
+
+            for (int i = 0; i < 2; i++)
+            {
+                if (a.Id[i].Equals('F')) return true;
+                if (a.Id[i].Equals(b.Id[i]))
+                {
+                    if (a.Id[i + 1].Equals('U')) return true;
+                }
+            }
+
+            return false;
+        }
+
 
         public IActionResult Dashboard(string CourseId)
         {
@@ -75,22 +217,23 @@ namespace testtemplate.Controllers
             }
 
             string lecturerId = ReadCookie();
-                var currentCourse = _courseRepository.GetById(CourseId);
+            var currentCourse = _courseRepository.GetById(CourseId);
 
 
-                ViewData["CourseId"] = CourseId;
-                ViewData["Course"] = currentCourse;
-				ViewData["cookie"] = lecturerId;
+            ViewData["CourseId"] = CourseId;
+            ViewData["Course"] = currentCourse;
+            ViewData["cookie"] = lecturerId;
 
             return View();
         }
+
 
         public IActionResult GetTopic()
         {
             string id;
             id = ReadCookie();
             var lecturer = _lecturerRepository.GetById(id);
-            if(lecturer.Leader == true)
+            if (lecturer.Leader == true)
             {
                 ViewBag.Result = "Leader";
                 GetAllTopicList();
@@ -101,7 +244,7 @@ namespace testtemplate.Controllers
                 GetTopicList(id);
             }
 
-            
+
             return View();
         }
 
@@ -122,7 +265,7 @@ namespace testtemplate.Controllers
         {
             string lecturerId = ReadCookie();
             ViewData["cookie"] = lecturerId;
-            return View(); 
+            return View();
         }
 
         [HttpPost]
@@ -134,7 +277,8 @@ namespace testtemplate.Controllers
             if (existing != null)
             {
                 ViewBag.Result = "Duplicate";
-                return View();
+                return RedirectToAction("HomePage");
+
             }
             Topic topic = new Topic();
             topic.Id = id;
@@ -145,14 +289,14 @@ namespace testtemplate.Controllers
             topic.Lecturer = lecturer;
 
             _topicRepository.Add(topic);
-            return RedirectToAction("GetTopic");
+            return RedirectToAction("HomePage");
         }
 
         public IActionResult UpdateTopic(string id)
         {
             string lecturerId = ReadCookie();
             var lecturer = _lecturerRepository.GetById(lecturerId);
-            if(lecturer.Leader == true)
+            if (lecturer.Leader == true)
             {
                 ViewBag.Result = "Leader";
             }
@@ -162,16 +306,16 @@ namespace testtemplate.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateTopic(string id, string name, string descripton, string lecturerId, bool approval) 
+        public IActionResult UpdateTopic(string id, string name, string descripton, string lecturerId, bool approval)
         {
             var topic = _topicRepository.GetById(id);
             var lecturer = _lecturerRepository.GetById(lecturerId);
 
-            topic.Name=name;
-            topic.Description=descripton;
-            topic.Approval=approval;
-            topic.LecturerId=lecturerId;
-            topic.Lecturer= lecturer;
+            topic.Name = name;
+            topic.Description = descripton;
+            topic.Approval = approval;
+            topic.LecturerId = lecturerId;
+            topic.Lecturer = lecturer;
 
             _topicRepository.Update(topic);
             return RedirectToAction("GetTopic");
@@ -220,7 +364,7 @@ namespace testtemplate.Controllers
         {
             string lecId = ReadCookie();
             string courseId = ReadCookieCourse();
-            
+
             var teamList = _teamRepository.GetList().Where(p => p.CourseId.Equals(courseId)).ToList();
 
             ViewData["TeamList"] = teamList;
@@ -234,8 +378,42 @@ namespace testtemplate.Controllers
         [HttpPost]
         public IActionResult CurrentCourseTeamAdd(string TeamId)
         {
-            GetTopic();
+            GetTopic(); ;
+
+            //var course = _courseRepository.GetById(ReadCookieCourse);
+            //var team = _teamRepository.GetById(TeamId);
+            //team.Course = course;
+            //team.CourseId = CourseId;
+            ////_teamRepository.Update(team);
+
+            //var TeamList = _teamRepository.GetList();
+            //var ExistId = false;
+
+            //string tempId = id;
+            //if (tempId.IndexOf(" ") >= 0) tempId = tempId.Remove(tempId.IndexOf(" "));
+            //tempId = tempId + " - " + CourseId;
+
+            //foreach (var r in TeamList)
+            //{
+            //    if (tempId.Equals(r.Id)) { ExistId = true; break; }
+            //}
+
+            //if (ExistId)
+            //{
+            //    ViewBag.Result = "Duplicate";
+            //    return View();
+            //}
+
+            //_teamRepository.Delete(id);
+            //if (id.IndexOf(" ") >= 0) id = id.Remove(id.IndexOf(" "));
+            //id = id + " - " + CourseId;
+            //team.Id = id;
+            //_teamRepository.Add(team);
+
+
+            //return RedirectToAction("Index");
             string CourseId = ReadCookieCourse();
+            TeamId = TeamId + " - " + CourseId;
             var course = _courseRepository.GetById(CourseId);
             var existing = _teamRepository.GetById(TeamId);
             if (existing != null)
@@ -282,7 +460,7 @@ namespace testtemplate.Controllers
             }
             project.TopicId = topic.Id;
             project.Topic = topic;
-            
+
 
             _projectRepository.Update(project);
             return RedirectToAction("CurrentCourseTeam");
@@ -291,7 +469,7 @@ namespace testtemplate.Controllers
         public IActionResult CurrentCourseTeamDelete(string TeamId)
         {
             var project = _projectRepository.GetList().Where(p => p.TeamId.Equals(TeamId)).FirstOrDefault();
-            if(project != null)
+            if (project != null)
             {
                 _projectRepository.Delete(project.Id);
             }
@@ -348,7 +526,7 @@ namespace testtemplate.Controllers
             var studentList = _studentTeamRepository.GetList().Where(p => p.TeamId.Equals(teamId)).ToList();
             var students = _studentRepository.GetList().ToList();
             List<Student> list = new List<Student>();
-            for (int i =0; i < studentList.Count; i++)
+            for (int i = 0; i < studentList.Count; i++)
             {
                 for (int j = 0; j < students.Count; j++)
                 {
@@ -359,7 +537,7 @@ namespace testtemplate.Controllers
                 }
             }
             ViewData["TeamId"] = teamId;
-            ViewData["TeamInfo"]= list;
+            ViewData["TeamInfo"] = list;
             return View();
 
         }
@@ -399,11 +577,11 @@ namespace testtemplate.Controllers
                     }
                 }
             }
-            
 
 
 
-  
+
+
             StudentTeam studentTeam = new StudentTeam();
             studentTeam.StudentId = StudentId;
             studentTeam.TeamId = TeamId;
@@ -451,7 +629,7 @@ namespace testtemplate.Controllers
             ViewData["cookieValue"] = cookieValue;
             return cookieValue;
 
-        }   
+        }
 
     }
 }

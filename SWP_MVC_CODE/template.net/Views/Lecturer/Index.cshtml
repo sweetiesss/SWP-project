@@ -6,43 +6,216 @@
 @{
     ViewData["Title"] = "Home Page";
     List<Semester> SemesterList = (List<Semester>)ViewData["SemesterList"];
+    List<Semester> Ongoing = (List<Semester>)ViewData["Ongoing"];
+    List<Semester> Future = (List<Semester>)ViewData["Future"];
+    List<Semester> Past = (List<Semester>)ViewData["Past"];
     List<Course> CourseList = (List<Course>)ViewData["CourseList"];
     List<Course> list = new List<Course>();
+    List<Subject> listSubject = (List<Subject>)ViewData["SubjectList"];
 
 
 }
-<div class=" container  body_content">
-    @foreach (var r in SemesterList)
-    {
-        <div class="body_dropdown_container">
-            <button type="button" class="dropdown_Menu_Button" data-toggle="dropdown">
-                @r.Name
-            </button>
-            <div class="dropdown-menu body_dropdown_menu table_scroll">
-                @foreach (var x in CourseList)
-                {
-                    @if (x.SemesterId.Equals(r.Id))
+
+
+
+<div class="warpper">
+    <input class="radio" id="one" name="group" type="radio" checked>
+    <input class="radio" id="two" name="group" type="radio">
+    <input class="radio" id="three" name="group" type="radio">
+    <div class="tabs">
+        <label class="tab" id="one-tab" for="one"><i class="fa-solid fa-hourglass-half"></i> ON GOING</label>
+        <label class="tab" id="two-tab" for="two"><i class="fa-solid fa-hourglass-start"></i> FUTURE</label>
+        <label class="tab" id="three-tab" for="three"><i class="fa-solid fa-hourglass-end"></i> PAST</label>
+    </div>
+    <div class="panels scroll">
+        <div class="panel" id="one-panel">
+            @for (int i = Ongoing.Count - 1; i >= 0; i--)
+            {
+                <div style="width:fit-content;margin-top:16px;margin-bottom:16px;min-width:90vw;">
+                    <h3 style="margin:20px;margin-bottom:0px;">
+                        @Ongoing[i].Name
+                    </h3>
+
+                    @foreach (var r in listSubject)
                     {
-                        list.Add(x);
-                        <div class="dropdown-item body_dropdown_item  has_content">
-                            <form asp-controller="Lecturer" asp-action="Dashboard" method="">
-                                <input type="hidden" value="@x.Id" name="CourseId" />
-                                <button class="body_dropdown_button dropdown-button">
-                                    @x.Name - @x.Subject.Id:
-                                    <br>@x.Subject.Name
-                                </button>
-                            </form>
+                        <div style="margin-left:70px;margin-top:30px;">
+                            <h4>@r.Id</h4>
+                            <div style="display:flex;border-radius:8px;border:solid 1px black;margin-left:15px;">
+                                @foreach (var e in CourseList)
+                                {
+                                    if (r.Id.Equals(e.SubjectId) && e.SemesterId.Equals(Ongoing[i].Id))
+                                    {
+                                        list.Add(e);
+                                        <div style="margin:20px;">
+
+                                            <div class="card" style="width:18rem;min-height:200px;">
+                                                <div class="card-header" style="background:#c3abef; color:white;"><h5> @e.Name</h5></div>
+                                                <div class="card-body">
+                                                    <p class="card-text text-muted" style="font-weight:600;">
+                                                        Lecturer:<span style="font-weight:600; color:black!important;"> @e.Lecturer.Name</span>
+
+                                                    </p>
+                                                    <p class="text-muted" style="font-weight:600;">
+                                                        Subject: <span style="font-weight:600; color:black!important;">@e.Subject.Name</span>
+
+                                                    </p>
+                                                    <p class="card-text text-muted" style="font-weight:600;">
+                                                        Date: <span style="font-weight:600; color:black!important;">@e.DateStart.Date.ToString("dd/MM/yyyy") - @e.DateEnd.Date.ToString("dd/MM/yyyy")</span>
+
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer" style="background:white;">
+                                                    <form asp-controller="Lecturer" asp-action="HomePage" method="">
+                                                        <input type="hidden" value="@e.Id" name="CourseId" />
+                                                        <button style="width:100%; border-radius:8px;background:#c3abef;color:white;border:none;font-weight:600;">Enter</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*  list.Add(e);
+                        <div class="card" style="width:18rem;min-height:200px;">
+                        <div class="card-header" style="background:#c3abef; color:white;"><h5> @e.Subject.Id</h5></div>
+                        <div class="card-body">
+                        <p class="card-text">@e.Name</p>
+                        <h6 class="card-subtitle ">Subject: @e.Subject.Name</h6>
+                        </div>
+                        <div class="card-footer" style="background:white;">
+                        <form asp-controller="Lecturer" asp-action="HomePage" method="">
+                        <input type="hidden" value="@e.Id" name="CourseId" />
+                        <button style="width:100%; border-radius:8px;background:#c3abef;color:white;border:none;font-weight:600;">Enter</button>
+                        </form>
+                        </div>
+                        </div>*@
+                                    }
+                                }
+                            </div>
                         </div>
                     }
-                }
-                @if (list.Count == 0)
-                {
-                    <div class="dropdown-item body_dropdown_item" style="text-align:center">No course available</div>
-                }
 
-            </div>
+                    @* <div style="display:grid; grid-template-columns: auto auto auto;place-content:center; grid-column-gap:30px;">
+                @foreach (var x in CourseList)
+                {
+                @if (x.SemesterId.Equals(Ongoing[i].Id))
+                {
+                list.Add(x);
+                <div class="card" style="width:18rem;min-height:200px;">
+                <div class="card-header" style="background:#c3abef; color:white;"><h5> @x.Subject.Id</h5></div>
+                <div class="card-body">
+                <p class="card-text">@x.Name</p>
+                <h6 class="card-subtitle ">Subject: @x.Subject.Name</h6>
+                </div>
+                <div class="card-footer" style="background:white;">
+                <form asp-controller="Lecturer" asp-action="HomePage" method="">
+                <input type="hidden" value="@x.Id" name="CourseId" />
+                <button style="width:100%; border-radius:8px;background:#c3abef;color:white;border:none;font-weight:600;">Enter</button>
+                </form>
+                </div>
+                </div>
+
+
+                }
+                }
+                </div>*@
+                    @if (list.Count == 0)
+                    {
+                        <div style="margin:20px; margin-top:0px;">No course available</div>
+                    }
+                    else
+                    {
+                        list.Clear();
+                    }
+                </div>
+            }
+        </div>
+        <div class="panel" id="two-panel">
+            @for (int i = Future.Count - 1; i >= 0; i--)
+            {
+                <div style="width:fit-content;margin-top:16px;margin-bottom:16px;border-radius:8px;border:solid 1px black;min-width:90vw;">
+                    <h3 style="margin:20px;">
+                        @Future[i].Name
+                    </h3>
+                    <div style="display:grid; grid-template-columns: auto auto auto;place-content:center; grid-column-gap:30px;">
+                        @foreach (var x in CourseList)
+                        {
+
+                            @if (x.SemesterId.Equals(Future[i].Id))
+                            {
+                                list.Add(x);
+                                <div class="card" style="width:18rem;min-height:200px; ">
+                                    <div class="card-header" style="background:#c3abef; color:white;"><h5> @x.Subject.Id</h5></div>
+                                    <div class="card-body">
+                                        <p class="card-text">   @x.Name</p>
+                                        <h6 class="card-subtitle ">Subject: @x.Subject.Name</h6>
+                                    </div>
+                                    <div class="card-footer" style="background:white;">
+                                        <form asp-controller="Lecturer" asp-action="HomePage" method="">
+                                            <input type="hidden" value="@x.Id" name="CourseId" />
+                                            <button style="width:100%; border-radius:8px;background:#c3abef;color:white;border:none;font-weight:600;">Enter</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                            }
+                        }
+                    </div>
+                    @if (list.Count == 0)
+                    {
+                        <div style="margin:20px; margin-top:0px;">No course available</div>
+                    }
+                    else
+                    {
+                        list.Clear();
+                    }
+                </div>
+            }
+
         </div>
 
-    }
+        <div class="panel" id="three-panel">
+            @for (int i = Past.Count - 1; i >= 0; i--)
+            {
+                <div style="width:fit-content;margin-top:16px;margin-bottom:16px;border-radius:8px;border:solid 1px black;min-width:90vw;">
+                    <h3 style="margin:20px;">
+                        @Past[i].Name
+                    </h3>
+
+                    <div style="display:grid; grid-template-columns: auto auto auto;place-content:center; grid-column-gap:30px;">
+                        @foreach (var x in CourseList)
+                        {
+                            @if (x.SemesterId.Equals(Past[i].Id))
+                            {
+                                list.Add(x);
+                                <div class="card" style="width:18rem;min-height:200px;">
+                                    <div class="card-header" style="background:#c3abef; color:white;"><h5> @x.Subject.Id</h5></div>
+                                    <div class="card-body">
+                                        <p class="card-text">   @x.Name</p>
+                                        <h6 class="card-subtitle ">Subject: @x.Subject.Name</h6>
+                                    </div>
+                                    <div class="card-footer" style="background:white;">
+                                        <form asp-controller="Lecturer" asp-action="HomePage" method="">
+                                            <input type="hidden" value="@x.Id" name="CourseId" />
+                                            <button style="width:100%; border-radius:8px;background:#c3abef;color:white;border:none;font-weight:600;">Enter</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                            }
+                        }
+                    </div>
+                    @if (list.Count == 0)
+                    {
+                        <div style="margin:20px; margin-top:0px;">No course available</div>
+                    }
+                    else
+                    {
+                        list.Clear();
+                    }
+                </div>
+            }
+        </div>
+    </div>
 </div>
 
